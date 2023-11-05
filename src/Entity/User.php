@@ -9,10 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
     #[ORM\Column]
     private ?int $user_id = null;
 
@@ -43,13 +39,6 @@ class User
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
-
-   
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getUserId(): ?int
     {
@@ -165,21 +154,6 @@ class User
         return $this;
     }
 
-	/**
-	 * @return 
-	 */
-	public function getUser_nom(): ?string {
-		return $this->user_nom;
-	}
-	
-	/**
-	 * @param  $user_nom 
-	 * @return self
-	 */
-	public function setUser_nom(?string $user_nom): self {
-		$this->user_nom = $user_nom;
-		return $this;
-	}
 
 
 }
