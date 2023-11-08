@@ -10,13 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Presence
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-
     #[ORM\Column]
+
     private ?int $id_p = null;
-
-    #[ORM\Column]
-    private ?int $user_id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
@@ -32,18 +28,6 @@ class Presence
     public function setIdP(int $id_p): static
     {
         $this->id_p = $id_p;
-
-        return $this;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(int $user_id): static
-    {
-        $this->user_id = $user_id;
 
         return $this;
     }
