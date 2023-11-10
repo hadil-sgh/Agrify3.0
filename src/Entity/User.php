@@ -4,38 +4,50 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+class User implements UserInterface
 {
     #[ORM\Id]
     #[ORM\Column]
     private ?int $user_id = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $user_nom = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $user_prenom = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $user_email = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $user_telephone = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $user_role = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $user_genre = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column]
     private ?int $user_nbrabscence = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $username = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
@@ -106,6 +118,10 @@ class User
         return $this;
     }
 
+    public function getSalt()
+    {
+    }
+
     public function getUserGenre(): ?string
     {
         return $this->user_genre;
@@ -154,6 +170,20 @@ class User
         return $this;
     }
 
+    public function getRoles(): array
+    {
+        return [$this->user_role];
+    }
+    
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->username;
+    }
 
 
 }
