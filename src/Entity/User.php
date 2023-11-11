@@ -12,8 +12,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User implements UserInterface
 {
     #[ORM\Id]
-    #[ORM\Column]
-    private ?int $user_id = null;
+    #[ORM\GeneratedValue(strategy: "AUTO")] // Specify the generation strategy
+    #[ORM\Column(type: "integer")]
+    private ?int $user_id;
+    
 
     #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
@@ -23,11 +25,12 @@ class User implements UserInterface
     #[ORM\Column(length: 255)]
     private ?string $user_prenom = null;
 
-    #[Assert\NotBlank]
+    #[Assert\Email(message: 'The email {{ value }} is not a valid email.',)]
     #[ORM\Column(length: 255)]
     private ?string $user_email = null;
 
     #[Assert\NotBlank]
+    #[Assert\Regex(pattern: '/^\d{8,}$/',message: 'The telephone number must be at least 8 digits.' )]
     #[ORM\Column(length: 255)]
     private ?string $user_telephone = null;
 
@@ -48,15 +51,15 @@ class User implements UserInterface
     private ?string $username = null;
 
     #[Assert\NotBlank]
-    #[ORM\Column(length: 255)]
+    #[Assert\Length(min: 8,minMessage: 'Your password must be at least {{ limit }} characters long.')]
+        #[ORM\Column(length: 255)]
     private ?string $password = null;
-
 
     public function getUserId(): ?int
     {
         return $this->user_id;
     }
-
+    
 
     public function getUserNom(): ?string
     {
