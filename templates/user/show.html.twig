@@ -1,42 +1,84 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}User Details{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        h1 {
+            color: #377120;
+            text-align: center;
+        }
+
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #EFE6CD;
+        }
+
+        .action-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #377120;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #285e15;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>User Details</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>User_id</th>
+                <th>User ID</th>
                 <td>{{ user.userId }}</td>
             </tr>
             <tr>
-                <th>User_nom</th>
-                <td>{{ user.userNom }}</td>
+                <th>User Name</th>
+                <td>{{ user.userNom }} {{ user.userPrenom }}</td>
             </tr>
             <tr>
-                <th>User_prenom</th>
-                <td>{{ user.userPrenom }}</td>
-            </tr>
-            <tr>
-                <th>User_email</th>
+                <th>Email</th>
                 <td>{{ user.userEmail }}</td>
             </tr>
             <tr>
-                <th>User_telephone</th>
+                <th>Phone</th>
                 <td>{{ user.userTelephone }}</td>
             </tr>
             <tr>
-                <th>User_role</th>
+                <th>Role</th>
                 <td>{{ user.userRole }}</td>
             </tr>
             <tr>
-                <th>User_genre</th>
+                <th>Genre</th>
                 <td>{{ user.userGenre }}</td>
             </tr>
             <tr>
-                <th>User_nbrabscence</th>
+                <th>Absences</th>
                 <td>{{ user.userNbrabscence }}</td>
             </tr>
             <tr>
@@ -50,9 +92,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+    <div class="action-buttons">
+        <a href="{{ path('app_user_index') }}" class="btn">Back to List</a>
+        <a href="{{ path('app_user_edit', {'user_id': user.userId}) }}" class="btn">Edit User</a>
 
-    <a href="{{ path('app_user_edit', {'user_id': user.userId}) }}">edit</a>
-
-    {{ include('user/_delete_form.html.twig') }}
+        {{ include('user/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
