@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\RationEntityRepository;
+use App\Repository\RationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: RationEntityRepository::class)]
-class RationEntity
+#[ORM\Entity(repositoryClass: RationRepository::class)]
+class Ration
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

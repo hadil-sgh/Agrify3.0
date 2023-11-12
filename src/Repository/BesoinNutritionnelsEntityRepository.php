@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\BesoinNutritionnelsEntity;
+use App\Entity\NutritionalNeeds;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<BesoinNutritionnelsEntity>
+ * @extends ServiceEntityRepository<NutritionalNeeds>
  *
- * @method BesoinNutritionnelsEntity|null find($id, $lockMode = null, $lockVersion = null)
- * @method BesoinNutritionnelsEntity|null findOneBy(array $criteria, array $orderBy = null)
- * @method BesoinNutritionnelsEntity[]    findAll()
- * @method BesoinNutritionnelsEntity[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method NutritionalNeeds|null find($id, $lockMode = null, $lockVersion = null)
+ * @method NutritionalNeeds|null findOneBy(array $criteria, array $orderBy = null)
+ * @method NutritionalNeeds[]    findAll()
+ * @method NutritionalNeeds[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BesoinNutritionnelsEntityRepository extends ServiceEntityRepository
+class NutritionalNeedsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, BesoinNutritionnelsEntity::class);
+        parent::__construct($registry, NutritionalNeeds::class);
     }
 
 //    /**
-//     * @return BesoinNutritionnelsEntity[] Returns an array of BesoinNutritionnelsEntity objects
+//     * @return NutritionalNeeds[] Returns an array of NutritionalNeeds objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class BesoinNutritionnelsEntityRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?BesoinNutritionnelsEntity
+//    public function findOneBySomeField($value): ?NutritionalNeeds
 //    {
 //        return $this->createQueryBuilder('b')
 //            ->andWhere('b.exampleField = :val')

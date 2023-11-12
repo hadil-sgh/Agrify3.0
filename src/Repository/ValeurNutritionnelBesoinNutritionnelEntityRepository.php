@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\ValeurNutritionnelBesoinNutritionnelEntity;
+use App\Entity\NutritionValueNeeds;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<ValeurNutritionnelBesoinNutritionnelEntity>
+ * @extends ServiceEntityRepository<NutritionValueNeeds>
  *
- * @method ValeurNutritionnelBesoinNutritionnelEntity|null find($id, $lockMode = null, $lockVersion = null)
- * @method ValeurNutritionnelBesoinNutritionnelEntity|null findOneBy(array $criteria, array $orderBy = null)
- * @method ValeurNutritionnelBesoinNutritionnelEntity[]    findAll()
- * @method ValeurNutritionnelBesoinNutritionnelEntity[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method NutritionValueNeeds|null find($id, $lockMode = null, $lockVersion = null)
+ * @method NutritionValueNeeds|null findOneBy(array $criteria, array $orderBy = null)
+ * @method NutritionValueNeeds[]    findAll()
+ * @method NutritionValueNeeds[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ValeurNutritionnelBesoinNutritionnelEntityRepository extends ServiceEntityRepository
+class NutritionValueNeedsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ValeurNutritionnelBesoinNutritionnelEntity::class);
+        parent::__construct($registry, NutritionValueNeeds::class);
     }
 
 //    /**
-//     * @return ValeurNutritionnelBesoinNutritionnelEntity[] Returns an array of ValeurNutritionnelBesoinNutritionnelEntity objects
+//     * @return NutritionValueNeeds[] Returns an array of NutritionValueNeeds objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class ValeurNutritionnelBesoinNutritionnelEntityRepository extends ServiceEntity
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?ValeurNutritionnelBesoinNutritionnelEntity
+//    public function findOneBySomeField($value): ?NutritionValueNeeds
 //    {
 //        return $this->createQueryBuilder('v')
 //            ->andWhere('v.exampleField = :val')

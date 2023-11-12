@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\IngrediantEntity;
+use App\Entity\Ingredient;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<IngrediantEntity>
+ * @extends ServiceEntityRepository<Ingredient>
  *
- * @method IngrediantEntity|null find($id, $lockMode = null, $lockVersion = null)
- * @method IngrediantEntity|null findOneBy(array $criteria, array $orderBy = null)
- * @method IngrediantEntity[]    findAll()
- * @method IngrediantEntity[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Ingredient|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Ingredient|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Ingredient[]    findAll()
+ * @method Ingredient[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class IngrediantEntityRepository extends ServiceEntityRepository
+class IngredientRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, IngrediantEntity::class);
+        parent::__construct($registry, Ingredient::class);
     }
 
 //    /**
-//     * @return IngrediantEntity[] Returns an array of IngrediantEntity objects
+//     * @return Ingredient[] Returns an array of Ingredient objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class IngrediantEntityRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?IngrediantEntity
+//    public function findOneBySomeField($value): ?Ingredient
 //    {
 //        return $this->createQueryBuilder('i')
 //            ->andWhere('i.exampleField = :val')

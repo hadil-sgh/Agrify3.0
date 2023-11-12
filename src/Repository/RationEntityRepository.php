@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\RationEntity;
+use App\Entity\Ration;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<RationEntity>
+ * @extends ServiceEntityRepository<Ration>
  *
- * @method RationEntity|null find($id, $lockMode = null, $lockVersion = null)
- * @method RationEntity|null findOneBy(array $criteria, array $orderBy = null)
- * @method RationEntity[]    findAll()
- * @method RationEntity[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Ration|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Ration|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Ration[]    findAll()
+ * @method Ration[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class RationEntityRepository extends ServiceEntityRepository
+class RationRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, RationEntity::class);
+        parent::__construct($registry, Ration::class);
     }
 
 //    /**
-//     * @return RationEntity[] Returns an array of RationEntity objects
+//     * @return Ration[] Returns an array of Ration objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class RationEntityRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?RationEntity
+//    public function findOneBySomeField($value): ?Ration
 //    {
 //        return $this->createQueryBuilder('r')
 //            ->andWhere('r.exampleField = :val')

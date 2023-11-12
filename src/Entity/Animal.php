@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\AnimalEntityRepository;
+use App\Repository\AnimalRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AnimalEntityRepository::class)]
-class AnimalEntity
+#[ORM\Entity(repositoryClass: AnimalRepository::class)]
+class Animal
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

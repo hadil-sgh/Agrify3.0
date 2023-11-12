@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\BesoinNutritionnelsEntityRepository;
+use App\Repository\NutritionalNeedsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: BesoinNutritionnelsEntityRepository::class)]
-class BesoinNutritionnelsEntity
+#[ORM\Entity(repositoryClass: NutritionalNeedsRepository::class)]
+class NutritionalNeeds
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

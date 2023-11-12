@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\AnimauxEnGestationEntityRepository;
+use App\Repository\GestationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AnimauxEnGestationEntityRepository::class)]
-class AnimauxEnGestationEntity
+#[ORM\Entity(repositoryClass: GestationRepository::class)]
+class Gestation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\ValeurNutritionnelEntity;
+use App\Entity\NutritionalValue;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<ValeurNutritionnelEntity>
+ * @extends ServiceEntityRepository<NutritionalValue>
  *
- * @method ValeurNutritionnelEntity|null find($id, $lockMode = null, $lockVersion = null)
- * @method ValeurNutritionnelEntity|null findOneBy(array $criteria, array $orderBy = null)
- * @method ValeurNutritionnelEntity[]    findAll()
- * @method ValeurNutritionnelEntity[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method NutritionalValue|null find($id, $lockMode = null, $lockVersion = null)
+ * @method NutritionalValue|null findOneBy(array $criteria, array $orderBy = null)
+ * @method NutritionalValue[]    findAll()
+ * @method NutritionalValue[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ValeurNutritionnelEntityRepository extends ServiceEntityRepository
+class NutritionalValueRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ValeurNutritionnelEntity::class);
+        parent::__construct($registry, NutritionalValue::class);
     }
 
 //    /**
-//     * @return ValeurNutritionnelEntity[] Returns an array of ValeurNutritionnelEntity objects
+//     * @return NutritionalValue[] Returns an array of NutritionalValue objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class ValeurNutritionnelEntityRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?ValeurNutritionnelEntity
+//    public function findOneBySomeField($value): ?NutritionalValue
 //    {
 //        return $this->createQueryBuilder('v')
 //            ->andWhere('v.exampleField = :val')
