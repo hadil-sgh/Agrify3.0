@@ -1568,10 +1568,7 @@
         },
         {
             "name": "egulias/email-validator",
-<<<<<<< HEAD
             "version": "4.0.2",
-=======
-            "version": "3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
@@ -1639,7 +1636,6 @@
         {
             "name": "friendsofphp/proxy-manager-lts",
             "version": "v1.0.16",
->>>>>>> 3e5be2b1a32ea3cfa82a1c5d63f259a06589430d
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
