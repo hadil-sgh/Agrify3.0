@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Ration{% endblock %}
+
+{% block body %}
+    <h1>Create new Ration</h1>
+
+    {{ include('ration/_form.html.twig') }}
+
+    <a href="{{ path('app_ration_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NutritionalNeeds{% endblock %}
+
+{% block body %}
+    <h1>NutritionalNeeds</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ nutritional_need.id }}</td>
+            </tr>
+            <tr>
+                <th>EspeceBesoinNutritionnel</th>
+                <td>{{ nutritional_need.especeBesoinNutritionnel }}</td>
+            </tr>
+            <tr>
+                <th>StatutProductionBesoinNutritionnel</th>
+                <td>{{ nutritional_need.statutProductionBesoinNutritionnel }}</td>
+            </tr>
+            <tr>
+                <th>SexeBesoinNutritionnel</th>
+                <td>{{ nutritional_need.sexeBesoinNutritionnel }}</td>
+            </tr>
+            <tr>
+                <th>PoidsMinBesoinNutritionnel</th>
+                <td>{{ nutritional_need.poidsMinBesoinNutritionnel }}</td>
+            </tr>
+            <tr>
+                <th>PoidsMaxBesoinNutritionnel</th>
+                <td>{{ nutritional_need.poidsMaxBesoinNutritionnel }}</td>
+            </tr>
+            <tr>
+                <th>ButeProductionBesoinNutritionnel</th>
+                <td>{{ nutritional_need.buteProductionBesoinNutritionnel }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_nutritional_needs_index') }}">back to list</a>
+
+    <a href="{{ path('app_nutritional_needs_edit', {'id': nutritional_need.id}) }}">edit</a>
+
+    {{ include('nutritional_needs/_delete_form.html.twig') }}
+{% endblock %}

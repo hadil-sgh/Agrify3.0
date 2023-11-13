@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AnimalBatch{% endblock %}
+
+{% block body %}
+    <h1>AnimalBatch</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ AnimalBatch.id }}</td>
+            </tr>
+            <tr>
+                <th>EspeceAnimalBatch</th>
+                <td>{{ AnimalBatch.especeAnimalBatch }}</td>
+            </tr>
+            <tr>
+                <th>SexeRation</th>
+                <td>{{ AnimalBatch.sexeRation }}</td>
+            </tr>
+            <tr>
+                <th>PoidsmaxRation</th>
+                <td>{{ AnimalBatch.poidsmaxRation }}</td>
+            </tr>
+            <tr>
+                <th>PoidsminRation</th>
+                <td>{{ AnimalBatch.poidsminRation }}</td>
+            </tr>
+            <tr>
+                <th>AgeAnimalBatch</th>
+                <td>{{ AnimalBatch.ageAnimalBatch }}</td>
+            </tr>
+            <tr>
+                <th>NombreAnimalBatch</th>
+                <td>{{ AnimalBatch.nombreAnimalBatch }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_AnimalBatch_index') }}">back to list</a>
+
+    <a href="{{ path('app_AnimalBatch_edit', {'id': AnimalBatch.id}) }}">edit</a>
+
+    {{ include('AnimalBatch/_delete_form.html.twig') }}
+{% endblock %}

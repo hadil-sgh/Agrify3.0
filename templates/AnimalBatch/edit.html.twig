@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit AnimalBatch{% endblock %}
+
+{% block body %}
+    <h1>Edit AnimalBatch</h1>
+
+    {{ include('AnimalBatch/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_AnimalBatch_index') }}">back to list</a>
+
+    {{ include('AnimalBatch/_delete_form.html.twig') }}
+{% endblock %}

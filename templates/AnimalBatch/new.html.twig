@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AnimalBatch{% endblock %}
+
+{% block body %}
+    <h1>Create new AnimalBatch</h1>
+
+    {{ include('AnimalBatch/_form.html.twig') }}
+
+    <a href="{{ path('app_AnimalBatch_index') }}">back to list</a>
+{% endblock %}

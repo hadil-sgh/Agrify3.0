@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ration{% endblock %}
+
+{% block body %}
+    <h1>Ration</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ration.id }}</td>
+            </tr>
+            <tr>
+                <th>EspeceRation</th>
+                <td>{{ ration.especeRation }}</td>
+            </tr>
+            <tr>
+                <th>StatutRation</th>
+                <td>{{ ration.statutRation }}</td>
+            </tr>
+            <tr>
+                <th>SexeRation</th>
+                <td>{{ ration.sexeRation }}</td>
+            </tr>
+            <tr>
+                <th>PoidsMinRation</th>
+                <td>{{ ration.poidsMinRation }}</td>
+            </tr>
+            <tr>
+                <th>PoidsMaxRation</th>
+                <td>{{ ration.poidsMaxRation }}</td>
+            </tr>
+            <tr>
+                <th>ButeProductionRation</th>
+                <td>{{ ration.buteProductionRation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ration_index') }}">back to list</a>
+
+    <a href="{{ path('app_ration_edit', {'id': ration.id}) }}">edit</a>
+
+    {{ include('ration/_delete_form.html.twig') }}
+{% endblock %}

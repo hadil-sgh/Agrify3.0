@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Newborns{% endblock %}
+
+{% block body %}
+    <h1>Newborns</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ newborn.id }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ newborn.sexe }}</td>
+            </tr>
+            <tr>
+                <th>DateNaissance</th>
+                <td>{{ newborn.dateNaissance ? newborn.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Espece</th>
+                <td>{{ newborn.espece }}</td>
+            </tr>
+            <tr>
+                <th>Poids</th>
+                <td>{{ newborn.poids }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_newborns_index') }}">back to list</a>
+
+    <a href="{{ path('app_newborns_edit', {'id': newborn.id}) }}">edit</a>
+
+    {{ include('newborns/_delete_form.html.twig') }}
+{% endblock %}

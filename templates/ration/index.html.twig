@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ration index{% endblock %}
+
+{% block body %}
+    <h1>Ration index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>EspeceRation</th>
+                <th>StatutRation</th>
+                <th>SexeRation</th>
+                <th>PoidsMinRation</th>
+                <th>PoidsMaxRation</th>
+                <th>ButeProductionRation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ration in rations %}
+            <tr>
+                <td>{{ ration.id }}</td>
+                <td>{{ ration.especeRation }}</td>
+                <td>{{ ration.statutRation }}</td>
+                <td>{{ ration.sexeRation }}</td>
+                <td>{{ ration.poidsMinRation }}</td>
+                <td>{{ ration.poidsMaxRation }}</td>
+                <td>{{ ration.buteProductionRation }}</td>
+                <td>
+                    <a href="{{ path('app_ration_show', {'id': ration.id}) }}">show</a>
+                    <a href="{{ path('app_ration_edit', {'id': ration.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_ration_new') }}">Create new</a>
+{% endblock %}
