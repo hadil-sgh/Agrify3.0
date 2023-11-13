@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\NutritionValueNeeds;
+use App\Entity\NutritionalValueNeeds;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<NutritionValueNeeds>
+ * @extends ServiceEntityRepository<NutritionalValueNeeds>
  *
- * @method NutritionValueNeeds|null find($id, $lockMode = null, $lockVersion = null)
- * @method NutritionValueNeeds|null findOneBy(array $criteria, array $orderBy = null)
- * @method NutritionValueNeeds[]    findAll()
- * @method NutritionValueNeeds[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method NutritionalValueNeeds|null find($id, $lockMode = null, $lockVersion = null)
+ * @method NutritionalValueNeeds|null findOneBy(array $criteria, array $orderBy = null)
+ * @method NutritionalValueNeeds[]    findAll()
+ * @method NutritionalValueNeeds[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class NutritionValueNeedsRepository extends ServiceEntityRepository
+class NutritionalValueNeedsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, NutritionValueNeeds::class);
+        parent::__construct($registry, NutritionalValueNeeds::class);
     }
 
 //    /**
-//     * @return NutritionValueNeeds[] Returns an array of NutritionValueNeeds objects
+//     * @return NutritionalValueNeeds[] Returns an array of NutritionalValueNeeds objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class NutritionValueNeedsRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?NutritionValueNeeds
+//    public function findOneBySomeField($value): ?NutritionalValueNeeds
 //    {
 //        return $this->createQueryBuilder('v')
 //            ->andWhere('v.exampleField = :val')

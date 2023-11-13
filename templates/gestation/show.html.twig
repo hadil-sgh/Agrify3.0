@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestation{% endblock %}
+
+{% block body %}
+    <h1>Gestation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ gestation.id }}</td>
+            </tr>
+            <tr>
+                <th>Espece</th>
+                <td>{{ gestation.espece }}</td>
+            </tr>
+            <tr>
+                <th>PreparationVêlage</th>
+                <td>{{ gestation.preparationVêlage ? gestation.preparationVêlage|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>VêlagePrévu</th>
+                <td>{{ gestation.vêlagePrévu ? gestation.vêlagePrévu|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateAvertissement</th>
+                <td>{{ gestation.dateAvertissement ? gestation.dateAvertissement|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_gestation_index') }}">back to list</a>
+
+    <a href="{{ path('app_gestation_edit', {'id': gestation.id}) }}">edit</a>
+
+    {{ include('gestation/_delete_form.html.twig') }}
+{% endblock %}

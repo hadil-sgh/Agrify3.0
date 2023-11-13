@@ -14,96 +14,66 @@ class Animal
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $especeAnimal = null;
+    private ?string $espece = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $sexeRation = null;
+    private ?string $sexe = null;
 
-    #[ORM\Column]
-    private ?float $poidsmaxRation = null;
-
-    #[ORM\Column]
-    private ?float $poidsminRation = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $poids = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $ageAnimal = null;
-
-    #[ORM\Column]
-    private ?int $nombreAnimal = null;
+    private ?string $age = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEspeceAnimal(): ?string
+    public function getEspece(): ?string
     {
-        return $this->especeAnimal;
+        return $this->espece;
     }
 
-    public function setEspeceAnimal(string $especeAnimal): static
+    public function setEspece(string $espece): static
     {
-        $this->especeAnimal = $especeAnimal;
+        $this->espece = $espece;
 
         return $this;
     }
 
-    public function getSexeRation(): ?string
+    public function getSexe(): ?string
     {
-        return $this->sexeRation;
+        return $this->sexe;
     }
 
-    public function setSexeRation(string $sexeRation): static
+    public function setSexe(string $sexe): static
     {
-        $this->sexeRation = $sexeRation;
+        $this->sexe = $sexe;
 
         return $this;
     }
 
-    public function getPoidsmaxRation(): ?float
+    public function getPoids(): ?float
     {
-        return $this->poidsmaxRation;
+        return $this->poids;
     }
 
-    public function setPoidsmaxRation(float $poidsmaxRation): static
+    public function setPoids(?float $poids): static
     {
-        $this->poidsmaxRation = $poidsmaxRation;
+        $this->poids = $poids;
 
         return $this;
     }
 
-    public function getPoidsminRation(): ?float
+    public function getAge(): ?string
     {
-        return $this->poidsminRation;
+        return $this->age;
     }
 
-    public function setPoidsminRation(float $poidsminRation): static
+    public function setAge(string $age): static
     {
-        $this->poidsminRation = $poidsminRation;
-
-        return $this;
-    }
-
-    public function getAgeAnimal(): ?string
-    {
-        return $this->ageAnimal;
-    }
-
-    public function setAgeAnimal(string $ageAnimal): static
-    {
-        $this->ageAnimal = $ageAnimal;
-
-        return $this;
-    }
-
-    public function getNombreAnimal(): ?int
-    {
-        return $this->nombreAnimal;
-    }
-
-    public function setNombreAnimal(int $nombreAnimal): static
-    {
-        $this->nombreAnimal = $nombreAnimal;
+        $this->age = $age;
 
         return $this;
     }
