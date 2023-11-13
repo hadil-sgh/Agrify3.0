@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\NewbornsRepository;
+use App\Repository\NewBornRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: NewbornsRepository::class)]
+#[ORM\Entity(repositoryClass: NewBornRepository::class)]
 class Newborns
 {
     #[ORM\Id]

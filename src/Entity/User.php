@@ -4,12 +4,13 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User implements UserInterface
+class User implements UserInterface,PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: "AUTO")] // Specify the generation strategy
@@ -37,6 +38,9 @@ class User implements UserInterface
     #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $user_role = null;
+
+
+    
 
     #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
@@ -173,12 +177,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRoles(): array
-    {
-        return [$this->user_role];
-    }
-    
-
     public function eraseCredentials()
     {
     }
@@ -188,17 +186,24 @@ class User implements UserInterface
         return (string) $this->username;
     }
 
-
-      /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
+        /**
+     * @see UserInterface
      */
-    public function hashPassword(): void
+    public function getRoles(): array
     {
-        if (null !== $this->password) {
-            $this->password = password_hash($this->password, PASSWORD_BCRYPT);
+        $roles = [$this->user_role];
+    
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+    
+        // Check if the user role is 'Admin' and add 'ROLE_Admin' accordingly
+        if ($this->user_role === 'Admin') {
+            $roles[] = 'ROLE_ADMIN';
         }
+    
+        return array_unique($roles);
     }
+
 
 
 }

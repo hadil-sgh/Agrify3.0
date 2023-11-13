@@ -6,7 +6,7 @@ use App\Repository\NutritionValueNeedsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: NutritionValueNeedsRepository::class)]
-class NutritionValueNeeds
+class NutritionlValueNeeds
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
