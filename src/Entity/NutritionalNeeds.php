@@ -14,96 +14,96 @@ class NutritionalNeeds
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $especeBesoinNutritionnel = null;
+    private ?string $speciesNutritionalNeeds = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $statutProductionBesoinNutritionnel = null;
+    private ?string $productionStatus = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $sexeBesoinNutritionnel = null;
+    private ?string $sex = null;
 
     #[ORM\Column]
-    private ?float $poidsMinBesoinNutritionnel = null;
+    private ?float $minimumWeight = null;
 
     #[ORM\Column]
-    private ?float $poidsMaxBesoinNutritionnel = null;
+    private ?float $maximumWeight = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $buteProductionBesoinNutritionnel = null;
+    private ?string $productionGoal = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEspeceBesoinNutritionnel(): ?string
+    public function getSpeciesNutritionalNeeds(): ?string
     {
-        return $this->especeBesoinNutritionnel;
+        return $this->speciesNutritionalNeeds;
     }
 
-    public function setEspeceBesoinNutritionnel(string $especeBesoinNutritionnel): static
+    public function setSpeciesNutritionalNeeds(string $speciesNutritionalNeeds): static
     {
-        $this->especeBesoinNutritionnel = $especeBesoinNutritionnel;
+        $this->speciesNutritionalNeeds = $speciesNutritionalNeeds;
 
         return $this;
     }
 
-    public function getStatutProductionBesoinNutritionnel(): ?string
+    public function getProductionStatus(): ?string
     {
-        return $this->statutProductionBesoinNutritionnel;
+        return $this->productionStatus;
     }
 
-    public function setStatutProductionBesoinNutritionnel(string $statutProductionBesoinNutritionnel): static
+    public function setProductionStatus(string $productionStatus): static
     {
-        $this->statutProductionBesoinNutritionnel = $statutProductionBesoinNutritionnel;
+        $this->productionStatus = $productionStatus;
 
         return $this;
     }
 
-    public function getSexeBesoinNutritionnel(): ?string
+    public function getSex(): ?string
     {
-        return $this->sexeBesoinNutritionnel;
+        return $this->sex;
     }
 
-    public function setSexeBesoinNutritionnel(string $sexeBesoinNutritionnel): static
+    public function setSex(string $sex): static
     {
-        $this->sexeBesoinNutritionnel = $sexeBesoinNutritionnel;
+        $this->sex = $sex;
 
         return $this;
     }
 
-    public function getPoidsMinBesoinNutritionnel(): ?float
+    public function getMinimumWeight(): ?float
     {
-        return $this->poidsMinBesoinNutritionnel;
+        return $this->minimumWeight;
     }
 
-    public function setPoidsMinBesoinNutritionnel(float $poidsMinBesoinNutritionnel): static
+    public function setMinimumWeight(float $minimumWeight): static
     {
-        $this->poidsMinBesoinNutritionnel = $poidsMinBesoinNutritionnel;
+        $this->minimumWeight = $minimumWeight;
 
         return $this;
     }
 
-    public function getPoidsMaxBesoinNutritionnel(): ?float
+    public function getMaximumWeight(): ?float
     {
-        return $this->poidsMaxBesoinNutritionnel;
+        return $this->maximumWeight;
     }
 
-    public function setPoidsMaxBesoinNutritionnel(float $poidsMaxBesoinNutritionnel): static
+    public function setMaximumWeight(float $maximumWeight): static
     {
-        $this->poidsMaxBesoinNutritionnel = $poidsMaxBesoinNutritionnel;
+        $this->maximumWeight = $maximumWeight;
 
         return $this;
     }
 
-    public function getButeProductionBesoinNutritionnel(): ?string
+    public function getProductionGoal(): ?string
     {
-        return $this->buteProductionBesoinNutritionnel;
+        return $this->productionGoal;
     }
 
-    public function setButeProductionBesoinNutritionnel(string $buteProductionBesoinNutritionnel): static
+    public function setProductionGoal(string $productionGoal): static
     {
-        $this->buteProductionBesoinNutritionnel = $buteProductionBesoinNutritionnel;
+        $this->productionGoal = $productionGoal;
 
         return $this;
     }

@@ -12,12 +12,12 @@ class NutritionalNeedsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('especeBesoinNutritionnel')
-            ->add('statutProductionBesoinNutritionnel')
-            ->add('sexeBesoinNutritionnel')
-            ->add('poidsMinBesoinNutritionnel')
-            ->add('poidsMaxBesoinNutritionnel')
-            ->add('buteProductionBesoinNutritionnel')
+            ->add('speciesNutritionalNeeds')
+            ->add('productionStatus')
+            ->add('sex')
+            ->add('minimumWeight')
+            ->add('maximumWeight')
+            ->add('productionGoal')
         ;
     }
 

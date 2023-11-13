@@ -26,10 +26,10 @@ class NutritionalValueNeedsRepository extends ServiceEntityRepository
 //     */
 //    public function findByExampleField($value): array
 //    {
-//        return $this->createQueryBuilder('v')
-//            ->andWhere('v.exampleField = :val')
+//        return $this->createQueryBuilder('n')
+//            ->andWhere('n.exampleField = :val')
 //            ->setParameter('val', $value)
-//            ->orderBy('v.id', 'ASC')
+//            ->orderBy('n.id', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()
@@ -38,8 +38,8 @@ class NutritionalValueNeedsRepository extends ServiceEntityRepository
 
 //    public function findOneBySomeField($value): ?NutritionalValueNeeds
 //    {
-//        return $this->createQueryBuilder('v')
-//            ->andWhere('v.exampleField = :val')
+//        return $this->createQueryBuilder('n')
+//            ->andWhere('n.exampleField = :val')
 //            ->setParameter('val', $value)
 //            ->getQuery()
 //            ->getOneOrNullResult()
