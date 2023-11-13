@@ -19,16 +19,16 @@ class User1Type extends AbstractType
             ->add('user_telephone')
             ->add('user_role', ChoiceType::class, [
                 'choices' => [
-                    'Admin' => 'ROLE_ADMIN',
-                    'User' => 'ROLE_USER',
+                    'Admin' => 'Admin',
+                    'User' => 'User',
                 ],
                 'placeholder' => 'Role',
                 'required' => true,
             ])
             ->add('user_genre', ChoiceType::class, [
                 'choices' => [
-                    'Male' => 'male',
-                    'Female' => 'female',
+                    'Homme' => 'Homme',
+                    'Femme' => 'Femme',
                 ],
                 'placeholder' => 'Genre',
                 'required' => true,

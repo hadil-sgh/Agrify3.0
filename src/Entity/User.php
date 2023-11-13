@@ -189,4 +189,16 @@ class User implements UserInterface
     }
 
 
+      /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function hashPassword(): void
+    {
+        if (null !== $this->password) {
+            $this->password = password_hash($this->password, PASSWORD_BCRYPT);
+        }
+    }
+
+
 }
