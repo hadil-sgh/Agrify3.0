@@ -43,6 +43,9 @@ class NutritionalValue
     #[ORM\Column]
     private ?float $k = null;
 
+    #[ORM\OneToOne(mappedBy: 'nutritionalValue', cascade: ['persist', 'remove'])]
+    private ?Ingredient $ingredient = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -164,6 +167,28 @@ class NutritionalValue
     public function setK(float $k): static
     {
         $this->k = $k;
+
+        return $this;
+    }
+
+    public function getIngredient(): ?Ingredient
+    {
+        return $this->ingredient;
+    }
+
+    public function setIngredient(?Ingredient $ingredient): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($ingredient === null && $this->ingredient !== null) {
+            $this->ingredient->setNutritionalValue(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($ingredient !== null && $ingredient->getNutritionalValue() !== $this) {
+            $ingredient->setNutritionalValue($this);
+        }
+
+        $this->ingredient = $ingredient;
 
         return $this;
     }

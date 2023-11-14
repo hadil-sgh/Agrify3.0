@@ -43,6 +43,9 @@ class NutritionalValueNeeds
     #[ORM\Column]
     private ?float $k = null;
 
+    #[ORM\OneToOne(inversedBy: 'nutritionalValueNeeds', cascade: ['persist', 'remove'])]
+    private ?NutritionalNeeds $nutritionalNeeds = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -164,6 +167,18 @@ class NutritionalValueNeeds
     public function setK(float $k): static
     {
         $this->k = $k;
+
+        return $this;
+    }
+
+    public function getNutritionalNeeds(): ?NutritionalNeeds
+    {
+        return $this->nutritionalNeeds;
+    }
+
+    public function setNutritionalNeeds(?NutritionalNeeds $nutritionalNeeds): static
+    {
+        $this->nutritionalNeeds = $nutritionalNeeds;
 
         return $this;
     }

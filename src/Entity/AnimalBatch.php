@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AnimalBatchRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AnimalBatchRepository::class)]
@@ -30,6 +32,14 @@ class AnimalBatch
 
     #[ORM\Column]
     private ?int $nombreAnimalBatch = null;
+
+    #[ORM\OneToMany(mappedBy: 'animalbatch', targetEntity: Animal::class)]
+    private Collection $animals;
+
+    public function __construct()
+    {
+        $this->animals = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -104,6 +114,36 @@ class AnimalBatch
     public function setNombreAnimalBatch(int $nombreAnimalBatch): static
     {
         $this->nombreAnimalBatch = $nombreAnimalBatch;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Animal>
+     */
+    public function getAnimals(): Collection
+    {
+        return $this->animals;
+    }
+
+    public function addAnimal(Animal $animal): static
+    {
+        if (!$this->animals->contains($animal)) {
+            $this->animals->add($animal);
+            $animal->setAnimalbatch($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnimal(Animal $animal): static
+    {
+        if ($this->animals->removeElement($animal)) {
+            // set the owning side to null (unless already changed)
+            if ($animal->getAnimalbatch() === $this) {
+                $animal->setAnimalbatch(null);
+            }
+        }
 
         return $this;
     }

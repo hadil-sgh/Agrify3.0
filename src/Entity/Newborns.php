@@ -26,6 +26,9 @@ class Newborns
     #[ORM\Column]
     private ?float $poids = null;
 
+    #[ORM\ManyToOne(inversedBy: 'newBorns')]
+    private ?Gestation $gestation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class Newborns
     public function setPoids(float $poids): static
     {
         $this->poids = $poids;
+
+        return $this;
+    }
+
+    public function getGestation(): ?Gestation
+    {
+        return $this->gestation;
+    }
+
+    public function setGestation(?Gestation $gestation): static
+    {
+        $this->gestation = $gestation;
 
         return $this;
     }

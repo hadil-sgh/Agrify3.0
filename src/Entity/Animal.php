@@ -25,6 +25,18 @@ class Animal
     #[ORM\Column(length: 255)]
     private ?string $age = null;
 
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    private ?AnimalBatch $animalbatch = null;
+
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    private ?NutritionalNeeds $nutritionalNeeds = null;
+
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    private ?Ration $ration = null;
+
+    #[ORM\OneToOne(inversedBy: 'animal', cascade: ['persist', 'remove'])]
+    private ?Gestation $gestation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,4 +89,53 @@ class Animal
 
         return $this;
     }
+
+    public function getAnimalbatch(): ?AnimalBatch
+    {
+        return $this->animalbatch;
+    }
+
+    public function setAnimalbatch(?AnimalBatch $animalbatch): static
+    {
+        $this->animalbatch = $animalbatch;
+
+        return $this;
+    }
+
+    public function getNutritionalNeeds(): ?NutritionalNeeds
+    {
+        return $this->nutritionalNeeds;
+    }
+
+    public function setNutritionalNeeds(?NutritionalNeeds $nutritionalNeeds): static
+    {
+        $this->nutritionalNeeds = $nutritionalNeeds;
+
+        return $this;
+    }
+
+    public function getRation(): ?Ration
+    {
+        return $this->ration;
+    }
+
+    public function setRation(?Ration $ration): static
+    {
+        $this->ration = $ration;
+
+        return $this;
+    }
+
+    public function getGestation(): ?Gestation
+    {
+        return $this->gestation;
+    }
+
+    public function setGestation(?Gestation $gestation): static
+    {
+        $this->gestation = $gestation;
+
+        return $this;
+    }
+    
 }

@@ -38,6 +38,12 @@ class Ingredient
     #[ORM\Column(type: Types::ARRAY)]
     private array $nutrimentPrincipalIngredient = [];
 
+    #[ORM\ManyToOne(inversedBy: 'ingredients')]
+    private ?Ration $ration = null;
+
+    #[ORM\OneToOne(inversedBy: 'ingredient', cascade: ['persist', 'remove'])]
+    private ?NutritionalValue $nutritionalValue = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +141,30 @@ class Ingredient
     public function setNutrimentPrincipalIngredient(array $nutrimentPrincipalIngredient): static
     {
         $this->nutrimentPrincipalIngredient = $nutrimentPrincipalIngredient;
+
+        return $this;
+    }
+
+    public function getRation(): ?Ration
+    {
+        return $this->ration;
+    }
+
+    public function setRation(?Ration $ration): static
+    {
+        $this->ration = $ration;
+
+        return $this;
+    }
+
+    public function getNutritionalValue(): ?NutritionalValue
+    {
+        return $this->nutritionalValue;
+    }
+
+    public function setNutritionalValue(?NutritionalValue $nutritionalValue): static
+    {
+        $this->nutritionalValue = $nutritionalValue;
 
         return $this;
     }
