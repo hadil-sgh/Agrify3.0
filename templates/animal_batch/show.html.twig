@@ -9,38 +9,38 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ AnimalBatch.id }}</td>
+                <td>{{ animal_batch.id }}</td>
             </tr>
             <tr>
                 <th>EspeceAnimalBatch</th>
-                <td>{{ AnimalBatch.especeAnimalBatch }}</td>
+                <td>{{ animal_batch.especeAnimalBatch }}</td>
             </tr>
             <tr>
                 <th>SexeRation</th>
-                <td>{{ AnimalBatch.sexeRation }}</td>
+                <td>{{ animal_batch.sexeRation }}</td>
             </tr>
             <tr>
                 <th>PoidsmaxRation</th>
-                <td>{{ AnimalBatch.poidsmaxRation }}</td>
+                <td>{{ animal_batch.poidsmaxRation }}</td>
             </tr>
             <tr>
                 <th>PoidsminRation</th>
-                <td>{{ AnimalBatch.poidsminRation }}</td>
+                <td>{{ animal_batch.poidsminRation }}</td>
             </tr>
             <tr>
                 <th>AgeAnimalBatch</th>
-                <td>{{ AnimalBatch.ageAnimalBatch }}</td>
+                <td>{{ animal_batch.ageAnimalBatch }}</td>
             </tr>
             <tr>
                 <th>NombreAnimalBatch</th>
-                <td>{{ AnimalBatch.nombreAnimalBatch }}</td>
+                <td>{{ animal_batch.nombreAnimalBatch }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_AnimalBatch_index') }}">back to list</a>
+    <a href="{{ path('app_animal_batch_index') }}">back to list</a>
 
-    <a href="{{ path('app_AnimalBatch_edit', {'id': AnimalBatch.id}) }}">edit</a>
+    <a href="{{ path('app_animal_batch_edit', {'id': animal_batch.id}) }}">edit</a>
 
-    {{ include('AnimalBatch/_delete_form.html.twig') }}
+    {{ include('animal_batch/_delete_form.html.twig') }}
 {% endblock %}

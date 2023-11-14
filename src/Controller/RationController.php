@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ration;
-use App\Form\RationType;
+use App\Form\Ration1Type;
 use App\Repository\RationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +26,7 @@ class RationController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $ration = new Ration();
-        $form = $this->createForm(RationType::class, $ration);
+        $form = $this->createForm(Ration1Type::class, $ration);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ class RationController extends AbstractController
     #[Route('/{id}/edit', name: 'app_ration_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Ration $ration, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(RationType::class, $ration);
+        $form = $this->createForm(Ration1Type::class, $ration);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

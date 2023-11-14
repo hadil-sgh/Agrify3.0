@@ -19,18 +19,18 @@
             </tr>
         </thead>
         <tbody>
-        {% for AnimalBatch in AnimalBatchs %}
+        {% for animal_batch in animal_batches %}
             <tr>
-                <td>{{ AnimalBatch.id }}</td>
-                <td>{{ AnimalBatch.especeAnimalBatch }}</td>
-                <td>{{ AnimalBatch.sexeRation }}</td>
-                <td>{{ AnimalBatch.poidsmaxRation }}</td>
-                <td>{{ AnimalBatch.poidsminRation }}</td>
-                <td>{{ AnimalBatch.ageAnimalBatch }}</td>
-                <td>{{ AnimalBatch.nombreAnimalBatch }}</td>
+                <td>{{ animal_batch.id }}</td>
+                <td>{{ animal_batch.especeAnimalBatch }}</td>
+                <td>{{ animal_batch.sexeRation }}</td>
+                <td>{{ animal_batch.poidsmaxRation }}</td>
+                <td>{{ animal_batch.poidsminRation }}</td>
+                <td>{{ animal_batch.ageAnimalBatch }}</td>
+                <td>{{ animal_batch.nombreAnimalBatch }}</td>
                 <td>
-                    <a href="{{ path('app_AnimalBatch_show', {'id': AnimalBatch.id}) }}">show</a>
-                    <a href="{{ path('app_AnimalBatch_edit', {'id': AnimalBatch.id}) }}">edit</a>
+                    <a href="{{ path('app_animal_batch_show', {'id': animal_batch.id}) }}">show</a>
+                    <a href="{{ path('app_animal_batch_edit', {'id': animal_batch.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -41,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_AnimalBatch_new') }}">Create new</a>
+    <a href="{{ path('app_animal_batch_new') }}">Create new</a>
 {% endblock %}

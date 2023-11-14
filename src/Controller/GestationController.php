@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Gestation;
-use App\Form\GestationType;
+use App\Form\Gestation1Type;
 use App\Repository\GestationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +26,7 @@ class GestationController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $gestation = new Gestation();
-        $form = $this->createForm(GestationType::class, $gestation);
+        $form = $this->createForm(Gestation1Type::class, $gestation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ class GestationController extends AbstractController
     #[Route('/{id}/edit', name: 'app_gestation_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Gestation $gestation, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(GestationType::class, $gestation);
+        $form = $this->createForm(Gestation1Type::class, $gestation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
