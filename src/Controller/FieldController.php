@@ -71,7 +71,7 @@ class FieldController extends AbstractController
     #[Route('/{field_id}', name: 'app_field_delete', methods: ['POST'])]
     public function delete(Request $request, Field $field, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$field->getField_id(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$field->getFieldId(), $request->request->get('_token'))) {
             $entityManager->remove($field);
             $entityManager->flush();
         }

@@ -40,7 +40,7 @@
                     <nav class="classy-navbar justify-content-between" id="alazeaNav">
 
                         <!-- Nav Brand -->
-                        <link rel="preconnect" href="{{asset('png')}}" alt="">
+                        <link rel="preconnect" href="{{asset('logo.png')}}" alt="">
 
                         <!-- Menu -->
                         <div class="classy-menu">
@@ -53,10 +53,10 @@
                             <!-- Navbar Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">User</a></li>
-                                    <li><a href="#">Field</a></li>
-                                    <li><a href="#">Presence</a></li>
+                                    <li><a href="{{path('app_AdminDashboard_index')}}">Home</a></li>
+                                    <li><a href="{{path('app_user_index')}}">User</a></li>
+                                    <li><a href="{{path('app_field_index')}}">Field</a></li>
+                                    <li><a href="{{path('app_presence_index')}}">Presence</a></li>
                                     <li><a href="#">Taches</a></li>
                                     <li><a href="#l">Reclamation</a></li>
                                     <li><a href="#">Logout</a></li>

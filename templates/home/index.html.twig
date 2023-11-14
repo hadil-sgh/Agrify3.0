@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block styles %}
+    <style>
+        .home-container {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Set the height to 100% of the viewport height for vertical centering */
+        }
+
+        .home-container h3 {
+            margin-bottom: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="home-container">
+        <h3>{% if user %}Hello {{ user.getUserNom() }}{% else %}Hello Guest{% endif %}</h3>
+        <p>This is the first app!</p>
+    </div>
+{% endblock %}
