@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NutritionalNeeds{% endblock %}
+
+{% block body %}
+    <h1>NutritionalNeeds</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ nutritional_need.id }}</td>
+            </tr>
+            <tr>
+                <th>SpeciesNeeds</th>
+                <td>{{ nutritional_need.speciesNeeds }}</td>
+            </tr>
+            <tr>
+                <th>ProductionStatusNeeds</th>
+                <td>{{ nutritional_need.productionStatusNeeds }}</td>
+            </tr>
+            <tr>
+                <th>SexNeeds</th>
+                <td>{{ nutritional_need.sexNeeds }}</td>
+            </tr>
+            <tr>
+                <th>MinimumWeightNeeds</th>
+                <td>{{ nutritional_need.minimumWeightNeeds }}</td>
+            </tr>
+            <tr>
+                <th>MaximumWeightNeeds</th>
+                <td>{{ nutritional_need.maximumWeightNeeds }}</td>
+            </tr>
+            <tr>
+                <th>ProductionGoalNeeds</th>
+                <td>{{ nutritional_need.productionGoalNeeds }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_nutritional_needs_index') }}">back to list</a>
+
+    <a href="{{ path('app_nutritional_needs_edit', {'id': nutritional_need.id}) }}">edit</a>
+
+    {{ include('nutritional_needs/_delete_form.html.twig') }}
+{% endblock %}

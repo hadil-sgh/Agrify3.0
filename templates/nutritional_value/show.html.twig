@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NutritionalValue{% endblock %}
+
+{% block body %}
+    <h1>NutritionalValue</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ nutritional_value.id }}</td>
+            </tr>
+            <tr>
+                <th>Pb</th>
+                <td>{{ nutritional_value.pb }}</td>
+            </tr>
+            <tr>
+                <th>Fb</th>
+                <td>{{ nutritional_value.fb }}</td>
+            </tr>
+            <tr>
+                <th>Adf</th>
+                <td>{{ nutritional_value.adf }}</td>
+            </tr>
+            <tr>
+                <th>Ndf</th>
+                <td>{{ nutritional_value.ndf }}</td>
+            </tr>
+            <tr>
+                <th>Ms</th>
+                <td>{{ nutritional_value.ms }}</td>
+            </tr>
+            <tr>
+                <th>Eb</th>
+                <td>{{ nutritional_value.eb }}</td>
+            </tr>
+            <tr>
+                <th>Ca</th>
+                <td>{{ nutritional_value.ca }}</td>
+            </tr>
+            <tr>
+                <th>P</th>
+                <td>{{ nutritional_value.p }}</td>
+            </tr>
+            <tr>
+                <th>Mg</th>
+                <td>{{ nutritional_value.mg }}</td>
+            </tr>
+            <tr>
+                <th>K</th>
+                <td>{{ nutritional_value.k }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_nutritional_value_index') }}">back to list</a>
+
+    <a href="{{ path('app_nutritional_value_edit', {'id': nutritional_value.id}) }}">edit</a>
+
+    {{ include('nutritional_value/_delete_form.html.twig') }}
+{% endblock %}

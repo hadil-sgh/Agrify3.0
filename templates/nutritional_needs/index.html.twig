@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NutritionalNeeds index{% endblock %}
+
+{% block body %}
+    <h1>NutritionalNeeds index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>SpeciesNeeds</th>
+                <th>ProductionStatusNeeds</th>
+                <th>SexNeeds</th>
+                <th>MinimumWeightNeeds</th>
+                <th>MaximumWeightNeeds</th>
+                <th>ProductionGoalNeeds</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for nutritional_need in nutritional_needs %}
+            <tr>
+                <td>{{ nutritional_need.id }}</td>
+                <td>{{ nutritional_need.speciesNeeds }}</td>
+                <td>{{ nutritional_need.productionStatusNeeds }}</td>
+                <td>{{ nutritional_need.sexNeeds }}</td>
+                <td>{{ nutritional_need.minimumWeightNeeds }}</td>
+                <td>{{ nutritional_need.maximumWeightNeeds }}</td>
+                <td>{{ nutritional_need.productionGoalNeeds }}</td>
+                <td>
+                    <a href="{{ path('app_nutritional_needs_show', {'id': nutritional_need.id}) }}">show</a>
+                    <a href="{{ path('app_nutritional_needs_edit', {'id': nutritional_need.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_nutritional_needs_new') }}">Create new</a>
+{% endblock %}
