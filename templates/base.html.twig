@@ -16,26 +16,9 @@
     {% endblock %}
 </head>
 <body>
+    <nav class="menu">
 
-<!-- ***** Navbar Area ***** -->
-<div class="alazea-main-menu">
-    <div class="classy-nav-container breakpoint-off">
-        <div class="container">
-            <!-- Menu -->
-            <nav class="classy-navbar justify-content-between" id="alazeaNav">
 
-                <!-- Nav Brand -->
-                <link rel="preconnect" href="{{asset('png')}}" alt="">
-
-                <!-- Menu -->
-                <div class="classy-menu">
-
-                    <!-- Close Button -->
-                    <div class="classycloseIcon">
-                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                    </div>
-
-                    <!-- Navbar Start -->
                     <div class="classynav">
                         <ul>
                             <li><a href="{{path('app_AdminDashboard_index')}}">Home</a></li>
@@ -48,9 +31,8 @@
                             <li><a href="{{path('app_logout')}}">Logout</a></li>
                         </ul>
                     </div>
-                    <!-- Navbar End -->
-                </div>
-            </nav>
+              
+ </nav>
 
             {% block body %}
 
