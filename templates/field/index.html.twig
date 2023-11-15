@@ -1,20 +1,94 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Field index{% endblock %}
+{% block title %}Field Management{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        h1 {
+            color: #2E5D42;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #F2F0D5;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F4F7F0;
+        }
+
+        a {
+            color: #2E5D42;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #22C738;
+            text-decoration: underline;
+        }
+
+        .no-records {
+            color: #757575;
+            font-style: italic;
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .create-new {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #2E5D42;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .create-new:hover {
+            background-color: #22C738;
+            color: #000;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
-    <h1>Field index</h1>
+    <h1>Field Index</h1>
 
-    <table class="table">
+    <table>
         <thead>
             <tr>
-                <th>Field_id</th>
-                <th>Field_Nom</th>
-                <th>Field_chef</th>
-                <th>Field_type</th>
-                <th>Field_Superficie</th>
-                <th>Field_quantity</th>
-                <th>actions</th>
+                <th>Field ID</th>
+                <th>Field Name</th>
+                <th>Field Chef</th>
+                <th>Field Type</th>
+                <th>Field Superficie</th>
+                <th>Field Quantity</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,22 +96,24 @@
             <tr>
                 <td>{{ field.fieldId }}</td>
                 <td>{{ field.fieldNom }}</td>
-                <td>{{ field.fieldChef }}</td>
+                <td>{{ field.fieldChef is not null ? field.fieldChef : 'N/A' }}</td>
                 <td>{{ field.fieldType }}</td>
                 <td>{{ field.fieldSuperficie }}</td>
                 <td>{{ field.fieldQuantity }}</td>
                 <td>
-                    <a href="{{ path('app_field_show', {'field_id': field.field_id}) }}">show</a>
-                    <a href="{{ path('app_field_edit', {'field_id': field.field_id}) }}">edit</a>
+                    <a href="{{ path('app_field_show', {'field_id': field.fieldId}) }}">Show</a>
+                    <a href="{{ path('app_field_edit', {'field_id': field.fieldId}) }}">Edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7" class="no-records">No records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_field_new') }}">Create new</a>
+    <div class="button">
+        <a href="{{ path('app_field_new') }}" class="create-new">Create New Field</a>
+    </div>
 {% endblock %}

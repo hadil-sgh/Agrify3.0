@@ -1,17 +1,85 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Presence index{% endblock %}
+{% block title %}Presence Management{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        h1 {
+            color: #2E5D42;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #F2F0D5;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F4F7F0;
+        }
+
+        a {
+            color: #2E5D42;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #22C738;
+            text-decoration: underline;
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .create-new {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #2E5D42;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .create-new:hover {
+            background-color: #22C738;
+            color: #000;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
-    <h1>Presence index</h1>
+    <h1>Presence Index</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id_p</th>
+                <th>Presence ID</th>
                 <th>Date</th>
                 <th>PresenceState</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +89,19 @@
                 <td>{{ presence.date ? presence.date|date('Y-m-d') : '' }}</td>
                 <td>{{ presence.presenceState }}</td>
                 <td>
-                    <a href="{{ path('app_presence_show', {'id_p': presence.id_p}) }}">show</a>
-                    <a href="{{ path('app_presence_edit', {'id_p': presence.id_p}) }}">edit</a>
+                    <a href="{{ path('app_presence_show', {'id_p': presence.id_p}) }}">Show</a>
+                    <a href="{{ path('app_presence_edit', {'id_p': presence.id_p}) }}">Edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">No records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_presence_new') }}">Create new</a>
+    <div class="button">
+        <a href="{{ path('app_presence_new') }}" class="create-new">Create New Presence</a>
+    </div>
 {% endblock %}

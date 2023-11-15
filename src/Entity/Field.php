@@ -6,19 +6,19 @@ use App\Repository\FieldRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: FieldRepository::class)]
 class Field
 {
     #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: "IDENTITY")]
     #[ORM\Column]
     private ?int $field_id = null;
 
     #[ORM\Column(length: 255)]
     private ?string $field_Nom = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $field_chef = null;
-
+    
     #[ORM\Column(length: 255)]
     private ?string $field_type = null;
 
@@ -27,6 +27,12 @@ class Field
 
     #[ORM\Column]
     private ?int $field_quantity = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $field_chef = null;
+
+
+ 
 
 
     public function getFieldId(): ?int
@@ -53,18 +59,7 @@ class Field
         return $this;
     }
 
-    public function getFieldChef(): ?string
-    {
-        return $this->field_chef;
-    }
-
-    public function setFieldChef(string $field_chef): static
-    {
-        $this->field_chef = $field_chef;
-
-        return $this;
-    }
-
+    
     public function getFieldType(): ?string
     {
         return $this->field_type;
@@ -100,4 +95,14 @@ class Field
 
         return $this;
     }
+
+	
+	public function getFieldChef(): ?string {
+		return $this->field_chef;
+	}
+	
+	public function setFieldChef(?string $field_chef): static {
+		$this->field_chef = $field_chef;
+		return $this;
+	}
 }

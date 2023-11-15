@@ -11,20 +11,32 @@
         }
 
         table {
-            width: 60%;
+            width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
+            margin-bottom: 20px;
+
         }
+
 
         th, td {
             border: 1px solid #ddd;
             padding: 12px;
             text-align: left;
+            font-size: 14px;
         }
 
         th {
-            background-color: #EFE6CD;
+            background-color: #F2F0D5;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+
+        tr:nth-child(even) {
+            background-color: #F4F7F0;
+        }
+
 
         .action-buttons {
             margin-top: 20px;
@@ -34,7 +46,7 @@
         .btn {
             display: inline-block;
             padding: 12px 24px;
-            background-color: #377120;
+            background-color: #2E5D42;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
@@ -43,7 +55,9 @@
         }
 
         .btn:hover {
-            background-color: #285e15;
+            background-color: #22C738;
+            color: #000;
+
         }
     </style>
 {% endblock %}
@@ -95,7 +109,6 @@
     <div class="action-buttons">
         <a href="{{ path('app_user_index') }}" class="btn">Back to List</a>
         <a href="{{ path('app_user_edit', {'user_id': user.userId}) }}" class="btn">Edit User</a>
-
         {{ include('user/_delete_form.html.twig') }}
     </div>
 {% endblock %}

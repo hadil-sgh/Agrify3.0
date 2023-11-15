@@ -1,42 +1,128 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Field{% endblock %}
+{% block title %}Field Details{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        h1 {
+            color: #2E5D42;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #F2F0D5;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F4F7F0;
+        }
+
+        a {
+            color: #2E5D42;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #22C738;
+            text-decoration: underline;
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .create-new {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #2E5D42;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .create-new:hover {
+            background-color: #22C738;
+            color: #000;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #2E5D42;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #22C738;
+            color: #000;
+        }
+    </style>
+{% endblock %}
+
 
 {% block body %}
-    <h1>Field</h1>
+    <h1>Field Details</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Field_id</th>
+                <th>Field ID</th>
                 <td>{{ field.fieldId }}</td>
             </tr>
             <tr>
-                <th>Field_Nom</th>
+                <th>Field Name</th>
                 <td>{{ field.fieldNom }}</td>
             </tr>
             <tr>
-                <th>Field_chef</th>
+                <th>Field Chef</th>
                 <td>{{ field.fieldChef }}</td>
             </tr>
             <tr>
-                <th>Field_type</th>
+                <th>Field Type</th>
                 <td>{{ field.fieldType }}</td>
             </tr>
             <tr>
-                <th>Field_Superficie</th>
+                <th>Field Superficie</th>
                 <td>{{ field.fieldSuperficie }}</td>
             </tr>
             <tr>
-                <th>Field_quantity</th>
+                <th>Field Quantity</th>
                 <td>{{ field.fieldQuantity }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_field_index') }}">back to list</a>
-
-    <a href="{{ path('app_field_edit', {'field_id': field.field_id}) }}">edit</a>
-
-    {{ include('field/_delete_form.html.twig') }}
+    <div class="button">
+        <a href="{{ path('app_field_index') }}" class="btn">Back to List</a>
+        <a href="{{ path('app_field_edit', {'field_id': field.fieldId}) }}" class="btn">Edit Field</a>
+        {{ include('field/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

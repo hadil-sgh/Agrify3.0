@@ -12,7 +12,6 @@ class FieldType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('field_id')
             ->add('field_Nom')
             ->add('field_chef')
             ->add('field_type')
