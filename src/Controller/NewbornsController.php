@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Newborns;
 use App\Form\Newborns1Type;
-use App\Repository\NewBornRepository;
+use App\Repository\NewbornsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewbornsController extends AbstractController
 {
     #[Route('/', name: 'app_newborns_index', methods: ['GET'])]
-    public function index(NewBornRepository $newBornRepository): Response
+    public function index(NewbornsRepository $newBornRepository): Response
     {
         return $this->render('newborns/index.html.twig', [
             'newborns' => $newBornRepository->findAll(),
