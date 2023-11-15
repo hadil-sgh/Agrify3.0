@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TypedeReclamation{% endblock %}
+
+{% block body %}
+    <h1>Edit TypedeReclamation</h1>
+
+    {{ include('typede_reclamation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_typede_reclamation_index') }}">back to list</a>
+
+    {{ include('typede_reclamation/_delete_form.html.twig') }}
+{% endblock %}
