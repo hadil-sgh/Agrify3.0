@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\NutritionalNeeds;
-use App\Form\NutritionalNeeds1Type;
+use App\Form\NutritionalNeeds2Type;
 use App\Repository\NutritionalNeedsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +26,7 @@ class NutritionalNeedsController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $nutritionalNeed = new NutritionalNeeds();
-        $form = $this->createForm(NutritionalNeeds1Type::class, $nutritionalNeed);
+        $form = $this->createForm(NutritionalNeeds2Type::class, $nutritionalNeed);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ class NutritionalNeedsController extends AbstractController
     #[Route('/{id}/edit', name: 'app_nutritional_needs_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, NutritionalNeeds $nutritionalNeed, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(NutritionalNeeds1Type::class, $nutritionalNeed);
+        $form = $this->createForm(NutritionalNeeds2Type::class, $nutritionalNeed);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

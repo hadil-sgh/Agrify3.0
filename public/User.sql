@@ -50,7 +50,6 @@ INSERT INTO `user` (`user_id`, `user_nom`, `user_prenom`, `user_email`, `user_te
 (46, 'gheiyth', 'gheiyth', 'gheiyth.tabarki@esprit.tn', '251525654', 'Homme', 2, 'gheiythtba', '$2y$13$BZO.3.4vWrgM7MlWB55oXu7WH0ES.HFX2hhVFmPstt2aG8IoVFxqS', 'Admin');
 COMMIT;
 
-the password is gheiyttba
 
 */
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

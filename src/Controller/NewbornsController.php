@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Newborns;
-use App\Form\NewbornsType;
-use App\Repository\NewbornsRepository;
+use App\Form\Newborns1Type;
+use App\Repository\NewBornRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,10 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewbornsController extends AbstractController
 {
     #[Route('/', name: 'app_newborns_index', methods: ['GET'])]
-    public function index(NewbornsRepository $newbornsRepository): Response
+    public function index(NewBornRepository $newBornRepository): Response
     {
         return $this->render('newborns/index.html.twig', [
-            'newborns' => $newbornsRepository->findAll(),
+            'newborns' => $newBornRepository->findAll(),
         ]);
     }
 
@@ -26,7 +26,7 @@ class NewbornsController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $newborn = new Newborns();
-        $form = $this->createForm(NewbornsType::class, $newborn);
+        $form = $this->createForm(Newborns1Type::class, $newborn);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ class NewbornsController extends AbstractController
     #[Route('/{id}/edit', name: 'app_newborns_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Newborns $newborn, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(NewbornsType::class, $newborn);
+        $form = $this->createForm(Newborns1Type::class, $newborn);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+       
+       
+        {% block stylesheets %}
+        <link rel="preconnect" href="{{asset('https://fonts.googleapis.com')}}">
+        
+        <link rel="preconnect" href="{{asset('https://fonts.gstatic.com')}}" crossorigin>
+        
+        <link href="{{asset('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap')}}" rel="stylesheet">
+
+        <link href="{{asset('web/style.css')}}" rel="stylesheet">
+
+        
+           {% endblock %}
+
+
+
+
+        {% block javascripts %}
+        {% endblock %}
+
+
+    </head>
+    <body>
+
+        <!-- ***** Navbar Area ***** -->
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+
+                        <!-- Nav Brand -->
+                        <link rel="preconnect" href="{{asset('logo.png')}}" alt="">
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{{path('app_animal_index')}}">Animal</a></li>
+                                    <li><a href="{{path('app_ingredient_index')}}">Ingredinet</a></li>
+                                    <li><a href="#">Nutritional Needs</a></li>
+                                    <li><a href="#">Ration</a></li>
+                                    <li><a href="#">Gestation</a></li>
+                                </ul>
+
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->      
+
+      {% block body %}
+        
+      {% endblock %}
+
+
+
+
+        
+    </body>
+</html>

@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Animal;
-use App\Form\AnimalType;
+use App\Form\Animal1Type;
 use App\Repository\AnimalRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +26,7 @@ class AnimalController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $animal = new Animal();
-        $form = $this->createForm(AnimalType::class, $animal);
+        $form = $this->createForm(Animal1Type::class, $animal);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ class AnimalController extends AbstractController
     #[Route('/{id}/edit', name: 'app_animal_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Animal $animal, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(AnimalType::class, $animal);
+        $form = $this->createForm(Animal1Type::class, $animal);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
