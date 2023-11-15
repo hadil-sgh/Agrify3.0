@@ -14,6 +14,7 @@
                 <th>Rec_description</th>
                 <th>Rec_target</th>
                 <th>Urgency</th>
+                <th>Type</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,6 +27,7 @@
                 <td>{{ reclamation.recDescription }}</td>
                 <td>{{ reclamation.recTarget }}</td>
                 <td>{{ reclamation.urgency }}</td>
+                <td>{{ reclamation.typeRec.type }}</td>
                 <td>
                     <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}">show</a>
                     <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}">edit</a>
