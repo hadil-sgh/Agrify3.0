@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43842fb-1499-42f6-b9e4-d7ec8d1d3b0d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ReclamationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReclamationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/TypedeReclamationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/TypedeReclamationType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,8 +174,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/Agrify3.0&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gestionReclamation&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hadil sghair/FirstProject&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -200,7 +203,9 @@
       <workItem from="1699972536856" duration="4000" />
       <workItem from="1699988850246" duration="938000" />
       <workItem from="1699989826108" duration="1789000" />
-      <workItem from="1699991647569" duration="771000" />
+      <workItem from="1699991647569" duration="4639000" />
+      <workItem from="1699996381758" duration="4414000" />
+      <workItem from="1700049881281" duration="731000" />
     </task>
     <servers />
   </component>

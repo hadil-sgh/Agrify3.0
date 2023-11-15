@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Form;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 use App\Entity\TypedeReclamation;
 use Symfony\Component\Form\AbstractType;
@@ -13,7 +14,9 @@ class TypedeReclamationType extends AbstractType
     {
         $builder
             ->add('type')
-            ->add('description')
+            ->add('description',  TextareaType::class, [
+                'attr' => ['maxlength' => 200], // Set maximum length to 200 words
+            ])
         ;
     }
 
