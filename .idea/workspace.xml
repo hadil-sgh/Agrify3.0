@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43842fb-1499-42f6-b9e4-d7ec8d1d3b0d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ReclamationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReclamationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/TypedeReclamationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/TypedeReclamationType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +202,8 @@
       <workItem from="1699989826108" duration="1789000" />
       <workItem from="1699991647569" duration="4639000" />
       <workItem from="1699996381758" duration="4414000" />
-      <workItem from="1700049881281" duration="731000" />
+      <workItem from="1700049881281" duration="1070000" />
+      <workItem from="1700050997428" duration="432000" />
     </task>
     <servers />
   </component>
