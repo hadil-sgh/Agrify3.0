@@ -28,8 +28,9 @@ class User1Type extends AbstractType
             ])
             ->add('user_role', ChoiceType::class, [
                 'choices' => [
+                    'Chef' => 'Chef',
                     'Admin' => 'Admin',
-                    'User' => 'User',
+                    'Veterinaire' => 'Veterinaire',
                 ],
                 'placeholder' => 'Role',
                 'required' => true,

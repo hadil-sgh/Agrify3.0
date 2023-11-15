@@ -195,16 +195,20 @@ class User implements UserInterface,PasswordAuthenticatedUserInterface
      */
     public function getRoles(): array
     {
-        $roles = [$this->user_role];
-    
+        $roles = ['ROLE_' . $this->user_role];
+
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
-    
-        // Check if the user role is 'Admin' and add 'ROLE_Admin' accordingly
+
+        // Check if the user role is 'Admin', 'Chef', or 'Veterinaire' and add the corresponding role
         if ($this->user_role === 'Admin') {
             $roles[] = 'ROLE_ADMIN';
+        } elseif ($this->user_role === 'Chef') {
+            $roles[] = 'ROLE_CHEF';
+        } elseif ($this->user_role === 'Veterinaire') {
+            $roles[] = 'ROLE_VETERINAIRE';
         }
-    
+
         return array_unique($roles);
     }
 
