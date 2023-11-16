@@ -1,4 +1,42 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<div class="form-field">
+    {{ form_label(form.type, 'Type', {'label_attr': {'class': 'form-label'}}) }}
+    <p class="form-description">Identifiez le type de matériel.</p>
+    {{ form_widget(form.type, {'attr': {'class': 'form-input'}}) }}
+    {{ form_errors(form.type, {'attr': {'class': 'form-error'}}) }}
+</div>
+<div class="image-container">
+    <img src="{{ asset('images/truck.png') }}" alt="Image 1" class="image" width="50">
+    <img src="{{asset('/images/storage.png')}}" alt="Image 2" class="image" width="50">
+    <img src="{{ asset('/images/tool.png') }}" alt="Image 3" class="image" width="50">
+</div>
+<div class="form-field">
+    {{ form_label(form.etat, 'Etat', {'label_attr': {'class': 'form-label'}}) }}
+    <p class="form-description">Décrivez l'état du materiel(Ex: en panne, neuf..)</p>
+    {{ form_widget(form.etat, {'attr': {'class': 'form-input'}}) }}
+    {{ form_errors(form.etat, {'attr': {'class': 'form-error'}}) }}
+</div>
+
+<div class="form-field">
+    {{ form_label(form.capacite_masse, 'Capacité Masse', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.capacite_masse, {'attr': {'class': 'form-input'}}) }}
+    {{ form_errors(form.capacite_masse) }}
+</div>
+
+<div class="form-field">
+    {{ form_label(form.capacite_volume, 'Capacité Volume', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.capacite_volume, {'attr': {'class': 'form-input'}}) }}
+    {{ form_errors(form.capacite_volume, {'attr': {'class': 'form-error'}}) }}
+</div>
+
+<div class="form-field">
+    {{ form_label(form.prix, 'Prix', {'label_attr': {'class': 'form-label'}}) }}
+    <p class="form-description">Donner le prix en TND.</p>
+    {{ form_widget(form.prix, {'attr': {'class': 'form-input'}}) }}
+    {{ form_errors(form.prix, {'attr': {'class': 'form-error'}}) }}
+</div>
+
+<button type="submit" class="form-submit">Submit</button>
+
 {{ form_end(form) }}

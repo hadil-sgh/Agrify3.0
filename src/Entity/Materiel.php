@@ -5,6 +5,8 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\MaterielRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: MaterielRepository::class)]
 #[ApiResource]
@@ -15,19 +17,24 @@ class Materiel
     #[ORM\Column]
     private ?int $id = null;
 
+    #[assert\NotBlank(message:"Spécifiez le type du matériel!")]
     #[ORM\Column(length: 100)]
     private ?string $type = null;
 
     #[ORM\Column(length: 100)]
+    #[assert\NotBlank(message:"Spécifiez l'état' du matériel!")]
     private ?string $etat = null;
 
     #[ORM\Column(length: 100)]
+    #[assert\NotBlank(message:"Spécifiez la capacité du matériel!")]
     private ?int $capacite_masse = null;
 
     #[ORM\Column(length: 100, nullable: true)]
+    #[assert\NotBlank(message:"Spécifiez la capacité du matériel!")]
     private ?int $capacite_volume = null;
 
     #[ORM\Column]
+    #[assert\NotBlank(message:"Spécifiez le prix du matériel!")]
     private ?int $prix = null;
 
     public function getId(): ?int
