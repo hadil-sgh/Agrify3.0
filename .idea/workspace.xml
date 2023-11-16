@@ -5,16 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43842fb-1499-42f6-b9e4-d7ec8d1d3b0d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Agrify3.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Agrify3.0.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/download-removebg-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/download.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/download.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/reload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/search.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings-cogwheel-button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sign-out-alt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/storage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/tool.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/truck.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/maintenance/_delete_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/maintenance/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/maintenance/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/maintenance/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/maintenance/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/maintenance/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/materiel/_delete_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/materiel/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/materiel/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/materiel/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/materiel/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/materiel/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20231113182802.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20231114194617.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20231114194951.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20231115134551.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20231115205439.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Back/CSS/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Back/CSS/Menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MaterielController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MaterielController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/MaterielType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MaterielType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +207,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "gestion-materiel",
-    "last_opened_file_path": "C:/xampp/htdocs/Agrify3.0/src",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/xampp/htdocs/Agrify3.0/public/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -199,6 +219,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Agrify3.0\public\images" />
+      <recent name="C:\xampp\htdocs\Agrify3.0\templates" />
       <recent name="C:\xampp\htdocs\Agrify3.0\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -231,7 +253,8 @@
       <workItem from="1700051698488" duration="2667000" />
       <workItem from="1700073802421" duration="305000" />
       <workItem from="1700076450190" duration="13000" />
-      <workItem from="1700087978924" duration="2817000" />
+      <workItem from="1700087978924" duration="4422000" />
+      <workItem from="1700145881413" duration="7049000" />
     </task>
     <servers />
   </component>
