@@ -6,6 +6,7 @@ use App\Entity\Ingredient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType; 
 
 class Ingredient1Type extends AbstractType
 {
@@ -20,8 +21,16 @@ class Ingredient1Type extends AbstractType
             ->add('descriptionIngredient')
             ->add('typeIngredient')
             ->add('nutrimentPrincipalIngredient')
-            ->add('ration')
-            ->add('nutritionalValue')
+            ->add('ration', EntityType::class, [
+                'class' => 'App\Entity\Ration',
+                'choice_label' => 'especeRation',
+                'placeholder' => 'Select Ration',
+            ])
+            ->add('nutritionalValue', EntityType::class, [
+                'class' => 'App\Entity\NutritionalValue',
+                'choice_label' => 'id',
+                'placeholder' => 'Select Nutritional Value',
+            ])
         ;
     }
 

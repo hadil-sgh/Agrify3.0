@@ -6,6 +6,7 @@ use App\Entity\NutritionalNeeds;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType; 
 
 class NutritionalNeeds1Type extends AbstractType
 {
@@ -19,6 +20,11 @@ class NutritionalNeeds1Type extends AbstractType
             ->add('maximumWeightNeeds')
             ->add('productionGoalNeeds')
             ->add('nutritionalValueNeeds')
+            ->add('nutritionalValueNeeds', EntityType::class, [
+                'class' => 'App\Entity\NutritionalValueNeeds',
+                'choice_label' => 'id',
+                'placeholder' => 'Select Nutritional Value',
+            ])
         ;
     }
 

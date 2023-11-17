@@ -24,7 +24,8 @@
                 <th>P</th>
                 <th>Mg</th>
                 <th>K</th>
-                <th>actions</th>
+                <th>show</th>
+                <th>edit</th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +43,8 @@
                 <td>{{ nutritional_value_need.k }}</td>
                 <td>
                     <a href="{{ path('app_nutritional_value_needs_show', {'id': nutritional_value_need.id}) }}">show</a>
+                    </td>
+                    <td>
                     <a href="{{ path('app_nutritional_value_needs_edit', {'id': nutritional_value_need.id}) }}">edit</a>
                 </td>
             </tr>

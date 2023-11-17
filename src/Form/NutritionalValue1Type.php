@@ -6,6 +6,7 @@ use App\Entity\NutritionalValue;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType; 
 
 class NutritionalValue1Type extends AbstractType
 {
@@ -23,6 +24,11 @@ class NutritionalValue1Type extends AbstractType
             ->add('mg')
             ->add('k')
             ->add('ingredient')
+            ->add('ingredient', EntityType::class, [
+                'class' => 'App\Entity\Ingredient',
+                'choice_label' => 'nameIngredient',
+                'placeholder' => 'Select Ingredient',
+            ])
         ;
     }
 

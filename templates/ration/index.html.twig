@@ -21,7 +21,8 @@
                 <th>Poids Minimal</th>
                 <th>Poids Maximal</th>
                 <th>Bute Production</th>
-                <th>actions</th>
+                <th>show</th>
+                <th>edit</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,8 @@
                 <td>{{ ration.buteProductionRation }}</td>
                 <td>
                     <a href="{{ path('app_ration_show', {'id': ration.id}) }}">show</a>
+                    </td>
+                    <td>
                     <a href="{{ path('app_ration_edit', {'id': ration.id}) }}">edit</a>
                 </td>
             </tr>
