@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Author;
+
 use App\Entity\Reclamation;
 use App\Entity\TypedeReclamation;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -40,6 +40,7 @@ class ReclamationType extends AbstractType
                 ],
                 'expanded' => true,
                 'multiple' => false,
+                'label_attr' => ['class' => 'radio-group'],
             ])
             ->add('type_Rec',EntityType::class,[
              'class'=>TypedeReclamation::class,

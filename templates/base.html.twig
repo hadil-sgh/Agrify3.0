@@ -16,29 +16,29 @@
     {% endblock %}
 </head>
 <body>
-    <nav class="menu">
+<nav class="menu">
 
 
-                    <div class="classynav">
-                        <ul>
-                            <li><a href="{{path('app_AdminDashboard_index')}}">Home</a></li>
-                            <li><a href="{{path('app_user_index')}}">User</a></li>
-                            <li><a href="{{path('app_field_index')}}">Field</a></li>
-                            <li><a href="{{path('app_presence_index')}}">Presence</a></li>
-                            <li><a href="#">Material</a></li>
-                            <li><a href="#">Taches</a></li>
-                            <li><a href="{{path('app_reclamation_index')}}">Reclamation</a></li>
-                            <li><a href="{{path('app_logout')}}">Logout</a></li>
-                        </ul>
-                    </div>
-              
- </nav>
-
-            {% block body %}
-
-            {% endblock %}
-        </div>
+    <div class="classynav">
+        <ul>
+            <li><a href="{{path('app_AdminDashboard_index')}}">Home</a></li>
+            <li><a href="{{path('app_user_index')}}">User</a></li>
+            <li><a href="{{path('app_field_index')}}">Field</a></li>
+            <li><a href="{{path('app_presence_index')}}">Presence</a></li>
+            <li><a href="#">Material</a></li>
+            <li><a href="#">Taches</a></li>
+            <li><a href="{{path('app_reclamation_index')}}">Reclamation</a></li>
+            <li><a href="{{path('app_logout')}}">Logout</a></li>
+        </ul>
     </div>
+
+</nav>
+
+{% block body %}
+
+{% endblock %}
+</div>
+</div>
 </div>
 
 </body>
