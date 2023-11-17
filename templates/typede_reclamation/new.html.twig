@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypedeReclamation{% endblock %}
+
+{% block body %}
+    <h1>Create new TypedeReclamation</h1>
+
+    {{ include('typede_reclamation/_form.html.twig') }}
+
+    <a href="{{ path('app_typede_reclamation_index') }}">back to list</a>
+{% endblock %}

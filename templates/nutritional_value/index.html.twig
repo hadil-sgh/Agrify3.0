@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}NutritionalValue index{% endblock %}
 {% block section %}{% endblock %}
@@ -14,7 +14,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Pb</th>
                 <th>Fb</th>
                 <th>Adf</th>
@@ -31,7 +30,6 @@
         <tbody>
         {% for nutritional_value in nutritional_values %}
             <tr>
-                <td>{{ nutritional_value.id }}</td>
                 <td>{{ nutritional_value.pb }}</td>
                 <td>{{ nutritional_value.fb }}</td>
                 <td>{{ nutritional_value.adf }}</td>
@@ -55,5 +53,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_nutritional_value_new') }}">Create new</a>
+    <a href="{{ path('app_nutritional_value_new') }}" class="btn alazea-btn active">Create new</a>
 {% endblock %}

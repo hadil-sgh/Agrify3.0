@@ -2,6 +2,7 @@
 
 namespace App\Security;
 
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,12 +45,20 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
-            return new RedirectResponse($targetPath);
+        $user = $token->getUser();
+
+        // Check the user's role and redirect accordingly
+        if ($user instanceof User) {
+            if (in_array('ROLE_ADMIN', $user->getRoles(), true)) {
+                return new RedirectResponse($this->urlGenerator->generate('app_AdminDashboard_index'));
+            } elseif (in_array('ROLE_CHEF', $user->getRoles(), true)) {
+                return new RedirectResponse($this->urlGenerator->generate('app_ChefDashboard_index'));
+            } elseif (in_array('ROLE_VETERINAIRE', $user->getRoles(), true)) {
+                return new RedirectResponse($this->urlGenerator->generate('app_VeterinaireDashboard_index'));
+            }
         }
 
-        // For example:
-        return new RedirectResponse($this->urlGenerator->generate('app_user_index'));
+        return new RedirectResponse($this->urlGenerator->generate('app_default_route'));
     }
 
     protected function getLoginUrl(Request $request): string

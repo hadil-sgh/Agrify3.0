@@ -1,11 +1,18 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}New Animal{% endblock %}
-
+{% block section %}{% endblock %}
+{% block ingredient %}{% endblock %}
+{% block animalbatch %}{% endblock %}
+{% block newBorn %}{% endblock %}
+{% block nutritionalneeds %}{% endblock %}
+{% block ration %}{% endblock %}
+{% block delete %}{% endblock %}
 {% block body %}
     <h1>Create new Animal</h1>
 
     {{ include('animal/_form.html.twig') }}
 
-    <a href="{{ path('app_animal_index') }}">back to list</a>
+    <a href="{{ path('app_animal_index')  }}" class="btn alazea-btn active">back to list</a>
+    
 {% endblock %}

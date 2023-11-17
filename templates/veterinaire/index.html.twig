@@ -1,0 +1,42 @@
+{% extends 'veterinaire.html.twig' %}
+
+{% block title %}Veterinaire Dashboard{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    
+    
+    <style>
+        .home-container {
+            padding: 20px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%; /* Set the height to 100% of the viewport height for vertical centering */
+        }
+
+        .home-container h3 {
+            margin-top:50px;
+            margin-bottom: 10px;
+            font-size:80px;
+            color:#2E5D42
+        }
+        .home-container h1 {
+            margin-top:50px;
+            margin-bottom: 10px;
+            font-size:25px;
+            color:#000
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="home-container">
+   
+        <img src="{{ asset('logo.png')}}" alt="Agrify Logo"></=>
+        <h3>{% if user %}Hello {{ user.getUserNom() }}{% else %}Hello Guest{% endif %} Welcome To Agrify</h3>
+        <h1>Bringing Farms into the Digital Age</h1>
+    </div>
+{% endblock %}

@@ -1,85 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Agrify!{% endblock %}</title>
 
-
-
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-       
-       
-        {% block stylesheets %}
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {% block stylesheets %}
         <link rel="preconnect" href="{{asset('https://fonts.googleapis.com')}}">
-        
         <link rel="preconnect" href="{{asset('https://fonts.gstatic.com')}}" crossorigin>
-        
         <link href="{{asset('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap')}}" rel="stylesheet">
-
-        <link href="{{asset('web/style.css')}}" rel="stylesheet">
-
-        
-           {% endblock %}
-
-
-
-
-        {% block javascripts %}
-        {% endblock %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+        <link href="{{asset('Back/CSS/Menu.css')}}" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+    <nav class="menu">
 
 
-    </head>
-    <body>
+                    <div class="classynav">
+                        <ul>
+                            <li><a href="{{path('app_AdminDashboard_index')}}">Home</a></li>
+                            <li><a href="{{path('app_user_index')}}">User</a></li>
+                            <li><a href="{{path('app_field_index')}}">Field</a></li>
+                            <li><a href="{{path('app_presence_index')}}">Presence</a></li>
+                            <li><a href="#">Material</a></li>
+                            <li><a href="#">Taches</a></li>
+                            <li><a href="{{path('app_reclamation_index')}}">Reclamation</a></li>
+                            <li><a href="{{path('app_logout')}}">Logout</a></li>
+                        </ul>
+                    </div>
+              
+ </nav>
 
-        <!-- ***** Navbar Area ***** -->
-        <div class="alazea-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+            {% block body %}
 
-                        <!-- Nav Brand -->
-                        <link rel="preconnect" href="{{asset('logo.png')}}" alt="">
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Navbar Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="{{path('app_AdminDashboard_index')}}">Home</a></li>
-                                    <li><a href="{{path('app_user_index')}}">User</a></li>
-                                    <li><a href="{{path('app_field_index')}}">Field</a></li>
-                                    <li><a href="{{path('app_presence_index')}}">Presence</a></li>
-                                    <li><a href="#">Taches</a></li>
-                                    <li><a href="#l">Reclamation</a></li>
-                                    <li><a href="#">Logout</a></li>
-                                </ul>
-
-                            </div>
-                            <!-- Navbar End -->
-                        </div>
-                    </nav>
-
-                </div>
-            </div>
+            {% endblock %}
         </div>
-    </header>
-    <!-- ##### Header Area End ##### -->      
+    </div>
+</div>
 
-      {% block body %}
-        
-      {% endblock %}
-
-
-
-
-        
-    </body>
+</body>
 </html>

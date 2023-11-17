@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Presence;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,12 @@ class PresenceType extends AbstractType
         $builder
             ->add('id_p')
             ->add('date')
-            ->add('presenceState')
+            ->add('presenceState', ChoiceType::class, [
+                'choices' => [
+                    'Absent' => 'Absent',
+                    'Present' => 'Present',
+                ],
+            ])
         ;
     }
 

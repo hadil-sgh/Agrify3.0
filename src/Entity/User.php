@@ -4,16 +4,20 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
+
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[UniqueEntity('username', message: 'This username is already taken.')]
+
 class User implements UserInterface,PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: "AUTO")] // Specify the generation strategy
+    #[ORM\GeneratedValue(strategy: "IDENTITY")]
     #[ORM\Column(type: "integer")]
     private ?int $user_id;
     
@@ -39,9 +43,6 @@ class User implements UserInterface,PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $user_role = null;
 
-
-    
-
     #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $user_genre = null;
@@ -51,13 +52,16 @@ class User implements UserInterface,PasswordAuthenticatedUserInterface
     private ?int $user_nbrabscence = null;
 
     #[Assert\NotBlank]
-    #[ORM\Column(length: 255)]
-    private ?string $username = null;
+    #[ORM\Column(length: 255, unique: true)] // unique constraint on username
+     private ?string $username = null;
+
+
 
     #[Assert\NotBlank]
     #[Assert\Length(min: 8,minMessage: 'Your password must be at least {{ limit }} characters long.')]
-        #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255)]
     private ?string $password = null;
+
 
     public function getUserId(): ?int
     {
@@ -191,19 +195,44 @@ class User implements UserInterface,PasswordAuthenticatedUserInterface
      */
     public function getRoles(): array
     {
-        $roles = [$this->user_role];
-    
+        $roles = ['ROLE_' . $this->user_role];
+
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
-    
-        // Check if the user role is 'Admin' and add 'ROLE_Admin' accordingly
+
+        // Check if the user role is 'Admin', 'Chef', or 'Veterinaire' and add the corresponding role
         if ($this->user_role === 'Admin') {
             $roles[] = 'ROLE_ADMIN';
+        } elseif ($this->user_role === 'Chef') {
+            $roles[] = 'ROLE_CHEF';
+        } elseif ($this->user_role === 'Veterinaire') {
+            $roles[] = 'ROLE_VETERINAIRE';
         }
-    
+
         return array_unique($roles);
     }
 
+
+
+
+    
+    /*
+    public function getRoles(): array
+{
+    $roles = ['ROLE_' . $this->user_role];
+
+    // guarantee every user at least has ROLE_USER
+    $roles[] = 'ROLE_USER';
+
+    // Check if the user role is 'Admin' and add 'ROLE_ADMIN' accordingly
+    if ($this->user_role === 'Admin') {
+        $roles[] = 'ROLE_ADMIN';
+    }
+
+    return array_unique($roles);
+}
+
+    */
 
 
 }

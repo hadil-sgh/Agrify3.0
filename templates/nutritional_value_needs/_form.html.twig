@@ -1,4 +1,70 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{# animal/_form.html.twig #}
+
+<form action="{{ path('app_animal_edit', {'id': animal.id}) }}" method="post">
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.pb, { 'attr': {'class': 'form-control', 'placeholder': 'Protéine brute'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.fb, { 'attr': {'class': 'form-control', 'placeholder': 'Fibre brute'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.adf, { 'attr': {'class': 'form-control', 'placeholder': 'ADF'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.ndf, { 'attr': {'class': 'form-control', 'placeholder': 'NDF'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.ms, { 'attr': {'class': 'form-control', 'placeholder': 'MS'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.eb, { 'attr': {'class': 'form-control', 'placeholder': 'EB'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.ca, { 'attr': {'class': 'form-control', 'placeholder': 'Ca'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.p, { 'attr': {'class': 'form-control', 'placeholder': 'P'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.mg, { 'attr': {'class': 'form-control', 'placeholder': 'Mg'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.k, { 'attr': {'class': 'form-control', 'placeholder': 'K'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.ingredient, { 'attr': {'class': 'form-control', 'placeholder': 'Ingrédient associé'} }) }}
+            </div>
+        </div>
+        <!-- Add more form fields as needed -->
+
+        <div class="col-12">
+            <button class="btn alazea-btn mt-15">{{ button_label|default('Update') }}</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+</form>

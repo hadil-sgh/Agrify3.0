@@ -1,4 +1,49 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{# animal/_form.html.twig #}
+
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.speciesNeeds, { 'attr': {'class': 'form-control', 'placeholder': 'Espèce des besoins nutritionnels'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.productionStatusNeeds, { 'attr': {'class': 'form-control', 'placeholder': 'Statut de production des besoins nutritionnels'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.sexNeeds, { 'attr': {'class': 'form-control', 'placeholder': 'Sexe des besoins nutritionnels'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.minimumWeightNeeds, { 'attr': {'class': 'form-control', 'placeholder': 'Poids minimum des besoins nutritionnels'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.maximumWeightNeeds, { 'attr': {'class': 'form-control', 'placeholder': 'Poids maximum des besoins nutritionnels'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.productionGoalNeeds, { 'attr': {'class': 'form-control', 'placeholder': 'Objectif de production des besoins nutritionnels'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.nutritionalValueNeeds, { 'attr': {'class': 'form-control', 'placeholder': 'Valeur nutritionnelle des besoins'} }) }}
+            </div>
+        </div>
+        <!-- Add more form fields as needed -->
+
+        <div class="col-12">
+            <button class="btn alazea-btn mt-15">{{ button_label|default('Update') }}</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+</form>

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block section %}{% endblock %}
 {% block title %}Ration index{% endblock %}
@@ -15,20 +15,18 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>EspeceRation</th>
-                <th>StatutRation</th>
-                <th>SexeRation</th>
-                <th>PoidsMinRation</th>
-                <th>PoidsMaxRation</th>
-                <th>ButeProductionRation</th>
+                <th>Espece</th>
+                <th>Statut</th>
+                <th>Sexe</th>
+                <th>Poids Minimal</th>
+                <th>Poids Maximal</th>
+                <th>Bute Production</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for ration in rations %}
             <tr>
-                <td>{{ ration.id }}</td>
                 <td>{{ ration.especeRation }}</td>
                 <td>{{ ration.statutRation }}</td>
                 <td>{{ ration.sexeRation }}</td>
@@ -48,5 +46,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_ration_new') }}">Create new</a>
+    <a href="{{ path('app_ration_new') }}" class="btn alazea-btn active">Create new</a>
 {% endblock %}

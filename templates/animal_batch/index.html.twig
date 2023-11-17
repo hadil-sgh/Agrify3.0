@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}AnimalBatch index{% endblock %}
 {% block section %}{% endblock %}
@@ -8,25 +8,25 @@
 {% block nutritionalneeds %}{% endblock %}
 {% block ration %}{% endblock %}
 {% block body %}
-    <h1>AnimalBatch index</h1>
+    <h1>Lot d'animaux</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>EspeceAnimalBatch</th>
-                <th>SexeRation</th>
-                <th>PoidsmaxRation</th>
-                <th>PoidsminRation</th>
-                <th>AgeAnimalBatch</th>
-                <th>NombreAnimalBatch</th>
-                <th>actions</th>
+                <th>Espece</th>
+                <th>Sexe</th>
+                <th>Poids maximal</th>
+                <th>Poids minimal</th>
+                <th>Age</th>
+                <th>Nombre</th> 
+                <th>show</th>
+                <th>edit</th>
+            
             </tr>
         </thead>
         <tbody>
         {% for animal_batch in animal_batches %}
             <tr>
-                <td>{{ animal_batch.id }}</td>
                 <td>{{ animal_batch.especeAnimalBatch }}</td>
                 <td>{{ animal_batch.sexeRation }}</td>
                 <td>{{ animal_batch.poidsmaxRation }}</td>
@@ -35,6 +35,8 @@
                 <td>{{ animal_batch.nombreAnimalBatch }}</td>
                 <td>
                     <a href="{{ path('app_animal_batch_show', {'id': animal_batch.id}) }}">show</a>
+                    </td>
+                    <td>
                     <a href="{{ path('app_animal_batch_edit', {'id': animal_batch.id}) }}">edit</a>
                 </td>
             </tr>
@@ -46,5 +48,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_animal_batch_new') }}">Create new</a>
+    <a href="{{ path('app_animal_batch_new') }}" class="btn alazea-btn active">Create new</a>
 {% endblock %}

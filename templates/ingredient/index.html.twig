@@ -13,22 +13,21 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>NameIngredient</th>
-                <th>ItemQuantityIngredient</th>
-                <th>UnitIngredient</th>
-                <th>CostIngredient</th>
-                <th>LoadedByIngredient</th>
-                <th>DescriptionIngredient</th>
-                <th>TypeIngredient</th>
-                <th>NutrimentPrincipalIngredient</th>
-                <th>actions</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+                <th>Cost</th>
+                <th>Loaded By</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Nutriment Principal</th>
+                <th>show</th>
+                <th>edit</th>
             </tr>
         </thead>
         <tbody>
         {% for ingredient in ingredients %}
             <tr>
-                <td>{{ ingredient.id }}</td>
                 <td>{{ ingredient.nameIngredient }}</td>
                 <td>{{ ingredient.itemQuantityIngredient }}</td>
                 <td>{{ ingredient.unitIngredient }}</td>
@@ -39,6 +38,8 @@
                 <td>{{ ingredient.nutrimentPrincipalIngredient ? ingredient.nutrimentPrincipalIngredient|join(', ') : '' }}</td>
                 <td>
                     <a href="{{ path('app_ingredient_show', {'id': ingredient.id}) }}">show</a>
+                    </td>
+                    <td>
                     <a href="{{ path('app_ingredient_edit', {'id': ingredient.id}) }}">edit</a>
                 </td>
             </tr>
@@ -50,5 +51,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_ingredient_new') }}">Create new</a>
+    <a href="{{ path('app_ingredient_new') }}" class="btn alazea-btn active">Create new</a>
 {% endblock %}

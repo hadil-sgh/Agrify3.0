@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/home')]
+#[Route('/AdminDashboard')]
 class AdminDahboardController extends AbstractController
 {
     #[Route('/', name: 'app_AdminDashboard_index', methods: ['GET'])]
@@ -14,7 +14,7 @@ class AdminDahboardController extends AbstractController
     {
         $user = $this->getUser();
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('AdminDahboard/index.html.twig', [
             'user' => $user,
         ]);
     }

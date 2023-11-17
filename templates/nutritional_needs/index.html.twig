@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}NutritionalNeeds index{% endblock %}
 {% block section %}{% endblock %}
@@ -13,20 +13,19 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>SpeciesNeeds</th>
-                <th>ProductionStatusNeeds</th>
-                <th>SexNeeds</th>
-                <th>MinimumWeightNeeds</th>
-                <th>MaximumWeightNeeds</th>
-                <th>ProductionGoalNeeds</th>
-                <th>actions</th>
+                <th>Species</th>
+                <th>Production Status</th>
+                <th>Sex</th>
+                <th>Minimum Weight</th>
+                <th>Maximum Weight</th>
+                <th>Production Goal</th>
+                <th>show</th>
+                <th>edit</th>
             </tr>
         </thead>
         <tbody>
         {% for nutritional_need in nutritional_needs %}
             <tr>
-                <td>{{ nutritional_need.id }}</td>
                 <td>{{ nutritional_need.speciesNeeds }}</td>
                 <td>{{ nutritional_need.productionStatusNeeds }}</td>
                 <td>{{ nutritional_need.sexNeeds }}</td>
@@ -35,6 +34,8 @@
                 <td>{{ nutritional_need.productionGoalNeeds }}</td>
                 <td>
                     <a href="{{ path('app_nutritional_needs_show', {'id': nutritional_need.id}) }}">show</a>
+                    </td>
+                    <td>
                     <a href="{{ path('app_nutritional_needs_edit', {'id': nutritional_need.id}) }}">edit</a>
                 </td>
             </tr>
@@ -46,5 +47,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_nutritional_needs_new') }}">Create new</a>
+    <a href="{{ path('app_nutritional_needs_new') }}" class="btn alazea-btn active">Create new</a>
 {% endblock %}
