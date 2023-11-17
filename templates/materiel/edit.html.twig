@@ -3,13 +3,23 @@
 {% block title %}Edit Materiel{% endblock %}
 
 {% block body %}
-    <h1>Edit Materiel</h1>
+    {{ include('materiel/header.html.twig') }}
+    <div style="background: url(https://img.freepik.com/free-photo/sunset-rural-farm-growth-abounds-generated-by-ai_24640-80532.jpg?w=826&t=st=1700163182~exp=1700163782~hmac=fb8f477aa52dca8055d3df54be5e33582c93788a8595e75d075e360ce9e6ffca)" class="main-container ">
 
-    {{ include('materiel/_form.html.twig', {'button_label': 'Update'}) }}
+        <div class="form-container">
+            <h1>Edit Materiel</h1>
 
-    <a href="{{ path('app_materiel_index') }}">back to list</a>
+            {{ include('materiel/_form.html.twig', {'button_label': 'Update'}) }}
+            {{ include('materiel/_delete_form.html.twig') }}
+            <a href="{{ path('app_materiel_index') }}" class="back-link">Back to List</a>
 
-    {{ include('materiel/_delete_form.html.twig') }}
+
+            </div>
+        </div>
+    </div>
+
+
+    {{ include('materiel/footer.html.twig') }}
 
 
 {% endblock %}

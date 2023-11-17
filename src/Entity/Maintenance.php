@@ -16,14 +16,11 @@ class Maintenance
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
-    private ?string $materielType = null;
-
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateDebut = null;
+    private ?\DateTimeInterface $date_debut = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateFin = null;
+    #[ORM\Column]
+    private ?int $durée = null;
 
     #[ORM\Column(length: 200, nullable: true)]
     private ?string $description = null;
@@ -33,38 +30,26 @@ class Maintenance
         return $this->id;
     }
 
-    public function getMaterielType(): ?string
-    {
-        return $this->materielType;
-    }
-
-    public function setMaterielType(string $materielType): static
-    {
-        $this->materielType = $materielType;
-
-        return $this;
-    }
-
     public function getDateDebut(): ?\DateTimeInterface
     {
-        return $this->dateDebut;
+        return $this->date_debut;
     }
 
-    public function setDateDebut(\DateTimeInterface $dateDebut): static
+    public function setDateDebut(\DateTimeInterface $date_debut): static
     {
-        $this->dateDebut = $dateDebut;
+        $this->date_debut = $date_debut;
 
         return $this;
     }
 
-    public function getDateFin(): ?\DateTimeInterface
+    public function getDurée(): ?int
     {
-        return $this->dateFin;
+        return $this->durée;
     }
 
-    public function setDateFin(\DateTimeInterface $dateFin): static
+    public function setDurée(int $durée): static
     {
-        $this->dateFin = $dateFin;
+        $this->durée = $durée;
 
         return $this;
     }

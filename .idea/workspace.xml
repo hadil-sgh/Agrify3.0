@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43842fb-1499-42f6-b9e4-d7ec8d1d3b0d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Agrify3.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Agrify3.0.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Back/CSS/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Back/CSS/Menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Materiel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Materiel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/materiel/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20231116010103.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MaintenanceController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Maintenance.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/MaintenanceType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MaintenanceRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/materiel/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/materiel/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -231,7 +233,7 @@
       <workItem from="1700073802421" duration="305000" />
       <workItem from="1700076450190" duration="13000" />
       <workItem from="1700087978924" duration="4422000" />
-      <workItem from="1700145881413" duration="22427000" />
+      <workItem from="1700145881413" duration="27010000" />
     </task>
     <servers />
   </component>

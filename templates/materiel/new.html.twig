@@ -2,11 +2,6 @@
 
 {% block title %}Create new Materiel{% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('/Back/JS/script.js') }}"></script>
-{% endblock %}
-
 {% block body %}
 
     {{ include('materiel/header.html.twig') }}
@@ -16,9 +11,7 @@
         <div class="form-container">
             <p>Ajout d'un matériel</p>
 
-            <form method="post" action="{{ path('app_materiel_new') }}" class="materiel-form">
                 {{ include('materiel/_form.html.twig', {'button_label': 'Submit'}) }}
-            </form>
 
             <a href="{{ path('app_materiel_index') }}" class="back-link">Back to List</a>
 
@@ -26,12 +19,7 @@
     </div>
     </div>
 
-
     {{ include('materiel/footer.html.twig') }}
-
-
-
-
     </html>
 {% endblock %}
 
