@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43842fb-1499-42f6-b9e4-d7ec8d1d3b0d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/statss.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20231116010103.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MaintenanceController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Maintenance.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/MaintenanceType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/MaintenanceRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/materiel/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/materiel/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Back/CSS/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Back/CSS/Menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MaterielController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MaterielController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Maintenance.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Maintenance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Materiel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Materiel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MaterielRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MaterielRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/materiel/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/materiel/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/materiel/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/materiel/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/materiel/show_all.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,6 +208,7 @@
       <recent name="C:\xampp\htdocs\Agrify3.0\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Agrify3.0\public\images" />
       <recent name="C:\xampp\htdocs\Agrify3.0\src\Repository" />
     </key>
   </component>
@@ -233,7 +239,7 @@
       <workItem from="1700073802421" duration="305000" />
       <workItem from="1700076450190" duration="13000" />
       <workItem from="1700087978924" duration="4422000" />
-      <workItem from="1700145881413" duration="27010000" />
+      <workItem from="1700145881413" duration="35162000" />
     </task>
     <servers />
   </component>

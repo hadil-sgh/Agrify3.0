@@ -3,7 +3,7 @@ body {
       padding: 0;
       background-color: #F2F2F2;
 
-  }
+}
 
   nav.menu {
       background-color: #2E5D42;
@@ -55,6 +55,7 @@ body {
 
 .main-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Align to the left */
     min-height: 100vh;
@@ -76,6 +77,18 @@ body {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+
+.homepage-container {
+    max-width: 1100px;
+    width: 100%;
+    padding: 50px;
+    opacity: 0.8;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 
@@ -304,4 +317,217 @@ body {
     display: block;
     margin: 0 auto; /* Centre l'image horizontalement */
     margin-bottom: 10px; /* Ajoute un espace entre l'image et le titre */
+}
+/* Styles for the Materiel box */
+.materiel-box {
+    background-color: #9dd386;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 500px;
+    border: 2px solid #000000; /* Border color (you can change the color) */
+    border-radius: 10px; /* Border radius for rounded corners */
+    padding: 10px; /* Optional: Add padding for better spacing */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    opacity: 75%;
+
+}
+
+.materiel-details table {
+    width: 100%;
+}
+
+.materiel-details th,
+.materiel-details td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Styles for the action boxes */
+.action-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.action-box img {
+    width: 30px; /* Adjust the size of the icon */
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Styles for actions */
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.actions a:hover {
+    color: #1f73b7;
+}
+
+.actions {
+    margin-top:-40%;
+    margin-left:2%;
+    position: absolute;
+}
+
+.actions a {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.actions a:hover {
+    color: #1f73b7;
+}
+
+a{
+    color:#000000;
+}
+
+.text-div {
+    background-color: #b0aaaa; /* Center background color */
+    padding: 80px;
+    border-radius: 10px;
+    text-align: center;
+    background: radial-gradient(circle at 50% 30%, rgba(169, 169, 169, 1), rgba(169, 169, 169, 0)); /* Radial gradient */
+    margin: 10%;
+}
+
+.large-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.small-text {
+    font-size: 14px;
+    color: #777; /* Gray color for smaller text */
+}
+
+.icon {
+    width: 50px; /* Adjust icon size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Add these styles to your existing CSS file or create a new one */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-title {
+    color: #2E5D42;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table th {
+    background-color: #2E5D42;
+    color: #fff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.action-links a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.action-links a.show-link {
+    background-color: #3498db;
+}
+
+.action-links a.edit-link {
+    background-color: #e67e22;
+}
+
+.action-links a:hover {
+    opacity: 0.8;
+}
+
+.btn-create-new {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #2E5D42;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-create-new:hover {
+    background-color: #1F4C34;
+}
+
+.satistics-container {
+    margin-top: 20px;
+    max-width: 400px; /* Adjust the max-width as needed */
+    width: 100%;
+    margin-bottom: 20px; /* Add margin between statistics and homepage containers */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    opacity: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.satistics-container svg {
+    display: block;
+    margin: 0 auto; /* Center the SVG horizontally */
+}
+
+.satistics-container line {
+    stroke: black;
+    stroke-width: 2;
+}
+
+.satistics-container rect {
+    fill: blue; /* Adjust the fill color as needed */
+}
+
+.satistics-container text {
+    fill: black;
+    text-anchor: middle;
+    font-size: 14px; /* Adjust the font size as needed */
 }

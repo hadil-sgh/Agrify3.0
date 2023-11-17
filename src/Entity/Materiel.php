@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\MaterielRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -36,6 +38,14 @@ class Materiel
     #[ORM\Column]
     #[assert\NotBlank(message:"Spécifiez le prix du matériel!")]
     private ?int $prix = null;
+
+    #[ORM\OneToMany(mappedBy: 'type_materiel', targetEntity: Maintenance::class)]
+    private Collection $maintenance;
+
+    public function __construct()
+    {
+        $this->maintenance = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -98,6 +108,36 @@ class Materiel
     public function setPrix(int $prix): static
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Maintenance>
+     */
+    public function getMaintenance(): Collection
+    {
+        return $this->maintenance;
+    }
+
+    public function addMaintenance(Maintenance $maintenance): static
+    {
+        if (!$this->maintenance->contains($maintenance)) {
+            $this->maintenance->add($maintenance);
+            $maintenance->setTypeMateriel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMaintenance(Maintenance $maintenance): static
+    {
+        if ($this->maintenance->removeElement($maintenance)) {
+            // set the owning side to null (unless already changed)
+            if ($maintenance->getTypeMateriel() === $this) {
+                $maintenance->setTypeMateriel(null);
+            }
+        }
 
         return $this;
     }

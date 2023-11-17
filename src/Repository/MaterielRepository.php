@@ -20,6 +20,23 @@ class MaterielRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Materiel::class);
     }
+    public function getAveragePrice(): float
+    {
+        $queryBuilder = $this->createQueryBuilder('m');
+        $queryBuilder->select('AVG(m.prix) as averagePrice');
+
+        $result = $queryBuilder->getQuery()->getSingleScalarResult();
+
+        return $result ?: 0.0;
+    }
+
+    public function count(array $criteria = []): int
+    {
+        return $this->createQueryBuilder('m')
+            ->select('COUNT(m.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 
 //    /**
 //     * @return Materiel[] Returns an array of Materiel objects

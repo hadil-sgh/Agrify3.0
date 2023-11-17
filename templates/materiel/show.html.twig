@@ -2,41 +2,70 @@
 
 {% block title %}Materiel{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="assets/css/style.css">
+{% endblock %}
+
+
 {% block body %}
-    <h1>Materiel</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ materiel.id }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ materiel.type }}</td>
-            </tr>
-            <tr>
-                <th>Etat</th>
-                <td>{{ materiel.etat }}</td>
-            </tr>
-            <tr>
-                <th>Capacite_masse</th>
-                <td>{{ materiel.capaciteMasse }}</td>
-            </tr>
-            <tr>
-                <th>Capacite_volume</th>
-                <td>{{ materiel.capaciteVolume }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ materiel.prix }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div style="background: url(https://static.vecteezy.com/system/resources/previews/003/127/961/non_2x/abstract-template-background-white-and-gray-squares-free-vector.jpg)" class="main-container ">
+    <div class="actions">
+        <div class="action-box">
+            <img src="{{ asset('images/reload.png') }}" alt="Icon">
+            <a href="{{ path('app_materiel_index') }}">Back to List</a>
+        </div>
 
-    <a href="{{ path('app_materiel_index') }}">back to list</a>
+        <div class="action-box">
+            <img src="{{ asset('images/edit.png') }}" alt="Icon">
+            <a href="{{ path('app_materiel_edit', {'id': materiel.id}) }}">Edit</a>
+        </div>
+    </div>
+<div class="materiel-box" >
 
-    <a href="{{ path('app_materiel_edit', {'id': materiel.id}) }}">edit</a>
+        <h1>Materiel N°{{ materiel.id }}:</h1>
+
+        <div class="materiel-details">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ materiel.id }}</td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td>{{ materiel.type }}</td>
+                </tr>
+                <tr>
+                    <th>Etat</th>
+                    <td>{{ materiel.etat }}</td>
+                </tr>
+                <tr>
+                    <th>Capacite_masse</th>
+                    <td>{{ materiel.capaciteMasse }}</td>
+                </tr>
+                <tr>
+                    <th>Capacite_volume</th>
+                    <td>{{ materiel.capaciteVolume }}</td>
+                </tr>
+                <tr>
+                    <th>Prix</th>
+                    <td>{{ materiel.prix }}</td>
+                </tr>
+                <!-- Add more details as needed -->
+                </tbody>
+            </table>
+
+        </div>
+    </div>
 
     {{ include('materiel/_delete_form.html.twig') }}
+    <div class="text-div">
+        <img src="{{ asset('images/logo.png') }}" alt="Icon" class="icon">
+        <div class="large-text">Agrify</div>
+        <div class="small-text">Pour une gestion de ferme plus facile.</div>
+    </div>
+</div>
+    {{ include('materiel/footer.html.twig') }}
 {% endblock %}

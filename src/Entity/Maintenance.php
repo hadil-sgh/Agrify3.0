@@ -25,6 +25,9 @@ class Maintenance
     #[ORM\Column(length: 200, nullable: true)]
     private ?string $description = null;
 
+    #[ORM\ManyToOne(inversedBy: 'maintenance')]
+    private ?Materiel $type_materiel = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,6 +65,18 @@ class Maintenance
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getTypeMateriel(): ?Materiel
+    {
+        return $this->type_materiel;
+    }
+
+    public function setTypeMateriel(?Materiel $type_materiel): static
+    {
+        $this->type_materiel = $type_materiel;
 
         return $this;
     }

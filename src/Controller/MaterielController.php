@@ -17,8 +17,13 @@ class MaterielController extends AbstractController
     #[Route('/', name: 'app_materiel_index', methods: ['GET'])]
     public function index(MaterielRepository $materielRepository): Response
     {
+        $materielCount = $materielRepository->count([]);
+        $averagePrice = $materielRepository->getAveragePrice();
+
         return $this->render('materiel/index.html.twig', [
             'materiels' => $materielRepository->findAll(),
+            'materielCount' => $materielCount,
+            'averagePrice' => $averagePrice,
         ]);
     }
 
@@ -77,15 +82,5 @@ class MaterielController extends AbstractController
         }
 
         return $this->redirectToRoute('app_materiel_index', [], Response::HTTP_SEE_OTHER);
-    }
-
-    #[Route('/show_all', name: 'app_materiel_show_all', methods: ['GET'])]
-    public function showAll(MaterielRepository $materielRepository): Response
-    {
-        $materiels = $materielRepository->findAll();
-
-        return $this->render('materiel/show_all.html.twig', [
-            'materiels' => $materiels,
-        ]);
     }
 }
