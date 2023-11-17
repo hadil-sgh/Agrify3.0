@@ -21,6 +21,8 @@
                 <th>Capacite_volume</th>
                 <th>Prix</th>
                 <th>Actions</th>
+                <th>Maintenance</th>
+
             </tr>
             </thead>
             <tbody>
@@ -32,9 +34,18 @@
                     <td>{{ materiel.capaciteMasse }}</td>
                     <td>{{ materiel.capaciteVolume }}</td>
                     <td>{{ materiel.prix }}</td>
+
                     <td class="action-links">
                         <a href="{{ path('app_materiel_show', {'id': materiel.id}) }}" class="show-link">Show</a>
                         <a href="{{ path('app_materiel_edit', {'id': materiel.id}) }}" class="edit-link">Edit</a>
+                    </td>
+                    <td>
+                        {% if materiel.maintenance.first is not null and materiel.maintenance.first is not same as(false) %}
+                            {{ materiel.maintenance.first.date_debut is not null ? materiel.maintenance.first.date_debut|date('Y-m-d') : 'No date available' }}
+                        {% else %}
+                            Non
+                        {% endif %}
+
                     </td>
                 </tr>
             {% else %}

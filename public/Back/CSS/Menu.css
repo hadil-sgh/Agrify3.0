@@ -66,6 +66,19 @@ body {
     padding: 50px;
 }
 
+.show-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between; /* Align to the left */
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-size: cover !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 50px;
+}
+
 .form-container {
     max-width: 600px;
     width: 100%;
