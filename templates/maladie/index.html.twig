@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'Veterinaire.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
     <style>
@@ -74,40 +74,44 @@
         }
     </style>
 {% endblock %}
-
-{% block title %}TypedeReclamation index{% endblock %}
+{% block title %}Maladie index{% endblock %}
 
 {% block body %}
-    <h1>TypedeReclamation index</h1>
+    <h1>Maladie index</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Type</th>
-                <th>Description</th>
+                <th>AnimalId</th>
+                <th>Medicament</th>
+                <th>TypeDeTraitement</th>
+                <th>Dosage</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for typede_reclamation in typede_reclamations %}
+        {% for maladie in maladies %}
             <tr>
-                <td>{{ typede_reclamation.id }}</td>
-                <td>{{ typede_reclamation.type }}</td>
-                <td>{{ typede_reclamation.description }}</td>
+                <td>{{ maladie.id }}</td>
+                <td>{{ maladie.animalId }}</td>
+                <td>{{ maladie.medicament }}</td>
+                <td>{{ maladie.typeDeTraitement }}</td>
+                <td>{{ maladie.dosage }}</td>
                 <td>
-                    <a href="{{ path('app_typede_reclamation_show', {'id': typede_reclamation.id}) }}">show</a>
-                    <a href="{{ path('app_typede_reclamation_edit', {'id': typede_reclamation.id}) }}">edit</a>
+                    <a href="{{ path('app_maladie_show', {'id': maladie.id}) }}">show</a>
+                    <a href="{{ path('app_maladie_edit', {'id': maladie.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 <div class="button">
-    <a href="{{ path('app_typede_reclamation_new') }}" class="create-new">Create new</a>
+    <a href="{{ path('app_maladie_new') }}" class="create-new">Create new</a>
+    <a href="" class="create-new">Historique Animal</a>
 </div>
 {% endblock %}

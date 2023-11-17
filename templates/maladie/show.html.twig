@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'Veterinaire.html.twig' %}
 
-{% block title %}Reclamation{% endblock %}
+{% block title %}Maladie{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <style>
@@ -69,52 +69,40 @@
         }
     </style>
 {% endblock %}
-
 {% block body %}
-
-    <h1>Reclamation</h1>
+    <h1>Maladie</h1>
 
     <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ reclamation.id }}</td>
+                <td>{{ maladie.id }}</td>
             </tr>
             <tr>
-                <th>Rec_emp</th>
-                <td>{{ reclamation.recEmp }}</td>
+                <th>AnimalId</th>
+                <td>{{ maladie.animalId }}</td>
             </tr>
             <tr>
-                <th>Rec_date</th>
-                <td>{{ reclamation.recDate ? reclamation.recDate|date('Y-m-d') : '' }}</td>
+                <th>Medicament</th>
+                <td>{{ maladie.medicament }}</td>
             </tr>
             <tr>
-                <th>Rec_description</th>
-                <td>{{ reclamation.recDescription }}</td>
+                <th>TypeDeTraitement</th>
+                <td>{{ maladie.typeDeTraitement }}</td>
             </tr>
             <tr>
-                <th>Rec_target</th>
-                <td>{{ reclamation.recTarget }}</td>
-            </tr>
-            <tr>
-            <th>type</th>
-            <td>{{ reclamation.typeRec.type }}</td>
-            </tr>
-            <tr>
-                <th>Urgency</th>
-                <td>{{ reclamation.urgency }}</td>
+                <th>Dosage</th>
+                <td>{{ maladie.dosage }}</td>
             </tr>
         </tbody>
     </table>
 
-
-
     <div class="action-buttons">
         <div class="button-container">
-            <a href="{{ path('app_reclamation_index') }}" class="btn">Back to List</a>
-            <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}" class="btn">Edit User</a>
+            <a href="{{ path('app_maladie_index') }}" class="btn">Back to List</a>
+            <a href="{{ path('app_maladie_edit', {'id': maladie.id}) }}" class="btn">Edit User</a>
 
-            {{ include('reclamation/_delete_form.html.twig') }}
+            {{ include('maladie/_delete_form.html.twig') }}
         </div>
     </div>
 {% endblock %}

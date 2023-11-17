@@ -56,7 +56,7 @@ class ReclamationController extends AbstractController
         $form = $this->createForm(ReclamationType::class, $reclamation);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() ) {
             $entityManager->flush();
 
             return $this->redirectToRoute('app_reclamation_index', [], Response::HTTP_SEE_OTHER);
