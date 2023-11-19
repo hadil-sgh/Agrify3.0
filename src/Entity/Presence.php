@@ -20,8 +20,7 @@ class Presence
     #[ORM\Column(length: 255)]
     private ?string $presenceState = null;
 
-    #[ORM\ManyToOne]
-    private ?User $user = null;
+
 
 
 
