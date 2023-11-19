@@ -1,5 +1,5 @@
 {# animal/_form.html.twig #}
-{{ form_start(form) }}
+{{ form_start(form,{"attr":{'novalidate':"novalidate"}}) }}
     <div class="row">
         <div class="col-12 col-md-6">
             <div class="form-group">
@@ -23,30 +23,30 @@
         </div>
          <div class="col-12 col-md-6">
             <div class="form-group">
-                {{ form_row(form.animalbatch, { 'attr': {'class': 'form-control', 'placeholder': 'Lot de l\'animal'} }) }}
+                {{ form_row(form.animalbatch, { 'attr': {'class': 'form-control', 'placeholder': 'Animal Age'} }) }}
             </div>
         </div>
-        <div class="col-12 col-md-6">
+         <div class="col-12 col-md-6">
             <div class="form-group">
-                {{ form_row(form.nutritionalNeeds, { 'attr': {'class': 'form-control', 'placeholder': 'Besoins nutritionnels de l\'animal'} }) }}
+                {{ form_row(form.nutritionalNeeds, { 'attr': {'class': 'form-control', 'placeholder': 'Animal Age'} }) }}
             </div>
         </div>
-        <div class="col-12 col-md-6">
+         <div class="col-12 col-md-6">
             <div class="form-group">
-                {{ form_row(form.ration, { 'attr': {'class': 'form-control', 'placeholder': 'Ration de l\'animal'} }) }}
+                {{ form_row(form.ration, { 'attr': {'class': 'form-control', 'placeholder': 'Animal Age'} }) }}
             </div>
         </div>
-        <div class="col-12 col-md-6">
+         <div class="col-12 col-md-6">
             <div class="form-group">
-                {{ form_row(form.gestation, { 'attr': {'class': 'form-control', 'placeholder': 'Gestation de l\'animal'} }) }}
+                {{ form_row(form.gestation, { 'attr': {'class': 'form-control', 'placeholder': 'Animal Age'} }) }}
             </div>
         </div>
-        <!-- Add more form fields as needed -->
+        
 
         <div class="col-12">
-            <button class="btn alazea-btn mt-15">{{ button_label|default('Update') }}</button>
+            <button class="btn alazea-btn mt-15">{{ button_label|default('Update Animal') }}</button>
         </div>
 
-
+        
     </div>
 {{ form_end(form) }}
