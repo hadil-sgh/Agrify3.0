@@ -63,7 +63,7 @@ class Presence
 
         return $this;
     }
-
+/*
     public function getUser(): ?User
     {
         return $this->user;
@@ -75,6 +75,6 @@ class Presence
 
         return $this;
     }
-
+*/
 
 }
