@@ -54,6 +54,7 @@
                                         <ul class="dropdown">
                                             <li><a href="{{path('app_animal_batch_index')}}">Lot d'animal</a></li>
                                             <li><a href="{{path('app_newborns_index')}}">Nouveau nés</a></li>
+                                            <li><a href="{{path('app_gestation_index')}}">Gestation</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="{{path('app_ingredient_index')}}">Ingredient</a></li>
@@ -62,9 +63,9 @@
                                 </ul>
 
                                 <!-- Search Icon -->
-                                <div id="searchIcon">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
+                                
+                                            <li><a href="{{path('app_logout')}}">Logout</a></li>
+
 
                             </div>
                             <!-- Navbar End -->
@@ -219,7 +220,26 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
-
+<!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
     <!-- ##### Cool Facts Area Start ##### -->
     <section class="cool-facts-area bg-img section-padding-100-0" style=" background-image: url('{{ asset('front/img/bg/010.jpg') }}'); " >
         <div class="container" >
@@ -393,6 +413,26 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
+    <!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
     {% endblock %}
 
         
@@ -502,7 +542,217 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
+    <!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
     {% endblock %}
+    {% block gestation %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('front/img/bg/04.jpg') }}');">
+            <h2>ANIMAL</h2>
+        </div>
+         <div class="container" >
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Animal</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
+<!-- ##### About Area Start ##### -->
+    <section class="about-us-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h2>Bienvenue dans le Système de Gestion des Animaux en gestation </h2>
+                        <p>Cette page vous permet de gérer et de mettre à jour les informations sur les animaux en gestation dans notre système.</p>
+                    </div>
+<p>Les fonctionnalités clés de cette page comprennent :</p>
+        <ul>
+            <li>Ajouter de nouveaux animaux en gestation à la base de données</li>
+            <li>Mettre à jour et modifier les informations des animaux en gestation existants</li>
+            <li>Consulter une liste complète de tous les animaux en gestation enregistrés</li>
+        </ul>                </div>
+
+                <div class="col-12 col-lg-6">
+                <div class="section-heading">
+                        <h2>Capacité d'accueillir des animaux sur la ferme.</h2>
+                    </div>
+                    <div class="alazea-benefits-area">
+                    <!-- Progress Bar Content Area -->
+                    <div class="alazea-progress-bar mb-50">
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Bovins</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="90"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Ovins</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="66"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Volaille</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="40"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Caprins</p>
+                            <div id="bar4" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="65"></span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### About Area End ##### -->
+<!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
+    <!-- ##### Cool Facts Area Start ##### -->
+    <section class="cool-facts-area bg-img section-padding-100-0" style=" background-image: url('{{ asset('front/img/bg/010.jpg') }}'); " >
+        <div class="container" >
+            <div class="row">
+<!--background-image: url({{ asset('front/img/bg/55.png') }}) -->
+                        
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
+                        <div class="cf-icon">
+                            <img src="{{ asset('front/img/core-img/cow.png') }}" alt="">
+                        </div>
+                        <div class="cf-content">
+                            <h2><span class="counter">20</span></h2>
+                            <h6>Bovins</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
+                        <div class="cf-icon">
+                            <img src="{{ asset('front/img/core-img/hen.png') }}" alt="">
+                        </div>
+                        <div class="cf-content">
+                            <h2><span class="counter">70</span></h2>
+                            <h6>Volaille</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
+                        <div class="cf-icon">
+                            <img src="{{ asset('front/img/core-img/sheep.png') }}" alt="">
+                        </div>
+                        <div class="cf-content">
+                            <h2><span class="counter">30</span></h2>
+                            <h6>Ovins</h6>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+        
+        <!-- Side Image -->
+        <div class="side-img wow fadeInUp" data-wow-delay="500ms">
+        <!-- Single Testimonial Slide -->
+                        <div class="single-testimonial-slide">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-6">
+                                    <div class="testimonial-thumb">
+                                        <img src="{{ asset('front/img/bg/8.jpg') }}" alt="">                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+        </div>
+    </section>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    {% endblock %}
+
 
 
 
@@ -614,6 +864,26 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
+    <!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
     {% endblock %}
 
         
@@ -721,6 +991,26 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
+    <!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
     {% endblock %}
 
         
@@ -826,6 +1116,26 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
+    <!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
     {% endblock %}
     
 
