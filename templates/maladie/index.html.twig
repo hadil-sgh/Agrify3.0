@@ -1,0 +1,117 @@
+{% extends 'Veterinaire.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        h1 {
+            color: #1D741B;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #88CA5E;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F4F7F0;
+        }
+
+        a {
+            color: #2E5D42;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #22C738;
+            text-decoration: underline;
+        }
+
+        .no-records {
+            color: #757575;
+            font-style: italic;
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 20px;
+
+        }
+
+        .create-new {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #1D741B;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .create-new:hover {
+            background-color: #22C738;
+            color: #000;
+
+        }
+    </style>
+{% endblock %}
+{% block title %}Maladie index{% endblock %}
+
+{% block body %}
+    <h1>Maladie index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>AnimalId</th>
+                <th>Medicament</th>
+                <th>TypeDeTraitement</th>
+                <th>Dosage</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for maladie in maladies %}
+            <tr>
+                <td>{{ maladie.id }}</td>
+                <td>{{ maladie.animalId }}</td>
+                <td>{{ maladie.medicament }}</td>
+                <td>{{ maladie.typeDeTraitement }}</td>
+                <td>{{ maladie.dosage }}</td>
+                <td>
+                    <a href="{{ path('app_maladie_show', {'id': maladie.id}) }}">show</a>
+                    <a href="{{ path('app_maladie_edit', {'id': maladie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div class="button">
+    <a href="{{ path('app_maladie_new') }}" class="create-new">Create new</a>
+    <a href="" class="create-new">Historique Animal</a>
+</div>
+{% endblock %}

@@ -1,6 +1,7 @@
 
-    {{ form_start(form,{'attr':{'novalidate':'novalidate'}})}}
-    <table>
+{{form_start(form,{'attr': {'novalidate': 'novalidate'}} )}}
+
+<table>
         <tr>
             <td> {{ form_label(form.rec_emp, "Id de l'employer") }} </td>
             <td> {{ form_widget (form.rec_emp) }} </td>
@@ -13,7 +14,7 @@
         </tr>
         <tr>
             <td> {{ form_label(form.rec_description, "Donner une Description") }} </td>
-            <td> {{ form_widget (form.rec_description) }} </td>
+            <td > {{ form_widget (form.rec_description) }} </td>
             <td> {{ form_errors (form. rec_description) }} </td>
         </tr>
         <tr>
@@ -37,7 +38,8 @@
 
     </table>
 
+    <button>{{ button_label|default('Save') }}</button>
 
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
 
 {{ form_end(form) }}

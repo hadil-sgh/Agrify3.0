@@ -6,9 +6,6 @@
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
     {% block stylesheets %}
-        <link rel="preconnect" href="{{asset('https://fonts.googleapis.com')}}">
-        <link rel="preconnect" href="{{asset('https://fonts.gstatic.com')}}" crossorigin>
-        <link href="{{asset('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap')}}" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -19,6 +16,27 @@
 <nav class="menu">
 
 
+<<<<<<< HEAD
+                    <div class="classynav">
+                        <ul>
+                            <li><a href="{{path('app_AdminDashboard_index')}}">Home</a></li>
+                            <li><a href="{{path('app_user_index')}}">User</a></li>
+                            <li><a href="{{path('app_field_index')}}">Field</a></li>
+                            <li><a href="{{path('app_presence_index')}}">Presence</a></li>
+                            <li><a href="#">Material</a></li>
+                            <li><a href="#">Taches</a></li>
+                            <li><a href="{{path('app_reclamation_index')}}">Reclamation</a></li>
+                            <li><a href="{{path('app_logout')}}">Logout</a></li>
+                        </ul>
+                    </div>
+              
+     </nav>
+
+            {% block body %}
+
+            {% endblock %}
+        </div>
+=======
     <div class="classynav">
         <ul>
             <li><a href="{{path('app_AdminDashboard_index')}}">Home</a></li>
@@ -30,6 +48,7 @@
             <li><a href="{{path('app_reclamation_index')}}">Reclamation</a></li>
             <li><a href="{{path('app_logout')}}">Logout</a></li>
         </ul>
+>>>>>>> b1663099e0835a1a0ebcc300c7c645c6355c7cc8
     </div>
 
 </nav>
@@ -42,4 +61,9 @@
 </div>
 
 </body>
+<<<<<<< HEAD
+
 </html>
+=======
+</html>
+>>>>>>> b1663099e0835a1a0ebcc300c7c645c6355c7cc8

@@ -1,0 +1,35 @@
+
+{{form_start(form,{'attr': {'novalidate': 'novalidate'}} )}}
+
+<table>
+    <tr>
+        <td> {{ form_label(form.animalId, "Donner l'id animal") }} </td>
+        <td> {{ form_widget (form.animalId) }} </td>
+        <td> {{ form_errors (form. animalId) }} </td>
+    </tr>
+    <tr>
+        <td> {{ form_label(form.medicament, "Donner le medicament utilisé") }} </td>
+        <td> {{ form_widget (form.medicament) }} </td>
+        <td> {{ form_errors (form. medicament) }} </td>
+    </tr>
+    <tr>
+        <td> {{ form_label(form.typeDeTraitement, "Donner le type de traitement ") }} </td>
+        <td> {{ form_widget (form.typeDeTraitement) }} </td>
+        <td> {{ form_errors (form. typeDeTraitement) }} </td>
+    </tr>
+
+    <tr>
+        <td> {{ form_label(form.dosage, "Donner le dosage") }} </td>
+        <td> {{ form_widget (form.dosage) }} </td>
+        <td> {{ form_errors (form. dosage) }} </td>
+    </tr>
+
+
+
+</table>
+
+<button>{{ button_label|default('Save') }}</button>
+
+
+
+{{ form_end(form) }}

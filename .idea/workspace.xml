@@ -6,11 +6,27 @@
   <component name="ChangeListManager">
     <list default="true" id="a43842fb-1499-42f6-b9e4-d7ec8d1d3b0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ReclamationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReclamationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20231114194617.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20231114194951.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20231115134551.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20231115205439.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Back/CSS/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Back/CSS/Menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/User.sql" beforeDir="false" afterPath="$PROJECT_DIR$/public/User.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Maladie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Maladie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/TypedeReclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TypedeReclamation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Veterinaire.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Veterinaire.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reclamation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/typede_reclamation/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/typede_reclamation/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/typede_reclamation/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/typede_reclamation/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/typede_reclamation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/typede_reclamation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/typede_reclamation/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/typede_reclamation/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/typede_reclamation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/typede_reclamation/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/veterinaire/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/veterinaire/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +233,8 @@
       <workItem from="1700076450190" duration="13000" />
       <workItem from="1700076923520" duration="5627000" />
       <workItem from="1700082622246" duration="5682000" />
-      <workItem from="1700128231083" duration="2817000" />
+      <workItem from="1700128231083" duration="28341000" />
+      <workItem from="1700205731948" duration="2285000" />
     </task>
     <servers />
   </component>
