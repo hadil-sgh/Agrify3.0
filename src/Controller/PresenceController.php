@@ -30,6 +30,7 @@ class PresenceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $presence->setUser($this->getUser());
             $entityManager->persist($presence);
             $entityManager->flush();
 
@@ -71,7 +72,7 @@ class PresenceController extends AbstractController
     #[Route('/{id_p}', name: 'app_presence_delete', methods: ['POST'])]
     public function delete(Request $request, Presence $presence, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$presence->getId_p(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$presence->getIdP(), $request->request->get('_token'))) {
             $entityManager->remove($presence);
             $entityManager->flush();
         }

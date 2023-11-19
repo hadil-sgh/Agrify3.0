@@ -13,7 +13,6 @@ class PresenceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('id_p')
             ->add('date')
             ->add('presenceState', ChoiceType::class, [
                 'choices' => [
