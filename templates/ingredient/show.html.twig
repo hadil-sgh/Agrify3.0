@@ -1,6 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}Ingredient{% endblock %}
+{% block section %}{% endblock %}
+{% block animal %}{% endblock %}
+{% block animalbatch %}{% endblock %}
+{% block newBorn %}{% endblock %}
+{% block nutritionalneeds %}{% endblock %}
+{% block ration %}{% endblock %}
 
 {% block body %}
     <h1>Ingredient</h1>
@@ -8,47 +14,43 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ ingredient.id }}</td>
-            </tr>
-            <tr>
-                <th>NameIngredient</th>
+                <th>Name</th>
                 <td>{{ ingredient.nameIngredient }}</td>
             </tr>
             <tr>
-                <th>ItemQuantityIngredient</th>
+                <th>Quantity</th>
                 <td>{{ ingredient.itemQuantityIngredient }}</td>
             </tr>
             <tr>
-                <th>UnitIngredient</th>
+                <th>Unit</th>
                 <td>{{ ingredient.unitIngredient }}</td>
             </tr>
             <tr>
-                <th>CostIngredient</th>
+                <th>Cost</th>
                 <td>{{ ingredient.costIngredient }}</td>
             </tr>
             <tr>
-                <th>LoadedByIngredient</th>
+                <th>Loaded By</th>
                 <td>{{ ingredient.loadedByIngredient }}</td>
             </tr>
             <tr>
-                <th>DescriptionIngredient</th>
+                <th>Description</th>
                 <td>{{ ingredient.descriptionIngredient }}</td>
             </tr>
             <tr>
-                <th>TypeIngredient</th>
+                <th>Type</th>
                 <td>{{ ingredient.typeIngredient }}</td>
             </tr>
             <tr>
-                <th>NutrimentPrincipalIngredient</th>
+                <th>Nutriment Principal</th>
                 <td>{{ ingredient.nutrimentPrincipalIngredient ? ingredient.nutrimentPrincipalIngredient|join(', ') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_ingredient_index') }}">back to list</a>
+    <a href="{{ path('app_ingredient_index') }}" class="btn alazea-btn active">back to list</a>
 
-    <a href="{{ path('app_ingredient_edit', {'id': ingredient.id}) }}">edit</a>
+    <a href="{{ path('app_ingredient_edit', {'id': ingredient.id}) }}" class="btn alazea-btn active">edit</a>
 
     {{ include('ingredient/_delete_form.html.twig') }}
 {% endblock %}

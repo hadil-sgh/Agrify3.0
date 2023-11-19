@@ -1,4 +1,45 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+{{form_start(form,{'attr': {'novalidate': 'novalidate'}} )}}
+
+<table>
+        <tr>
+            <td> {{ form_label(form.rec_emp, "Id de l'employer") }} </td>
+            <td> {{ form_widget (form.rec_emp) }} </td>
+            <td> {{ form_errors (form. rec_emp) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(form.rec_date, "Date de Reclamation") }} </td>
+            <td> {{ form_widget (form.rec_date) }} </td>
+            <td> {{ form_errors (form. rec_date) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(form.rec_description, "Donner une Description") }} </td>
+            <td > {{ form_widget (form.rec_description) }} </td>
+            <td> {{ form_errors (form. rec_description) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(form.rec_target, "Votre Cible") }} </td>
+            <td> {{ form_widget (form.rec_target) }} </td>
+            <td> {{ form_errors (form. rec_target) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(form.urgency, "Etat de Reclamation") }} </td>
+            <td> {{ form_widget (form.urgency) }} </td>
+            <td> {{ form_errors (form. urgency) }} </td>
+        </tr>
+        <tr>
+            <td> {{ form_label(form.type_Rec, "Type de Reclamation") }} </td>
+            <td> {{ form_widget (form.type_Rec) }} <div class="button">
+                    <a href="{{ path('app_typede_reclamation_new') }}" class="create-new">Create new Type</a>
+                </div> </td>
+            <td> {{ form_errors (form. type_Rec) }} </td>
+        </tr>
+
+
+    </table>
+
+    <button>{{ button_label|default('Save') }}</button>
+
+
+
 {{ form_end(form) }}

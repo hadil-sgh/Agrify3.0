@@ -6,6 +6,7 @@ use App\Entity\Newborns;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType; 
 
 class Newborns1Type extends AbstractType
 {
@@ -16,7 +17,11 @@ class Newborns1Type extends AbstractType
             ->add('dateNaissance')
             ->add('espece')
             ->add('poids')
-            ->add('gestation')
+            ->add('gestation', EntityType::class, [
+                'class' => 'App\Entity\Gestation',
+                'choice_label' => 'espece',
+                'placeholder' => 'Select Gestation',
+            ])
         ;
     }
 

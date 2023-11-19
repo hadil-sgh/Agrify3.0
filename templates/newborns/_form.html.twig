@@ -1,4 +1,39 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{# animal/_form.html.twig #}
+
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.sexe, { 'attr': {'class': 'form-control', 'placeholder': 'Sexe du nouveau-né'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.dateNaissance, { 'attr': {'class': 'form-control', 'placeholder': 'Date de naissance du nouveau-né'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.espece, { 'attr': {'class': 'form-control', 'placeholder': 'Espèce du nouveau-né'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.poids, { 'attr': {'class': 'form-control', 'placeholder': 'Poids du nouveau-né'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.gestation, { 'attr': {'class': 'form-control', 'placeholder': 'Gestation associée'} }) }}
+            </div>
+        </div>
+        <!-- Add more form fields as needed -->
+
+        <div class="col-12">
+            <button class="btn alazea-btn mt-15">{{ button_label|default('Update') }}</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+</form>

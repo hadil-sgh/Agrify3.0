@@ -1,38 +1,39 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}AnimalBatch{% endblock %}
-
+{% block section %}{% endblock %}
+{% block ingredient %}{% endblock %}
+{% block animal %}{% endblock %}
+{% block newBorn %}{% endblock %}
+{% block nutritionalneeds %}{% endblock %}
+{% block ration %}{% endblock %}
 {% block body %}
     <h1>AnimalBatch</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ animal_batch.id }}</td>
-            </tr>
-            <tr>
-                <th>EspeceAnimalBatch</th>
+                <th>Espece</th>
                 <td>{{ animal_batch.especeAnimalBatch }}</td>
             </tr>
             <tr>
-                <th>SexeRation</th>
+                <th>Sexe</th>
                 <td>{{ animal_batch.sexeRation }}</td>
             </tr>
             <tr>
-                <th>PoidsmaxRation</th>
+                <th>Poids maximal</th>
                 <td>{{ animal_batch.poidsmaxRation }}</td>
             </tr>
             <tr>
-                <th>PoidsminRation</th>
+                <th>Poids minimal</th>
                 <td>{{ animal_batch.poidsminRation }}</td>
             </tr>
             <tr>
-                <th>AgeAnimalBatch</th>
+                <th>Age </th>
                 <td>{{ animal_batch.ageAnimalBatch }}</td>
             </tr>
             <tr>
-                <th>NombreAnimalBatch</th>
+                <th>Nombre</th>
                 <td>{{ animal_batch.nombreAnimalBatch }}</td>
             </tr>
         </tbody>

@@ -31,7 +31,7 @@ class Gestation
     #[ORM\OneToOne(mappedBy: 'gestation', cascade: ['persist', 'remove'])]
     private ?Animal $animal = null;
 
-    #[ORM\OneToMany(mappedBy: 'gestation', targetEntity: NewBorns::class)]
+    #[ORM\OneToMany(mappedBy: 'gestation', targetEntity: Newborns::class)]
     private Collection $newBorns;
 
     public function __construct()

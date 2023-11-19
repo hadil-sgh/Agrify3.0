@@ -6,6 +6,7 @@ use App\Entity\Gestation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType; 
 
 class Gestation1Type extends AbstractType
 {
@@ -16,7 +17,12 @@ class Gestation1Type extends AbstractType
             ->add('preparationVêlage')
             ->add('vêlagePrévu')
             ->add('dateAvertissement')
-            ->add('animal')
+            ->add('animal', EntityType::class, [
+                'class' => 'App\Entity\Animal',
+                'choice_label' => 'espece', // Change to the property you want to display
+                'placeholder' => 'Select Animal',
+            ])
+            
         ;
     }
 

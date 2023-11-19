@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\NewBornRepository;
+use App\Repository\NewbornsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: NewBornRepository::class)]
+#[ORM\Entity(repositoryClass: NewbornsRepository::class)]
 class Newborns
 {
     #[ORM\Id]
@@ -23,11 +23,13 @@ class Newborns
     #[ORM\Column(length: 255)]
     private ?string $espece = null;
 
-    #[ORM\Column]
-    private ?float $poids = null;
+
 
     #[ORM\ManyToOne(inversedBy: 'newBorns')]
     private ?Gestation $gestation = null;
+
+    #[ORM\Column]
+    private ?float $poids = null;
 
     public function getId(): ?int
     {
@@ -70,18 +72,6 @@ class Newborns
         return $this;
     }
 
-    public function getPoids(): ?float
-    {
-        return $this->poids;
-    }
-
-    public function setPoids(float $poids): static
-    {
-        $this->poids = $poids;
-
-        return $this;
-    }
-
     public function getGestation(): ?Gestation
     {
         return $this->gestation;
@@ -90,6 +80,18 @@ class Newborns
     public function setGestation(?Gestation $gestation): static
     {
         $this->gestation = $gestation;
+
+        return $this;
+    }
+
+    public function getPoids(): ?float
+    {
+        return $this->poids;
+    }
+
+    public function setPoids(float $poids): static
+    {
+        $this->poids = $poids;
 
         return $this;
     }

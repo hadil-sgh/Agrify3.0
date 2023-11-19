@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}New Gestation{% endblock %}
 
@@ -7,5 +7,5 @@
 
     {{ include('gestation/_form.html.twig') }}
 
-    <a href="{{ path('app_gestation_index') }}">back to list</a>
+    <a href="{{ path('app_gestation_index') }}" class="btn alazea-btn active">back to list</a>
 {% endblock %}

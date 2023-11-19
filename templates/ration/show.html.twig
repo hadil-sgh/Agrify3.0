@@ -1,16 +1,17 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}Ration{% endblock %}
-
+{% block section %}{% endblock %}
+{% block ingredient %}{% endblock %}
+{% block animal %}{% endblock %}
+{% block animalbatch %}{% endblock %}
+{% block newBorn %}{% endblock %}
+{% block nutritionalneeds %}{% endblock %}
 {% block body %}
     <h1>Ration</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ ration.id }}</td>
-            </tr>
             <tr>
                 <th>EspeceRation</th>
                 <td>{{ ration.especeRation }}</td>
@@ -38,9 +39,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_ration_index') }}">back to list</a>
+    <a href="{{ path('app_ration_index') }}" class="btn alazea-btn active">back to list</a>
 
-    <a href="{{ path('app_ration_edit', {'id': ration.id}) }}">edit</a>
+    <a href="{{ path('app_ration_edit', {'id': ration.id}) }}" class="btn alazea-btn active">edit</a>
 
     {{ include('ration/_delete_form.html.twig') }}
 {% endblock %}

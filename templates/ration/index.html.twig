@@ -1,6 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
+{% block section %}{% endblock %}
 {% block title %}Ration index{% endblock %}
+{% block ingredient %}{% endblock %}
+{% block animal %}{% endblock %}
+{% block animalbatch %}{% endblock %}
+{% block newBorn %}{% endblock %}
+{% block nutritionalneeds %}{% endblock %}
+
 
 {% block body %}
     <h1>Ration index</h1>
@@ -8,20 +15,19 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>EspeceRation</th>
-                <th>StatutRation</th>
-                <th>SexeRation</th>
-                <th>PoidsMinRation</th>
-                <th>PoidsMaxRation</th>
-                <th>ButeProductionRation</th>
-                <th>actions</th>
+                <th>Espece</th>
+                <th>Statut</th>
+                <th>Sexe</th>
+                <th>Poids Minimal</th>
+                <th>Poids Maximal</th>
+                <th>Bute Production</th>
+                <th>show</th>
+                <th>edit</th>
             </tr>
         </thead>
         <tbody>
         {% for ration in rations %}
             <tr>
-                <td>{{ ration.id }}</td>
                 <td>{{ ration.especeRation }}</td>
                 <td>{{ ration.statutRation }}</td>
                 <td>{{ ration.sexeRation }}</td>
@@ -30,6 +36,8 @@
                 <td>{{ ration.buteProductionRation }}</td>
                 <td>
                     <a href="{{ path('app_ration_show', {'id': ration.id}) }}">show</a>
+                    </td>
+                    <td>
                     <a href="{{ path('app_ration_edit', {'id': ration.id}) }}">edit</a>
                 </td>
             </tr>
@@ -41,5 +49,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_ration_new') }}">Create new</a>
+    <a href="{{ path('app_ration_new') }}" class="btn alazea-btn active">Create new</a>
 {% endblock %}

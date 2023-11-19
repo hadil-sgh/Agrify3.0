@@ -1,0 +1,108 @@
+{% extends 'Veterinaire.html.twig' %}
+
+{% block title %}Maladie{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+
+        h1 {
+            color: #377120;
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+
+        }
+
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #88CA5E;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F4F7F0;
+        }
+
+
+        .action-buttons {
+            margin-top: 20px;
+
+            justify-content: center; /* Center the buttons horizontally */
+            text-align: center; /* Align button text center within buttons */
+        }
+
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #2E5D42;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #22C738;
+            color: #000;
+
+        }
+        .button-container {
+            justify-content: center; /* Center the buttons horizontally */
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <h1>Maladie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ maladie.id }}</td>
+            </tr>
+            <tr>
+                <th>AnimalId</th>
+                <td>{{ maladie.animalId }}</td>
+            </tr>
+            <tr>
+                <th>Medicament</th>
+                <td>{{ maladie.medicament }}</td>
+            </tr>
+            <tr>
+                <th>TypeDeTraitement</th>
+                <td>{{ maladie.typeDeTraitement }}</td>
+            </tr>
+            <tr>
+                <th>Dosage</th>
+                <td>{{ maladie.dosage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="action-buttons">
+        <div class="button-container">
+            <a href="{{ path('app_maladie_index') }}" class="btn">Back to List</a>
+            <a href="{{ path('app_maladie_edit', {'id': maladie.id}) }}" class="btn">Edit User</a>
+
+            {{ include('maladie/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
