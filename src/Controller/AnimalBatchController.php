@@ -34,7 +34,6 @@ class AnimalBatchController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form->get('file')->getData();
 
-            // Check file type
             if ($file->getClientOriginalExtension() !== 'xlsx') {
                 $this->addFlash('error', 'Invalid file type. Please upload an Excel file.');
                 return $this->redirectToRoute('app_animal_batch_index');
@@ -46,9 +45,9 @@ class AnimalBatchController extends AbstractController
                 $this->addFlash('success', 'Data imported successfully.');
 
                 return $this->redirectToRoute('app_animal_batch_index', [], Response::HTTP_SEE_OTHER);
-            } catch (\Exception $e) {
-                $this->addFlash('error', 'Error processing the Excel file: ' . $e->getMessage());
-                return $this->redirectToRoute('app_animal_batch_index'); 
+            } catch (\PhpOffice\PhpSpreadsheet\Reader\Exception $e) {
+                $this->addFlash('error', sprintf('Error processing the Excel file: %s', $e->getMessage()));
+                return $this->redirectToRoute('app_animal_batch_index');
             }
         }
 
@@ -95,24 +94,26 @@ class AnimalBatchController extends AbstractController
             $entityManager->flush();
 
             $this->sendAnimalAddedNotification($mailer);
-
-        } catch (\Exception $e) {
-            throw new \Exception('Error processing the Excel file: ' . $e->getMessage());
+        } catch (\PhpOffice\PhpSpreadsheet\Reader\Exception $e) {
+            throw $e;
         }
     }
 
     private function sendAnimalAddedNotification(MailerInterface $mailer)
     {
-        $email = (new Email())
-            ->from('achahlaou.nour@gmail.com')
-            ->to('nour.achahlaw.13@gmail.com')
-            ->subject('New Animals Added')
-            ->text('A new animals have been added by the chef nour.');
-
+        $email = $this->createAnimalAddedEmail();
         $mailer->send($email);
     }
 
-    
+    private function createAnimalAddedEmail(): Email
+    {
+        return (new Email())
+            ->from('achahlaou.nour@gmail.com')
+            ->to('nour.achahlaw.13@gmail.com')
+            ->subject('New Animals Added')
+            ->text('A new animal has been added by the chef nour.');
+    }
+
     #[Route('/{id}', name: 'app_animal_batch_show', methods: ['GET'])]
     public function show(AnimalBatch $animalBatch): Response
     {
@@ -142,7 +143,7 @@ class AnimalBatchController extends AbstractController
     #[Route('/{id}', name: 'app_animal_batch_delete', methods: ['POST'])]
     public function delete(Request $request, AnimalBatch $animalBatch, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$animalBatch->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $animalBatch->getId(), $request->request->get('_token'))) {
             $entityManager->remove($animalBatch);
             $entityManager->flush();
         }
