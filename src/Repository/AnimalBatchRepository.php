@@ -24,20 +24,17 @@ class AnimalBatchRepository extends ServiceEntityRepository
     /**
      * @return AnimalBatch[] Returns an array of AnimalBatch objects
      */
-    public function findByExampleField($field, $value): array
-    {
-        $result = $this->createQueryBuilder('a')
-            ->andWhere("a.{$field} = :val")
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult();
-    
-        // Return the result in JSON format
-        return new JsonResponse($result);
-    }
-    
+public function findByExampleField($field, $value): array
+{
+    return $this->createQueryBuilder('a')
+        ->andWhere("a.{$field} = :val")
+        ->setParameter('val', $value)
+        ->orderBy('a.id', 'ASC')
+        ->setMaxResults(10)
+        ->getQuery()
+        ->getResult()
+    ;
+}
 
 //    public function findOneBySomeField($value): ?AnimalBatch
 //    {
