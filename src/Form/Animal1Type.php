@@ -18,10 +18,21 @@ class Animal1Type extends AbstractType
         $builder
         ->add('espece', ChoiceType::class, [
             'choices' => [
-                'Bovins' => 'Bovins',
-                'Ovins' => 'Ovins',
-                'Volaille' => 'Volaille',
-                'Caprins' => 'Caprins',
+                'Bovins' => [
+                    'vaches' => 'vaches',
+                    'taureaux' => 'taureaux',
+                ],
+                'Ovins' => [
+                    'Moutons' => 'Moutons',
+                ],
+                'Volaille' => [
+                    'poulets' => 'poulets',
+                    'canards' => 'canards',
+                    'dindes' => 'dindes',
+                ],
+                'Caprins' => [
+                    'Chèvres' => 'Chèvres',
+                ],
             ],
             'placeholder' => 'espece',
             'required' => true,
@@ -35,10 +46,10 @@ class Animal1Type extends AbstractType
         ])
         
         ->add('sexe', ChoiceType::class, [
-            'choices' => [
-                'female' => 'female',
-                'male' => 'male',
-            ], 
+'choices' => [
+    'féminin' => 'féminin',
+    'masculin' => 'masculin',
+],
             'placeholder' => 'sexe',
             'required' => true,
             'constraints' => [

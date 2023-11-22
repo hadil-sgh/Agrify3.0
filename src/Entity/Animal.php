@@ -26,9 +26,6 @@ class Animal
     private ?string $age = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
-    private ?AnimalBatch $animalbatch = null;
-
-    #[ORM\ManyToOne(inversedBy: 'animals')]
     private ?NutritionalNeeds $nutritionalNeeds = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
@@ -90,18 +87,6 @@ class Animal
     public function setAge(string $age): static
     {
         $this->age = $age;
-
-        return $this;
-    }
-
-    public function getAnimalbatch(): ?AnimalBatch
-    {
-        return $this->animalbatch;
-    }
-
-    public function setAnimalbatch(?AnimalBatch $animalbatch): static
-    {
-        $this->animalbatch = $animalbatch;
 
         return $this;
     }
