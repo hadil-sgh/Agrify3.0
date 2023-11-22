@@ -11,7 +11,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use ZipArchive;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 #[Route('/animal/batch')]
 class AnimalBatchController extends AbstractController
@@ -25,55 +26,52 @@ class AnimalBatchController extends AbstractController
     }
 
     #[Route('/new', name: 'app_animal_batch_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
     {
         $form = $this->createForm(ExcelImportType::class);
         $form->handleRequest($request);
-    
+
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form->get('file')->getData();
-    
+
             // Check file type
             if ($file->getClientOriginalExtension() !== 'xlsx') {
                 $this->addFlash('error', 'Invalid file type. Please upload an Excel file.');
-                return $this->redirectToRoute('your_failure_route'); // Replace with your actual route
+                return $this->redirectToRoute('app_animal_batch_index');
             }
-    
+
             try {
-                // Process the Excel file
-                $this->processExcelFile($file, $entityManager);
-    
+                $this->processExcelFile($file, $entityManager, $mailer);
+
                 $this->addFlash('success', 'Data imported successfully.');
-    
+
                 return $this->redirectToRoute('app_animal_batch_index', [], Response::HTTP_SEE_OTHER);
             } catch (\Exception $e) {
                 $this->addFlash('error', 'Error processing the Excel file: ' . $e->getMessage());
-                return $this->redirectToRoute('your_failure_route'); // Replace with your actual route
+                return $this->redirectToRoute('app_animal_batch_index'); 
             }
         }
-    
+
         return $this->renderForm('animal_batch/new.html.twig', [
             'form' => $form,
         ]);
     }
-    
-    private function processExcelFile($file, EntityManagerInterface $entityManager)
+
+    private function processExcelFile($file, EntityManagerInterface $entityManager, MailerInterface $mailer)
     {
         try {
             $spreadsheet = IOFactory::load($file);
             $sheet = $spreadsheet->getActiveSheet();
-    
-            // Iterate through rows and add data to the database
+
             foreach ($sheet->getRowIterator() as $row) {
                 $cellIterator = $row->getCellIterator();
-                $cellIterator->setIterateOnlyExistingCells(false); // Iterate over all cells, even if they are empty
-    
+                $cellIterator->setIterateOnlyExistingCells(false);
+
                 $data = [];
                 foreach ($cellIterator as $cell) {
                     $data[] = $cell->getValue();
                 }
-    
-                // Assuming your data array has the same order as your entity properties
+
                 [
                     $especeAnimalBatch,
                     $sexeRation,
@@ -82,7 +80,7 @@ class AnimalBatchController extends AbstractController
                     $ageAnimalBatch,
                     $nombreAnimalBatch
                 ] = $data;
-    
+
                 $animalBatch = new AnimalBatch();
                 $animalBatch->setEspeceAnimalBatch($especeAnimalBatch)
                     ->setSexeRation($sexeRation)
@@ -90,15 +88,30 @@ class AnimalBatchController extends AbstractController
                     ->setPoidsminRation($poidsminRation)
                     ->setAgeAnimalBatch($ageAnimalBatch)
                     ->setNombreAnimalBatch($nombreAnimalBatch);
-    
+
                 $entityManager->persist($animalBatch);
             }
-    
+
             $entityManager->flush();
+
+            $this->sendAnimalAddedNotification($mailer);
+
         } catch (\Exception $e) {
             throw new \Exception('Error processing the Excel file: ' . $e->getMessage());
         }
     }
+
+    private function sendAnimalAddedNotification(MailerInterface $mailer)
+    {
+        $email = (new Email())
+            ->from('achahlaou.nour@gmail.com')
+            ->to('nour.achahlaw.13@gmail.com')
+            ->subject('New Animals Added')
+            ->text('A new animals have been added by the chef nour.');
+
+        $mailer->send($email);
+    }
+
     
     #[Route('/{id}', name: 'app_animal_batch_show', methods: ['GET'])]
     public function show(AnimalBatch $animalBatch): Response
