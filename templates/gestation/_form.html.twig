@@ -1,6 +1,7 @@
 {# animal/_form.html.twig #}
 
-    {{ form_start(form) }}
+    {{ form_start(form,{"attr":{'novalidate':"novalidate"}}) }}
+
 
     <div class="row">
         <div class="col-12 col-md-6">
@@ -10,12 +11,12 @@
         </div>
         <div class="col-12 col-md-6">
             <div class="form-group">
-                {{ form_row(form.preparationVêlage, { 'attr': {'class': 'form-control', 'placeholder': 'Préparation pour le vêlage'} }) }}
+                {{ form_row(form.preparationVelage, { 'attr': {'class': 'form-control', 'placeholder': 'Préparation pour le vêlage'} }) }}
             </div>
         </div>
         <div class="col-12 col-md-6">
             <div class="form-group">
-                {{ form_row(form.vêlagePrévu, { 'attr': {'class': 'form-control', 'placeholder': 'Vêlage prévu'} }) }}
+                {{ form_row(form.velagePrevu, { 'attr': {'class': 'form-control', 'placeholder': 'Vêlage prévu'} }) }}
             </div>
         </div>
         <div class="col-12 col-md-6">
@@ -31,7 +32,7 @@
         <!-- Add more form fields as needed -->
 
         <div class="col-12">
-            <button class="btn alazea-btn mt-15">{{ button_label|default('Update') }}</button>
+            <button class="btn alazea-btn mt-15">{{ button_label|default('update') }}</button>
         </div>
     </div>
 

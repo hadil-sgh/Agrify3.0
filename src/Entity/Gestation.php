@@ -20,10 +20,10 @@ class Gestation
     private ?string $espece = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $preparationVêlage = null;
+    private ?\DateTimeInterface $preparationVelage = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $vêlagePrévu = null;
+    private ?\DateTimeInterface $velagePrevu = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateAvertissement = null;
@@ -56,26 +56,26 @@ class Gestation
         return $this;
     }
 
-    public function getPreparationVêlage(): ?\DateTimeInterface
+    public function getPreparationVelage(): ?\DateTimeInterface
     {
-        return $this->preparationVêlage;
+        return $this->preparationVelage;
     }
 
-    public function setPreparationVêlage(\DateTimeInterface $preparationVêlage): static
+    public function setPreparationVelage(\DateTimeInterface $preparationVelage): static
     {
-        $this->preparationVêlage = $preparationVêlage;
+        $this->preparationVelage = $preparationVelage;
 
         return $this;
     }
 
-    public function getVêlagePrévu(): ?\DateTimeInterface
+    public function getVelagePrevu(): ?\DateTimeInterface
     {
-        return $this->vêlagePrévu;
+        return $this->velagePrevu;
     }
 
-    public function setVêlagePrévu(\DateTimeInterface $vêlagePrévu): static
+    public function setVelagePrevu(\DateTimeInterface $velagePrevu): static
     {
-        $this->vêlagePrévu = $vêlagePrévu;
+        $this->velagePrevu = $velagePrevu;
 
         return $this;
     }

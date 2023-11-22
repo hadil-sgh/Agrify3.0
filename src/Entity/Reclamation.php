@@ -53,7 +53,7 @@ class Reclamation
     #[ORM\Column(length: 255)]
     #[assert\NotBlank(message:"target should not be blank")]
     private ?string $rec_target = null;
-
+    
     #[ORM\Column(length: 255)]
     #[assert\NotBlank(message:"state should not be blank")]
     private ?string $urgency = null;

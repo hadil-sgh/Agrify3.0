@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Presence
 {
     #[ORM\Id]
-    #[ORM\Column]
-
+    #[ORM\GeneratedValue(strategy: "IDENTITY")]
+    #[ORM\Column(type: "integer")]
     private ?int $id_p = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
@@ -19,6 +19,14 @@ class Presence
 
     #[ORM\Column(length: 255)]
     private ?string $presenceState = null;
+
+
+
+
+
+
+
+
 
     public function getIdP(): ?int
     {
@@ -55,4 +63,19 @@ class Presence
 
         return $this;
     }
+/*
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+*/
+
+
 }

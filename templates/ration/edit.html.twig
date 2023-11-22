@@ -7,6 +7,8 @@
 {% block animalbatch %}{% endblock %}
 {% block newBorn %}{% endblock %}
 {% block nutritionalneeds %}{% endblock %}
+{% block gestation %}{% endblock %}
+
 {% block body %}
     <section class="contact-area">
     <div class="container">
@@ -19,7 +21,7 @@
                     
                 <!-- Form Area -->
                 <div class="contact-form-area mb-100">
-                        </div>
+                        
 {{ include('ration/_form.html.twig', {'button_label': 'Update'}) }}
 {{ include('ration/_delete_form.html.twig') }}
                 </div>
@@ -28,9 +30,11 @@
                 <!-- Video Area -->
                 <div class="alazea-video-area mb-100">
                     <img src="{{ asset('front/img/bg/07.jpg') }}" alt="">
-                </div>
+        </div>
             </div>
             
         </div>
+    </div>
     <a href="{{ path('app_ration_index') }}" class="btn alazea-btn active">back to list</a>
+    </section>
 {% endblock %}
