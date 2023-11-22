@@ -26,6 +26,12 @@ class Maladie
 
 
     #[ORM\Column(length: 255)]
+    #[Assert\Length(
+        min: 3,
+        max: 20,
+        minMessage: "medicament should have at least 3 characters",
+        maxMessage: "medicament should have at most 7 characters"
+    )]
     #[assert\NotBlank(message:"Le medicament ne doit pas être vide")]
     private ?string $medicament = null;
 
@@ -34,6 +40,12 @@ class Maladie
     private ?string $typeDeTraitement = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Length(
+        min: 3,
+        max: 20,
+        minMessage: "medicament should have at least 3 characters",
+        maxMessage: "medicament should have at most 7 characters"
+    )]
     #[assert\NotBlank(message:"Le dosage ne doit pas être vide")]
     private ?string $dosage = null;
 

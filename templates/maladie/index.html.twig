@@ -45,10 +45,7 @@
             text-decoration: underline;
         }
 
-        .no-records {
-            color: #757575;
-            font-style: italic;
-        }
+
 
         .button {
             text-align: center;
@@ -72,13 +69,21 @@
             color: #000;
 
         }
+        .pagination-container {
+            justify-content: center;
+            margin-top: 20px; /* Adjust margin as needed */
+            display: block;
+        }
+
+
+
     </style>
 {% endblock %}
 {% block title %}Maladie index{% endblock %}
 
 {% block body %}
-    <h1>Maladie index</h1>
 
+    <h1>Les maladies des animaux </h1>
     <table class="table">
         <thead>
             <tr>
@@ -113,5 +118,10 @@
 <div class="button">
     <a href="{{ path('app_maladie_new') }}" class="create-new">Create new</a>
     <a href="" class="create-new">Historique Animal</a>
+
 </div>
+    <div class="pagination-container">
+        {{ knp_pagination_render(maladies) }}
+    </div>
+
 {% endblock %}
