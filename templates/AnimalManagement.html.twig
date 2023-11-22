@@ -11,6 +11,34 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href={{asset('front/style.css')}}>
+    <script>
+    $(document).ready(function() {
+        $('#searchForm').submit(function(e) {
+            e.preventDefault(); // Prevent the form from submitting traditionally
+
+            var searchValue = $('#subscribeEmail').val();
+
+            // Make an AJAX request to your PHP endpoint
+            $.ajax({
+                type: 'GET',
+                url: 'app_animal_batch_index', // Update this with the actual path
+                data: {
+                    field: 'especeAnimalBatch', // Update with the actual field name
+                    value: searchValue
+                },
+                success: function(response) {
+                    // Handle the response from the server
+                    console.log(response);
+                    // You can update your UI or perform any other actions here
+                },
+                error: function(error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>
+
     </head>
     <body>
     <!-- Preloader -->
@@ -49,7 +77,7 @@
                             <!-- Navbar Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="#">Home</a></li>
+                                    
                                     <li><a href="{{path('app_animal_index')}}">Animal</a>
                                         <ul class="dropdown">
                                             <li><a href="{{path('app_animal_batch_index')}}">Lot d'animal</a></li>
@@ -60,11 +88,12 @@
                                     <li><a href="{{path('app_ingredient_index')}}">Ingredient</a></li>
                                     <li><a href="{{path('app_nutritional_needs_index')}}">Besoin Nutritionel</a></li>
                                     <li><a href="{{path('app_ration_index')}}">Ration</a></li>
+                                    <li><a href="{{path('app_logout')}}">Logout</a></li>
                                 </ul>
 
                                 <!-- Search Icon -->
                                 
-                                            <li><a href="{{path('app_logout')}}">Logout</a></li>
+                                            
 
 
                             </div>
@@ -220,6 +249,8 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
+    
+    {% block chercher %}
 <!-- ##### search ##### -->
     <section class="subscribe-newsletter-area">
         <div class="container">
@@ -240,6 +271,7 @@
         </div>
     </section>
     <!-- ##### search##### -->
+    {% endblock %}
     <!-- ##### Cool Facts Area Start ##### -->
     <section class="cool-facts-area bg-img section-padding-100-0" style=" background-image: url('{{ asset('front/img/bg/010.jpg') }}'); " >
         <div class="container" >
@@ -542,7 +574,8 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
-    <!-- ##### search ##### -->
+    {% block chercheranimalbatch %}
+<!-- ##### search ##### -->
     <section class="subscribe-newsletter-area">
         <div class="container">
             <div class="row align-items-center justify-content-between">
@@ -552,8 +585,8 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="subscribe-form">
-                        <form action="#" method="get">
-                            <input id="subscribeEmail" placeholder="rechercher">
+                        <form id="searchForm" action="#" method="get">
+                            <input id="subscribeEmail" name="searchField" placeholder="rechercher">
                             <button type="submit" class="btn alazea-btn">chercher</button>
                         </form>
                     </div>
@@ -562,6 +595,7 @@
         </div>
     </section>
     <!-- ##### search##### -->
+    {% endblock %}
     {% endblock %}
     {% block gestation %}
     <!-- ##### Breadcrumb Area Start ##### -->

@@ -20,14 +20,6 @@ class Presence
     #[ORM\Column(length: 255)]
     private ?string $presenceState = null;
 
-
-
-
-
-
-
-
-
     public function getIdP(): ?int
     {
         return $this->id_p;
@@ -63,23 +55,4 @@ class Presence
 
         return $this;
     }
-<<<<<<< HEAD
-/*
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-*/
-=======
-
-   
->>>>>>> aa4a60e26bb02536738d27b688b3c0c5b6fefe60
-
 }

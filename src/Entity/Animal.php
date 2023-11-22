@@ -37,6 +37,10 @@ class Animal
     #[ORM\OneToOne(inversedBy: 'animal', cascade: ['persist', 'remove'])]
     private ?Gestation $gestation = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $unitAnimal = null;
+    
+
     public function getId(): ?int
     {
         return $this->id;
@@ -134,6 +138,18 @@ class Animal
     public function setGestation(?Gestation $gestation): static
     {
         $this->gestation = $gestation;
+
+        return $this;
+    }
+
+    public function getUnitAnimal(): ?string
+    {
+        return $this->unitAnimal;
+    }
+
+    public function setUnitAnimal(string $unitAnimal): static
+    {
+        $this->unitAnimal = $unitAnimal;
 
         return $this;
     }

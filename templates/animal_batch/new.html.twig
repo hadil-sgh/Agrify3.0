@@ -8,11 +8,13 @@
 {% block nutritionalneeds %}{% endblock %}
 {% block ration %}{% endblock %}
 {% block gestation %}{% endblock %}
+{% block chercheranimalbatch %}{% endblock %}
 
 {% block body %}
     <h1>Create new AnimalBatch</h1>
 
-    {{ include('animal_batch/_form.html.twig') }}
+    {{ include('animal_batch/_formExcel.html.twig') }}
 
     <a href="{{ path('app_animal_batch_index') }}" class="btn alazea-btn active">back to list</a>
+    
 {% endblock %}
