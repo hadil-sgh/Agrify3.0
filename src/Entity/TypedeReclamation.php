@@ -16,6 +16,18 @@ class TypedeReclamation
 
     #[ORM\Column(length: 255)]
     #[assert\NotBlank(message:"Type name should not be blank")]
+    /**
+     * @Assert\Regex(
+     *     pattern="/^[a-zA-Z]+$/",
+     *     message="The type should contain only letters"
+     * )
+     */
+    #[Assert\Length(
+        min: 5,
+        max: 20,
+        minMessage: "description should have at least 5 characters",
+        maxMessage: "description should have at most 20 characters"
+    )]
     private ?string $type = null;
 
     #[ORM\Column(length: 255)]

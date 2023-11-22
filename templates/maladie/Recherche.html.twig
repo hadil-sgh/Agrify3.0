@@ -1,6 +1,4 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Reclamation index{% endblock %}
+{% extends 'Veterinaire.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
     <style>
@@ -47,10 +45,7 @@
             text-decoration: underline;
         }
 
-        .no-records {
-            color: #757575;
-            font-style: italic;
-        }
+
 
         .button {
             text-align: center;
@@ -74,56 +69,62 @@
             color: #000;
 
         }
+        .pagination-container {
+            justify-content: center;
+            margin-top: 20px; /* Adjust margin as needed */
+            display: block;
+        }
+
+
     </style>
 {% endblock %}
-
+{% block title %}Maladie index{% endblock %}
 
 {% block body %}
-    <h1>Reclamation </h1>
+    <h1>Recherche  </h1>
+    <form>
+        <input type="text",name="niveaux">
+        <input type="submit",valeur="recherche">
+    </form>
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Rec_emp</th>
-                <th>Rec_date</th>
-                <th>Rec_description</th>
-                <th>Rec_target</th>
-                <th>Urgency</th>
-                <th>Type</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>AnimalId</th>
+            <th>Medicament</th>
+            <th>TypeDeTraitement</th>
+            <th>Dosage</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
-        {% for reclamation in reclamations %}
+        {% for maladie in maladies %}
             <tr>
-                <td>{{ reclamation.id }}</td>
-                <td>{{ reclamation.recEmp }}</td>
-                <td>{{ reclamation.recDate ? reclamation.recDate|date('Y-m-d') : '' }}</td>
-                <td>{{ reclamation.recDescription }}</td>
-                <td>{{ reclamation.recTarget }}</td>
-                <td>{{ reclamation.urgency }}</td>
-                <td>{{ reclamation.typeRec.type }}</td>
+                <td>{{ maladie.id }}</td>
+                <td>{{ maladie.animalId }}</td>
+                <td>{{ maladie.medicament }}</td>
+                <td>{{ maladie.typeDeTraitement }}</td>
+                <td>{{ maladie.dosage }}</td>
                 <td>
-
-
-                    <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}" class="btn btn-success">Show</a>
-                    <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}" class="btn btn-danger">Edit</a>
-
-
+                    <a href="{{ path('app_maladie_show', {'id': maladie.id}) }}">show</a>
+                    <a href="{{ path('app_maladie_edit', {'id': maladie.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="10" class="no-records">No records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
-
         </tbody>
     </table>
-
-
     <div class="button">
-        <a href="{{ path('app_reclamation_new') }}" class="create-new">Create new</a>
+        <a href="{{ path('app_maladie_new') }}" class="create-new">Create new</a>
+        <a href="" class="create-new">Historique Animal</a>
+
     </div>
+    <div class="pagination-container">
+
+    </div>
+
 {% endblock %}

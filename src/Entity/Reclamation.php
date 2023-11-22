@@ -21,14 +21,33 @@ class Reclamation
 
     #[ORM\Column(length: 255)]
     #[assert\NotBlank(message:"id should not be blank")]
+    #[Assert\Regex(
+        pattern: '/^\d+$/',
+        message: "l'id doit contenir uniquement des chiffres"
+    )]
+    #[Assert\Length(
+        min: 7,
+        max: 20,
+        minMessage: "id should have at least 7 numbers",
+        maxMessage: "id should have at most 20 numbers"
+    )]
     private ?string $rec_emp = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-
+    /**
+     * @ORM\Column(type="date")
+     * @Assert\Type("\DateTimeInterface", message="Date should be a valid date")
+     */
     private ?\DateTimeInterface $rec_date = null;
 
     #[ORM\Column(length: 255)]
     #[assert\NotBlank(message:"description should not be blank")]
+    #[Assert\Length(
+        min: 7,
+        max: 20,
+        minMessage: "description should have at least 7 char",
+        maxMessage: "description should have at most 20 char"
+    )]
     private ?string $rec_description = null;
 
     #[ORM\Column(length: 255)]
