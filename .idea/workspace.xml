@@ -5,23 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43842fb-1499-42f6-b9e4-d7ec8d1d3b0d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/maladie/Recherche.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/Maillingservice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reclamation/indexAdmin.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reclamation/mail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Agrify3.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Agrify3.0.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MaladieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MaladieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Maladie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Maladie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/TypedeReclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TypedeReclamation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/baseAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseAdmin.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/maladie/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/maladie/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reclamation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reclamation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/typede_reclamation/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/typede_reclamation/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +231,14 @@
       <workItem from="1700590049289" duration="8789000" />
       <workItem from="1700607028002" duration="81000" />
       <workItem from="1700607111779" duration="1635000" />
-      <workItem from="1700640510983" duration="1597000" />
+      <workItem from="1700640510983" duration="7770000" />
+      <workItem from="1700649432614" duration="1868000" />
+      <workItem from="1700654856718" duration="1399000" />
+      <workItem from="1700763969134" duration="1677000" />
+      <workItem from="1700816178750" duration="26000" />
+      <workItem from="1700996291626" duration="1285000" />
+      <workItem from="1701077845997" duration="552000" />
+      <workItem from="1701106198741" duration="1665000" />
     </task>
     <servers />
   </component>

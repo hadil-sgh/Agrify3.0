@@ -21,7 +21,13 @@ class ReclamationController extends AbstractController
             'reclamations' => $reclamationRepository->findAll(),
         ]);
     }
-
+    #[Route('/Adm', name: 'app_reclamation_indexAdmin', methods: ['GET'])]
+    public function indexAdmin(ReclamationRepository $reclamationRepository): Response
+    {
+        return $this->render('reclamation/indexAdmin.html.twig', [
+            'reclamations' => $reclamationRepository->findAll(),
+        ]);
+    }
     #[Route('/newReclamation', name: 'app_reclamation_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -78,4 +84,5 @@ class ReclamationController extends AbstractController
 
         return $this->redirectToRoute('app_reclamation_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }
