@@ -9,42 +9,63 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 class Gestation1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('espece', ChoiceType::class, [
-                'choices' => [
-                    'female' => 'female',
-                    'male' => 'male',
-                ], 
+            'choices' => [
+                'Bovins' => [
+                    'Bovins' => 'Bovins',
+                    'vaches' => 'vaches',
+                    'taureaux' => 'taureaux',
+                ],
+                'Ovins' => [
+                    'Moutons' => 'Moutons',
+                ],
+                'Volaille' => [
+                    'poulets' => 'poulets',
+                    'canards' => 'canards',
+                    'dindes' => 'dindes',
+                ],
+                'Caprins' => [
+                    'Chèvres' => 'Chèvres',
+                ],
+            ],
+                'placeholder' => 'espece',
+                'required' => true,
+                'attr' => [
+                'maxlength' => 255,
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'it cannot be blank.']),
-                    new Assert\Length(['max' => 255]),
+                    new Assert\NotBlank(['message' => "Choisissez l'espèce de votre animal."]),
+                    // Do not include the Assert\DateTime constraint
+                ],
+            ],
+            ])
+            ->add('preparationVelage', DateTimeType::class, [
+                'widget' => 'single_text',
+                'html5' => true,
+                'constraints' => [
+                    new Assert\NotBlank(['message' => 'selecter le date .']),
+                    // Do not include the Assert\DateTime constraint
                 ],
             ])
-            ->add('preparationVelage', DateType::class, [
+            
+            ->add('velagePrevu', DateTimeType::class, [
                 'widget' => 'single_text',
+                'html5' => true,
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'it cannot be blank.']),
-                    new Assert\Date(),
+                    new Assert\NotBlank(['message' => 'selecter le date .']),
+                    // Do not include the Assert\DateTime constraint
                 ],
             ])
-            ->add('velagePrevu', DateType::class, [
+            ->add('dateAvertissement', DateTimeType::class, [
                 'widget' => 'single_text',
+                'html5' => true,
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'it cannot be blank.']),
-                    new Assert\Date(),
-                ],
-            ])
-            ->add('dateAvertissement', DateType::class, [
-                'widget' => 'single_text',
-                'constraints' => [
-                    new Assert\NotBlank(['message' => 'it cannot be blank.']),
-                    new Assert\Date(),
+                    new Assert\NotBlank(['message' => 'selecter le date .']),
                 ],
             ])
             ->add('animal', EntityType::class, [
@@ -59,5 +80,6 @@ class Gestation1Type extends AbstractType
         $resolver->setDefaults([
             'data_class' => Gestation::class,
         ]);
+        
     }
 }

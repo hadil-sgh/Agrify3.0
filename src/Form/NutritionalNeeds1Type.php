@@ -14,12 +14,24 @@ class NutritionalNeeds1Type extends AbstractType
     {
         $builder
             ->add('speciesNeeds', ChoiceType::class, [
-                'choices' => [
+            'choices' => [
+                'Bovins' => [
                     'Bovins' => 'Bovins',
-                    'Ovins' => 'Ovins',
-                    'Volaille' => 'Volaille',
-                    'Caprins' => 'Caprins',
+                    'vaches' => 'vaches',
+                    'taureaux' => 'taureaux',
                 ],
+                'Ovins' => [
+                    'Moutons' => 'Moutons',
+                ],
+                'Volaille' => [
+                    'poulets' => 'poulets',
+                    'canards' => 'canards',
+                    'dindes' => 'dindes',
+                ],
+                'Caprins' => [
+                    'Chèvres' => 'Chèvres',
+                ],
+            ],
                 'required' => true,
                 'attr' => [
                     'maxlength' => 255,
@@ -39,9 +51,9 @@ class NutritionalNeeds1Type extends AbstractType
             ])
             ->add('sexNeeds', ChoiceType::class, [
                 'choices' => [
-                    'female' => 'female',
-                    'male' => 'male',
-                ], 
+    'féminin' => 'féminin',
+    'masculin' => 'masculin',
+],
                 'attr' => [
                     'maxlength' => 255,
                 ],
