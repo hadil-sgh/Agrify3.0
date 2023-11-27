@@ -4,11 +4,13 @@ namespace App\Form;
 
 use App\Entity\Newborns;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class Newborns1Type extends AbstractType
 {
@@ -17,43 +19,64 @@ class Newborns1Type extends AbstractType
         $builder
             ->add('sexe', ChoiceType::class, [
                 'choices' => [
-                    'female' => 'female',
-                    'male' => 'male',
-                ], 
-                'attr' => [
-                    'maxlength' => 255,
-                ],
+    'féminin' => 'féminin',
+    'masculin' => 'masculin',
+],
+                'placeholder' => 'sexe',
+                'required' => true,
             ])
-            ->add('dateNaissance', DateType::class, [
+            ->add('dateNaissance', DateTimeType::class, [
                 'widget' => 'single_text',
+                'html5' => true,
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'it cannot be blank.']),
-                    new Assert\Date(),
+                    new Assert\NotBlank(['message' => 'selecter le date .']),
+                    // Do not include the Assert\DateTime constraint
                 ],
             ])
             ->add('espece', ChoiceType::class, [
-                'choice' =>[
+            'choices' => [
+                'Bovins' => [
                     'Bovins' => 'Bovins',
-                'Ovins' => 'Ovins',
-                'Volaille' => 'Volaille',
-                'Caprins' => 'Caprins',
+                    'vaches' => 'vaches',
+                    'taureaux' => 'taureaux',
+                ],
+                'Ovins' => [
+                    'Moutons' => 'Moutons',
+                ],
+                'Volaille' => [
+                    'poulets' => 'poulets',
+                    'canards' => 'canards',
+                    'dindes' => 'dindes',
+                ],
+                'Caprins' => [
+                    'Chèvres' => 'Chèvres',
+                ],
             ],
-            'required' => true,
-            'attr' => [
-                'maxlength' => 255,
-            ],
-        ])
+                'placeholder' => 'espece',
+                'required' => true,
+                'attr' => [
+                    'maxlength' => 255,
+                ],
+                'invalid_message' => 'Please select the species of the animal (Bovins, Ovins, Volaille, Caprins, etc.)',
+            ])
             ->add('poids', NumberType::class, [
                 'attr' => [
                     'type' => 'numeric',
+                ],
+                'constraints' => [
+                    new \Symfony\Component\Validator\Constraints\Range([
+                        'min' => 1,
+                        'max' => 40,
+                        'minMessage' => "Le poids doit être d'au moins 1 .",
+                        'maxMessage' => 'Le poids ne peut pas dépasser 40 .',
+                    ]),
                 ],
             ])
             ->add('gestation', EntityType::class, [
                 'class' => 'App\Entity\Gestation',
                 'choice_label' => 'espece',
                 'placeholder' => 'Select Gestation',
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
