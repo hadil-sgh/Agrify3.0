@@ -82,7 +82,9 @@
 
 {% block body %}
 <h1>Reclamation </h1>
-
+    <div class="m-5">
+        {{ include('flash_messages.html.twig') }}
+    </div>
 <table class="table">
     <thead>
     <tr>
@@ -97,7 +99,9 @@
     </tr>
     </thead>
     <tbody>
+
     {% for reclamation in reclamations %}
+
     <tr>
         <td>{{ reclamation.id }}</td>
         <td>{{ reclamation.recEmp }}</td>
@@ -110,7 +114,7 @@
 
 
 
-            <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}" class="create-new"> Send Task</a>
+            <a href="{{ path('app_reclamation_send', {'id': reclamation.id}) }}" class="create-new"> Send Task</a>
 
 
         </td>

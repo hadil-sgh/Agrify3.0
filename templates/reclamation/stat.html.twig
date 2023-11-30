@@ -1,0 +1,52 @@
+{# your_template.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistiques</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<h1>Statistiques</h1>
+
+<div style="width: 60%; margin-top: 100px">
+    <canvas id="myChart"></canvas>
+</div>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    // Retrieve data passed from the controller
+    const statsPie = {{ statsPie | raw }};
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: statsPie.map(function(s) {
+                return s.name;
+            }),
+            datasets: [{
+                label: 'Nombre',
+                data: statsPie.map(function(s) {
+                    return s.y;
+                }),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Statistique de réclamation'
+                }
+            }
+        },
+    });
+</script>
+</body>
+</html>

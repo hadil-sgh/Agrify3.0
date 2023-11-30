@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Agrify!{% endblock %}</title>
@@ -10,9 +10,10 @@
         <link rel="preconnect" href="{{asset('https://fonts.gstatic.com')}}" crossorigin>
         <link href="{{asset('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap')}}" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
         <link href="{{asset('Back/CSS/Menu.css')}}" rel="stylesheet">
+
         <style>
             .footer-basic {
                 padding:40px 0;
@@ -110,30 +111,34 @@
 <nav class="menu">
     <div class="classynav">
         <ul>
-            <li><a href="{{path('app_VeterinaireDashboard_index')}}">Home</a></li>
-            <li><a href="{{path('app_animal_batch_index')}}">Animal</a></li>
-            <li><a href="{{path('app_maladie_index')}}">Traitement</a></li>
-            <li><a href="">Taches</a></li>
-            <li><a href="{{path('app_reclamation_index')}}">Reclamation</a></li>
 
-            <li><a href="{{path('app_logout')}}">Logout</a></li>
+            <li><a href="{{path('app_VeterinaireDashboard_index')}}">Home</a> </li>
+                    <li><a href="">Animal</a></li>
+                    <li><a href="{{path('app_maladie_index')}}">Traitement</a></li>
+                    <li><a href="">Taches</a></li>
+                    <li><a href="{{path('app_reclamation_index')}}">Reclamation</a></li>
+
+                    <li><a href="{{path('app_logout')}}">Logout</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>
+
 <!-- Bootstrap Static Header -->
-<div style="background: url({{ asset('web0.png') }})" class="jumbotron bg-cover text-white">
+<div style="background: url({{ asset('/front/img/122.jpg') }})" class="jumbotron bg-cover text-white">
     <div class="container py-5 text-center">
         <h1 class="display-4 font-weight-bold">Espace veterinaire</h1>
 
 
-        <a href="" role="button" class="dd1">les nouveauté de la médecine des animaux</a>
+        <a href="" role="button" class="dd1">Bienvenu</a>
 
     </div>
 </div>
 
 <!-- For Demo Purpose -->
 <div class="container py-5">
-    <h2 class="h3 font-weight-bold">Bienvenu</h2>
+    <h2 class="h3 font-weight-bold">Recherche</h2>
     <div class="row">
         <div class="col-lg-10 mb-4">
 

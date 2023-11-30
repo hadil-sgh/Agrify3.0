@@ -27,18 +27,29 @@
 <body>
 <div class="bg-2 text-center sizefooter" style="border-bottom:5px #0a6704 solid;">
     <div style="text-align: center;">
-        <img src="https://symfony.com/logos/symfony_black_03.png" class="img-icon" >
+        <img src="{{ asset('public/Capture_d_écran_2023-10-11_153514-removebg-preview_1') }}" class="img-icon" >
     </div>
 </div>
 <div class="container-fluid bg-3 text-left" style="text-align:center;">
-    <p>Name: {{ name }}</p>
-    <p>Email: {{ email }}</p>
-    <p>Description:  {{ description }} </p>
+    <p>
+    Cher/e {{  REC_TARGET}}
+    </p>
+    <p>
+        Une nouvelle réclamation a été soumise aujourd'hui concernant un problème important. Voici les détails de la réclamation :
+
+    <p>Employé concerné : {{REC_EMP}}</p>
+    <p>  Date de la réclamation : {{REC_DATE ? REC_DATE|date('Y-m-d') : '' }}</p>
+    <p>  Description du problème : {{REC_DESCRIPTION}}</p>
+    <p> Niveau d'urgence : {{URGENCY}}</p>
+    <p>  Type de réclamation : {{type_Rec}}</p>
+    <p>   Nous vous prions de bien vouloir accorder une attention particulière à cette réclamation et de prendre les mesures nécessaires pour la résoudre dans les plus brefs délais.</p>
+
+    <p> Cordialement,</p>
+    <p>  Administration Agrify</p>
+    </p>
+
     <hr>
 </div>
-<div class="bg-1 sizefooter">
-    <p><a href="https://www.site.fr/" style="font-size: 15px;color: black;" target="_blank" data-saferedirecturl="https://www.site.fr/">https://www.<wbr>site.fr/</a></p>
-    <p style="font-size: 13px;">
-</div>
+
 </body>
 </html>

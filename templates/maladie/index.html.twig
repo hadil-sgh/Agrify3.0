@@ -50,6 +50,7 @@
         .button {
             text-align: center;
             margin-top: 20px;
+            margin-bottom: 30px;
 
         }
 
@@ -75,15 +76,40 @@
             display: block;
         }
 
+        .input-small {
+            width: 50px; /* Set your preferred width */
+            margin-bottom: 30px;
+        }
 
 
     </style>
 {% endblock %}
 {% block title %}Maladie index{% endblock %}
 
-{% block body %}
 
-    <h1>Les maladies des animaux </h1>
+{% block body %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#search").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("table tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+<h1>List Reclamation</h1>
+
+
+    <div class="input-group">
+        <div class="form-outline" data-mdb-input-init>
+            <input type="text" id="search" class="form-control input-small" placeholder="Search">
+
+        </div>
+
+    </div>
+
     <table class="table">
         <thead>
             <tr>
@@ -117,23 +143,14 @@
     </table>
 <div class="button">
     <a href="{{ path('app_maladie_new') }}" class="create-new">Create new</a>
-    <a href="" class="create-new">Historique Animal</a>
+
 
 </div>
 
-        {{ knp_pagination_render(maladies) }}
 
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="" tabindex="-1">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+
+    <div class="d-flex justify-content-center">
+        {% do maladies.SetPageRange(2) %}
+        {{ knp_pagination_render(maladies, "pagination.html.twig") }}
+    </div>
 {% endblock %}

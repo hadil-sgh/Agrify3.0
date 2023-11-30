@@ -8,7 +8,7 @@ use Symfony\Component\Mime\Email;
 use Twig\Environment;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
-class MailerService
+class Maillingservice
 {
     /**
      * @var MailerInterface
