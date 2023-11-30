@@ -17,7 +17,7 @@ class Maintenance
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_debut = null;
+    public ?\DateTimeInterface $date_debut = null;
 
     #[ORM\Column]
     private ?int $durée = null;

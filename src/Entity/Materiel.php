@@ -25,18 +25,30 @@ class Materiel
 
     #[ORM\Column(length: 100)]
     #[assert\NotBlank(message:"Spécifiez l'état' du matériel!")]
+    #[Assert\Length(
+        min : 5,
+        max : 50,
+        minMessage : "Le champ doit contenir au moins 5 caractères.",
+        maxMessage : "Le champ ne peut pas contenir plus de 50 caractères."
+    )]
     private ?string $etat = null;
 
     #[ORM\Column(length: 100)]
     #[assert\NotBlank(message:"Spécifiez la capacité du matériel!")]
+    #[Assert\Type(type:"numeric", message:"La Capacité doit être un nombre.")]
+    #[Assert\GreaterThan(value:"0", message:"La capacité doit être supérieure à zéro.")]
     private ?int $capacite_masse = null;
 
     #[ORM\Column(length: 100, nullable: true)]
     #[assert\NotBlank(message:"Spécifiez la capacité du matériel!")]
+    #[Assert\Type(type:"numeric", message:"La Capacité doit être un nombre.")]
+    #[Assert\GreaterThan(value:"0", message:"La capacité doit être supérieure à zéro.")]
     private ?int $capacite_volume = null;
 
     #[ORM\Column]
     #[assert\NotBlank(message:"Spécifiez le prix du matériel!")]
+    #[Assert\Type(type:"numeric", message:"Le prix doit être un nombre.")]
+    #[Assert\GreaterThan(value:"0", message:"Le prix doit être supérieure à zéro.")]
     private ?int $prix = null;
 
     #[ORM\OneToMany(mappedBy: 'type_materiel', targetEntity: Maintenance::class)]
