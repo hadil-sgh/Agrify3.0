@@ -15,10 +15,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class RationController extends AbstractController
 {
     #[Route('/', name: 'app_ration_index', methods: ['GET'])]
-    public function index(RationRepository $rationRepository): Response
+    public function index(Request $request, RationRepository $rationRepository): Response
     {
+        $searchQuery = $request->query->get('search');
+        $sortDirection = $request->query->get('sort', 'asc');
+
+        if ($searchQuery) {
+            $ration = $rationRepository->findBySpecies($searchQuery);
+        } else {
+            $ration = $rationRepository->findAll();
+        }
+
+        usort($ration, function ($a, $b) use ($sortDirection) {
+            $compare = strnatcmp($a->getEspeceRation(), $b->getEspeceRation());
+            return ($sortDirection === 'asc') ? $compare : -$compare;
+        });
+
         return $this->render('ration/index.html.twig', [
-            'rations' => $rationRepository->findAll(),
+            'rations' => $ration,
         ]);
     }
 

@@ -22,19 +22,17 @@ class RationRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param string $species
      * @return Ration[] Returns an array of Ration objects
      */
-public function findByExampleField($field, $value): array
-{
-    return $this->createQueryBuilder('ab')
-        ->andWhere("ab.{$field} = :val")
-        ->setParameter('val', $value)
-        ->orderBy('ab.id', 'ASC')
-        ->setMaxResults(10)
-        ->getQuery()
-        ->getResult()
-    ;
-} 
+    public function findBySpecies(string $species): array
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.especeRation = :species')
+            ->setParameter('species', $species)
+            ->getQuery()
+            ->getResult();
+    }
 
 //    public function findOneBySomeField($value): ?Ration
 //    {

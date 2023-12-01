@@ -15,10 +15,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewbornsController extends AbstractController
 {
     #[Route('/', name: 'app_newborns_index', methods: ['GET'])]
-    public function index(NewbornsRepository $newBornRepository): Response
+    public function index(Request $request, NewbornsRepository $newBornRepository): Response
     {
+        $searchQuery = $request->query->get('search');
+        $sortDirection = $request->query->get('sort', 'asc');
+
+        if ($searchQuery) {
+            $NEWanimals = $newBornRepository->findBySpecies($searchQuery);
+        } else {
+            $NEWanimals = $newBornRepository->findAll();
+        }
+
+        usort($NEWanimals, function ($a, $b) use ($sortDirection) {
+            $compare = strnatcmp($a->getEspece(), $b->getEspece());
+            return ($sortDirection === 'asc') ? $compare : -$compare;
+        });
+
         return $this->render('newborns/index.html.twig', [
-            'newborns' => $newBornRepository->findAll(),
+            'newborns' => $NEWanimals,
         ]);
     }
 

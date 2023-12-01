@@ -19,9 +19,9 @@ class Newborns1Type extends AbstractType
         $builder
             ->add('sexe', ChoiceType::class, [
                 'choices' => [
-    'féminin' => 'féminin',
-    'masculin' => 'masculin',
-],
+                'féminin' => 'féminin',
+                'masculin' => 'masculin',
+            ],
                 'placeholder' => 'sexe',
                 'required' => true,
             ])

@@ -19,10 +19,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class AnimalController extends AbstractController
 {
     #[Route('/', name: 'app_animal_index', methods: ['GET'])]
-    public function index(AnimalRepository $animalRepository): Response
+    public function index(Request $request, AnimalRepository $animalRepository): Response
     {
+               $searchQuery = $request->query->get('search');
+               $sortDirection = $request->query->get('sort', 'asc');
+       
+               if ($searchQuery) {
+                   $animals = $animalRepository->findBySpecies($searchQuery);
+               } else {
+                   $animals = $animalRepository->findAll();
+               }
+       
+               usort($animals, function ($a, $b) use ($sortDirection) {
+                   $compare = strnatcmp($a->getEspece(), $b->getEspece());
+                   return ($sortDirection === 'asc') ? $compare : -$compare;
+               });
+
         return $this->render('animal/index.html.twig', [
-            'animals' => $animalRepository->findAll(),
+            'animals' => $animals,
         ]);
     }
 
@@ -103,11 +117,12 @@ class AnimalController extends AbstractController
          $mailer->send($email);
      }
  
+     
      private function createAnimalAddedEmail(): Email
      {
          return (new Email())
              ->from('achahlaou.nour@gmail.com')
-             ->to('nour.achahlaw.13@gmail.com')
+             ->to('tbagheiyth@gmail.com')
              ->subject('New Animals Added')
              ->text('A new animal has been added by the chef nour.');
      }
