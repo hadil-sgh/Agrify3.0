@@ -8,9 +8,10 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <link rel="icon" href="{{asset('front/img/core-img/faviconlogo.ico')}}">
+
     {% block stylesheets %}
 
-    <link href="img/favicon.ico" rel="icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +22,8 @@
 
     <link href="{{asset('darkpan-1.0.0/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet">
     <link href="{{asset('darkpan-1.0.0/lib/owlcarousel/assets/owl.carousel.min.cs')}}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="{{asset('darkpan-1.0.0/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('darkpan-1.0.0/css/style.css')}}" rel="stylesheet">
@@ -39,18 +42,18 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="ms-3">
-                        <h6 class="mb-0">Gheiyth tbaraki</h6>
+                        <h6 class="mb-0">Hello</h6>
                         <span>Admin</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="{{path('app_AdminDashboard_index')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>    
-                    <a href="{{path('app_user_index')}}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>User</a>  
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Presence</a>
+                    <a href="{{path('app_user_index')}}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-wheat-awn me-2"></i>User</a>  
+                    <!-- <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Presence</a> -->
                     <a href="{{path('app_field_index')}}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Fields</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tasks</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Materials</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Reclamation</a>
+                    <a href="#" class="nav-item nav-link"><i class="fa-solid fa-list-check me-2"></i>Tasks</a>
+                    <a href="#" class="nav-item nav-link"><i class="fa-solid fa-tractor me-2"></i>Materials</a>
+                    <a href="chart.html" class="nav-item nav-link"><i class="fa-solid fa-circle-exclamation me-2"></i></i>Reclamation</a>
                 
                 </div>
             </nav>
@@ -72,7 +75,7 @@
                 <div class="navbar-nav align-items-center ms-auto">
                     <div >
                         <a href="{{path('app_logout')}}" class="nav-link" >
-                            <i class="fa fa-envelope me-lg-2"></i>
+                            <i class="fa-solid fa-right-from-bracket me-2"></i>
                             <span class="d-none d-lg-inline-flex" style="color:#fff;">Logout</span>
                         </a>
                    
@@ -80,7 +83,6 @@
                 <!--
                   <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notificatin</span>
                         </a>
                     </div>

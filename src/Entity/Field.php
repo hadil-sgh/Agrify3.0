@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\FieldRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 #[ORM\Entity(repositoryClass: FieldRepository::class)]
@@ -16,17 +17,30 @@ class Field
     private ?int $field_id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Regex(pattern: '/^[a-zA-Z]+$/', message: 'Please enter a valid Field Name with only letters.')]
     private ?string $field_Nom = null;
 
     
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Regex(pattern: '/^[a-zA-Z]+$/', message: 'Please enter a valid Field Type with only letters.')]
     private ?string $field_type = null;
+
+
 
     #[ORM\Column(type: Types::BIGINT)]
     private ?string $field_Superficie = null;
 
+
+
     #[ORM\Column]
+    #[Assert\NotBlank]
+    #[Assert\GreaterThanOrEqual(value: 0, message: 'Quantity should be a non-negative integer.')]
     private ?int $field_quantity = null;
+
+
+
 
     #[ORM\Column(length: 255)]
     private ?string $field_chef = null;

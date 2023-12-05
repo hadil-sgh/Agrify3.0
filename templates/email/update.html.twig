@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Add your styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2b8c44;
+            text-align: center;
+        }
+
+        h3 {
+            color: #9FC131;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+
+        }
+
+        h4 {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome {{ user.getUserNom() }} Again!</h1>
+        <h4>We wanna tell you that we made some changes on your informations here are the personnal informations you need to know about</h4>
+        <h3>Your username is: <span style="color: #333; font-weight: bold;">{{ user.getUsername() }}</span></h3>
+         <h3>Your password is: <span style="color: #333; font-weight: bold;">{{ plainPassword }}</span>.</h3>
+         <h3>Your Role is: <span style="color: #333; font-weight: bold;">{{ user.getUserRole() }}</span>.</h3>
+            <h4>Have a nice day & see you Again</h4>
+    </div>
+</body>
+
+</html>
