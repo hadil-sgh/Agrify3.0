@@ -1,0 +1,92 @@
+{% block title %}StockDivers{% endblock %}
+
+{% block stylesheets %}
+    <style>
+         <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F2F2F2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #2E5D42;
+        }
+
+        .table-container {
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #2E5D42;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2E5D42;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #F2F2F2;
+        }
+
+        a {
+            color: #2E5D42;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            color: #F2F0D5;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1>StockDivers</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomSD</th>
+                <th>QuantiteSD</th>
+                <th>Health</th>
+                <th>DateEntreeStock</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stock_diver in stock_divers %}
+            <tr>
+                <td>{{ stock_diver.id }}</td>
+                <td>{{ stock_diver.nomSD }}</td>
+                <td>{{ stock_diver.quantiteSD }}</td>
+                <td>{{ stock_diver.health }}</td>
+                <td>{{ stock_diver.dateEntreeStock ? stock_diver.dateEntreeStock|date('Y-m-d') : '' }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun Stock divers stocké</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
