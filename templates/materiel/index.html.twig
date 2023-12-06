@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Materiel Index{% endblock %}
+
+{% block body %}
+    {{ include('materiel/header.html.twig') }}
+
+<div style="background: url(https://img.freepik.com/free-photo/sunset-rural-farm-growth-abounds-generated-by-ai_24640-80532.jpg?w=826&t=st=1700163182~exp=1700163782~hmac=fb8f477aa52dca8055d3df54be5e33582c93788a8595e75d075e360ce9e6ffca)" class="main-container ">
+
+    <div class="homepage-container">
+<div class="container">
+        <h1 class="page-title">Liste des Matériaux disponibles:</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Etat</th>
+                <th>Capacite_masse</th>
+                <th>Capacite_volume</th>
+                <th>Prix</th>
+                <th>Actions</th>
+                <th>Maintenance</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for materiel in materiels %}
+                <tr>
+                    <td>{{ materiel.id }}</td>
+                    <td>{{ materiel.type }}</td>
+                    <td>{{ materiel.etat }}</td>
+                    <td>{{ materiel.capaciteMasse }}</td>
+                    <td>{{ materiel.capaciteVolume }}</td>
+                    <td>{{ materiel.prix }}</td>
+
+                    <td class="action-links">
+                        <a href="{{ path('app_materiel_show', {'id': materiel.id}) }}" class="show-link">Show</a>
+                        <a href="{{ path('app_materiel_edit', {'id': materiel.id}) }}" class="edit-link">Edit</a>
+                    </td>
+                    <td>
+                        {% if materiel.maintenance.first is not null and materiel.maintenance.first is not same as(false) %}
+                            {{ materiel.maintenance.first.date_debut is not null ? materiel.maintenance.first.date_debut|date('Y-m-d') : 'No date available' }}
+                        {% else %}
+                            Non
+                        {% endif %}
+
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+</div>
+        <a href="{{ path('app_materiel_new') }}" class="btn-create-new">Create New</a>
+    </div>
+    <div class="satistics-container ">
+        <h2>Quantité des materiaux et leurs prix en TND</h2>
+        <svg width="400" height="300">
+            {# X-axis #}
+            <line x1="50" y1="250" x2="350" y2="250" stroke="black" stroke-width="2" />
+            {# Y-axis #}
+            <line x1="50" y1="250" x2="50" y2="50" stroke="black" stroke-width="2" />
+
+            {# Bars - Number of Materials #}
+            <rect x="80" y="{{ 250 - materielCount }}" width="50" height="{{ materielCount }}" fill="blue" />
+            <text x="80" y="{{ 270 }}" fill="black" text-anchor="middle">{{ materielCount }}</text>
+
+            {# Bars - Average Price #}
+            <rect x="180" y="{{ 250 - averagePrice }}" width="50" height="{{ averagePrice }}" fill="green" />
+            <text x="180" y="{{ 270 }}" fill="black" text-anchor="middle">{{ averagePrice }}</text>
+        </svg>
+
+    </div>
+</div>
+    {{ include('materiel/footer.html.twig') }}
+{% endblock %}

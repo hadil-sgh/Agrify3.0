@@ -3,26 +3,26 @@ body {
       padding: 0;
       background-color: #F2F2F2;
 
-  }
-  
+}
+
   nav.menu {
       background-color: #2E5D42;
       color: #fff;
       padding: 20px;
       text-align: center;
   }
-  
+
   .classynav ul {
       list-style: none;
       margin: 0;
       padding: 0;
   }
-  
+
   .classynav ul li {
       display: inline-block;
       margin-right: 20px;
   }
-  
+
   .classynav ul li a {
       font-family: 'Playfair Display', serif;
       color: #fff;
@@ -31,11 +31,11 @@ body {
       position: relative;
       transition: color 0.3s ease-in-out;
   }
-  
+
   .classynav ul li a:hover {
       color: #F2F0D5; /* Hover color */
   }
-  
+
   /* Add a subtle underline on hover */
   .classynav ul li a::after {
       content: '';
@@ -48,10 +48,165 @@ body {
       left: 0;
       transition: width 0.3s ease-in-out;
   }
-  
+
   .classynav ul li a:hover::after {
       width: 100%;
   }
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align to the left */
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-size: cover !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 50px;
+}
+
+.show-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between; /* Align to the left */
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-size: cover !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 50px;
+}
+
+.form-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.homepage-container {
+    max-width: 1100px;
+    width: 100%;
+    padding: 50px;
+    opacity: 0.8;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.title {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    color: #3498db;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #1f73b7;
+}
+
+/* Image styles */
+.image-container {
+    margin-top: 20px;
+}
+
+.image {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin: 0 50px;
+}
+
+
+/* Add the following CSS to your existing styles.css file or create a new one */
+
+/* Styles for the form */
+.form-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.form-field {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-error {
+    color: red;
+}
+
+.form-submit {
+    background-color: #3c7910;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.form-submit:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Styles for the back link */
+.back-link {
+    color: #3498db;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #1f73b7;
+}
+
+.footer-clean {
+    padding:50px 0;
+    background-color: #64b03f;
+    color:#4b4c4d;
+    text-align: center;
 .footer-clean {
     padding:50px 0;
     background-color:#fff;
@@ -84,6 +239,7 @@ body {
 }
 
 .footer-clean .item.social {
+    text-align: center;
     text-align:right;
 }
 
@@ -137,4 +293,406 @@ body {
     font-size:13px;
     opacity:0.6;
 }
-  
+
+.form-description {
+    color: #888; /* Gray color for description text */
+    font-size: 14px; /* Adjust the font size as needed */
+    margin-bottom: 5px; /* Add some space below the description */
+}
+.page-holder {
+    min-height: 30vh;
+}
+
+.bg-cover {
+    background-size: cover !important;
+}
+
+.scroll-button {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.scroll-button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.header-image {
+    text-align: center;
+}
+
+.header-image img {
+    width: 100px; /* Ajustez la largeur de l'image selon vos besoins */
+    height: auto; /* Garantit que l'image conserve ses proportions d'origine */
+    display: block;
+    margin: 0 auto; /* Centre l'image horizontalement */
+    margin-bottom: 10px; /* Ajoute un espace entre l'image et le titre */
+}
+/* Styles for the Materiel box */
+.materiel-box {
+    background-color: #9dd386;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 500px;
+    border: 2px solid #000000; /* Border color (you can change the color) */
+    border-radius: 10px; /* Border radius for rounded corners */
+    padding: 10px; /* Optional: Add padding for better spacing */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    opacity: 75%;
+
+}
+
+.materiel-details table {
+    width: 100%;
+}
+
+.materiel-details th,
+.materiel-details td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Styles for the action boxes */
+.action-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.action-box img {
+    width: 30px; /* Adjust the size of the icon */
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Styles for actions */
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.actions a:hover {
+    color: #1f73b7;
+}
+
+.actions {
+    margin-top:-40%;
+    margin-left:2%;
+    position: absolute;
+}
+
+.actions a {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.actions a:hover {
+    color: #1f73b7;
+}
+
+a{
+    color:#000000;
+}
+
+.text-div {
+    background-color: #b0aaaa; /* Center background color */
+    padding: 80px;
+    border-radius: 10px;
+    text-align: center;
+    background: radial-gradient(circle at 50% 30%, rgba(169, 169, 169, 1), rgba(169, 169, 169, 0)); /* Radial gradient */
+    margin: 10%;
+}
+
+.large-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.small-text {
+    font-size: 14px;
+    color: #777; /* Gray color for smaller text */
+}
+
+.icon {
+    width: 50px; /* Adjust icon size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Add these styles to your existing CSS file or create a new one */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-title {
+    color: #2E5D42;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table th {
+    background-color: #2E5D42;
+    color: #fff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.action-links a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.action-links a.show-link {
+    background-color: #3498db;
+}
+
+.action-links a.edit-link {
+    background-color: #e67e22;
+}
+
+.action-links a:hover {
+    opacity: 0.8;
+}
+
+.btn-create-new {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #2E5D42;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-create-new:hover {
+    background-color: #1F4C34;
+}
+
+.satistics-container {
+    margin-top: 20px;
+    max-width: 400px; /* Adjust the max-width as needed */
+    width: 100%;
+    margin-bottom: 20px; /* Add margin between statistics and homepage containers */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    opacity: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.satistics-container svg {
+    display: block;
+    margin: 0 auto; /* Center the SVG horizontally */
+}
+
+.satistics-container line {
+    stroke: black;
+    stroke-width: 2;
+}
+
+.satistics-container rect {
+    fill: blue; /* Adjust the fill color as needed */
+}
+
+.satistics-container text {
+    fill: black;
+    text-anchor: middle;
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+.pieContainer {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.pieBackground{
+    background-color: #333;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+
+    -webkit-box-shadow:  0px 0px 5px 1px rgba(0, 0, 0, .75);
+    box-shadow:  0px 0px 5px 1px rgba(0, 0, 0, .75);
+}
+
+.stat-circle-cover {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+
+    background-color: #333;
+    height: 80%;
+    width: 80%;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+
+    -moz-box-shadow:inset 0px 0px 5px #666;
+    -webkit-box-shadow:inset 0px 0px 5px #666;
+    box-shadow:inset 0px 0px 1px #666;
+}
+
+.stat-circle-cover span.stat-number {
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    line-height: 80px;
+    color: #f78e1e;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 24px;
+    font-family: Helvetica-Neue, Helvetica, arial, verdana, sans-serif;
+    font-weight: bold;
+}
+
+.pie {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    clip: rect(0px, 50px, 100px, 0px);
+}
+
+.hold {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    clip: rect(0px, 100px, 100px, 50px);
+}
+
+#pieSlice25 .pie {
+    background-color: #56e05d;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+    background-image: -webkit-linear-gradient(top, #62C462, #57A957);
+}
+
+#pieSlice50 .pie {
+    background-color: #09b036;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+
+
+}
+
+#pieSlice75_1 .pie {
+    background-color: #FBB450;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+#pieSlice75_2 {
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+
+#pieSlice75_2 .pie {
+    background-color: #FBB450;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+#pieSlice99_1 .pie {
+    background-color: #C43C35;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+#pieSlice99_2 {
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+
+#pieSlice99_2 {
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+
+#pieSlice99_2 .pie {
+    background-color: #C43C35;
+    -webkit-transform: rotate(178deg);
+    -moz-transform: rotate(178deg);
+    -o-transform: rotate(178deg);
+    transform: rotate(178deg);
+
+}
+
+
