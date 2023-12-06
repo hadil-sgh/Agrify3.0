@@ -45,14 +45,12 @@
             text-decoration: underline;
         }
 
-        .no-records {
-            color: #757575;
-            font-style: italic;
-        }
+
 
         .button {
             text-align: center;
             margin-top: 20px;
+            margin-bottom: 30px;
 
         }
 
@@ -72,12 +70,45 @@
             color: #000;
 
         }
+        .pagination-container {
+            justify-content: center;
+            margin-top: 20px; /* Adjust margin as needed */
+            display: block;
+        }
+
+        .input-small {
+            width: 50px; /* Set your preferred width */
+            margin-bottom: 30px;
+        }
+
+
     </style>
 {% endblock %}
 {% block title %}Maladie index{% endblock %}
 
+
 {% block body %}
-    <h1>Maladie index</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#search").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("table tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+<h1>List Reclamation</h1>
+
+
+    <div class="input-group">
+        <div class="form-outline" data-mdb-input-init>
+            <input type="text" id="search" class="form-control input-small" placeholder="Search">
+
+        </div>
+
+    </div>
 
     <table class="table">
         <thead>
@@ -112,6 +143,14 @@
     </table>
 <div class="button">
     <a href="{{ path('app_maladie_new') }}" class="create-new">Create new</a>
-    <a href="" class="create-new">Historique Animal</a>
+
+
 </div>
+
+
+
+    <div class="d-flex justify-content-center">
+        {% do maladies.SetPageRange(2) %}
+        {{ knp_pagination_render(maladies, "pagination.html.twig") }}
+    </div>
 {% endblock %}

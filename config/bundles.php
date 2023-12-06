@@ -14,5 +14,9 @@ return [
     Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
     Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
+<<<<<<< HEAD
     Knp\Bundle\SnappyBundle\KnpSnappyBundle::class => ['all' => true],
+=======
+    Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
+>>>>>>> 664bbc48e2d5d71de0667370996f612d94ea8478
 ];

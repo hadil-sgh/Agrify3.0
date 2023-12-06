@@ -74,6 +74,15 @@
             color: #000;
 
         }
+        h3{
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #F2F0D5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 {% endblock %}
 
@@ -105,8 +114,12 @@
                 <td>{{ reclamation.urgency }}</td>
                 <td>{{ reclamation.typeRec.type }}</td>
                 <td>
-                    <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}">show</a>
-                    <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}">edit</a>
+
+
+                    <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}" class="btn btn-success">Show</a>
+                    <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}" class="btn btn-danger">Edit</a>
+
+
                 </td>
             </tr>
         {% else %}
@@ -121,5 +134,7 @@
 
     <div class="button">
         <a href="{{ path('app_reclamation_new') }}" class="create-new">Create new</a>
+        <a href="{{ path('pdf') }}" class="create-new">Pdf</a>
     </div>
+
 {% endblock %}

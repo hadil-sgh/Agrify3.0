@@ -1,0 +1,133 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Reclamation index{% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    h1 {
+        color: #1D741B;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    th {
+        background-color: #88CA5E;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #F4F7F0;
+    }
+
+    a {
+        color: #2E5D42;
+        text-decoration: none;
+        margin-right: 10px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    a:hover {
+        color: #22C738;
+        text-decoration: underline;
+    }
+
+    .no-records {
+        color: #757575;
+        font-style: italic;
+    }
+
+    .button {
+        text-align: center;
+        margin-top: 20px;
+
+    }
+
+    .create-new {
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: #1D741B;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s ease-in-out;
+        width: 70px;
+        height: 50px;
+    }
+
+    .create-new:hover {
+        background-color: #22C738;
+        color: #000;
+
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+<h1>Reclamation </h1>
+    <div class="m-5">
+        {{ include('flash_messages.html.twig') }}
+    </div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Rec_emp</th>
+        <th>Rec_date</th>
+        <th>Rec_description</th>
+        <th>Rec_target</th>
+        <th>Urgency</th>
+        <th>Type</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for reclamation in reclamations %}
+
+    <tr>
+        <td>{{ reclamation.id }}</td>
+        <td>{{ reclamation.recEmp }}</td>
+        <td>{{ reclamation.recDate ? reclamation.recDate|date('Y-m-d') : '' }}</td>
+        <td>{{ reclamation.recDescription }}</td>
+        <td>{{ reclamation.recTarget }}</td>
+        <td>{{ reclamation.urgency }}</td>
+        <td>{{ reclamation.typeRec.type }}</td>
+        <td>
+
+
+
+            <a href="{{ path('app_reclamation_send', {'id': reclamation.id}) }}" class="create-new"> Send Task</a>
+
+
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="10" class="no-records">No records found</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+
+
+{% endblock %}

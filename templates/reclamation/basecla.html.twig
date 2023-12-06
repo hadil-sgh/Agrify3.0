@@ -1,0 +1,46 @@
+{# calendar.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reclamation Calendar</title>
+
+    <!-- Include FullCalendar libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="calendar"></div>
+
+<!-- Include FullCalendar JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const calendarEl = document.getElementById('calendar');
+
+        // Retrieve reclamation data passed from the controller
+        const reclamations = {{ reclamations | raw }};
+
+        const events = [];
+
+        // Format reclamation data into FullCalendar event format
+        reclamations.forEach(function(reclamation) {
+            events.push({
+                title: reclamation.title, // Replace 'title' with the field containing reclamation title
+                start: reclamation.date, // Replace 'date' with the field containing reclamation date
+            });
+        });
+
+        // Initialize FullCalendar
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: events,
+            // Additional FullCalendar options and configurations can be added here
+        });
+
+        calendar.render();
+    });
+</script>
+</body>
+</html>
