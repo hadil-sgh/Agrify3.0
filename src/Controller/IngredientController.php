@@ -23,13 +23,9 @@ class IngredientController extends AbstractController
         if ($searchQuery) {
             $ingredient = $ingredientRepository->findByName($searchQuery);
         } else {
-            $ingredient = $ingredientRepository->findAll();
+            $ingredient = $ingredientRepository->findAllSortedByName($sortDirection);
         }
 
-        usort($ingredient, function ($a, $b) use ($sortDirection) {
-            $compare = strnatcmp($a->getNameIngredient(), $b->getNameIngredient());
-            return ($sortDirection === 'asc') ? $compare : -$compare;
-        });
 
         return $this->render('ingredient/index.html.twig', [
             'ingredients' => $ingredient,

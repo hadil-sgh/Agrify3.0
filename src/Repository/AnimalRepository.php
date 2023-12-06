@@ -34,6 +34,18 @@ class AnimalRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * @param string $sortDirection
+     * @return Animal[] Returns an array of Animal objects
+     */
+    public function findAllSortedByEspece(string $sortDirection): array
+    {
+        $queryBuilder = $this->createQueryBuilder('a')
+            ->orderBy('a.espece', $sortDirection);
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+
 //    public function findOneBySomeField($value): ?Animal
 //    {
 //        return $this->createQueryBuilder('a')

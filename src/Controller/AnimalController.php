@@ -21,23 +21,19 @@ class AnimalController extends AbstractController
     #[Route('/', name: 'app_animal_index', methods: ['GET'])]
     public function index(Request $request, AnimalRepository $animalRepository): Response
     {
-               $searchQuery = $request->query->get('search');
-               $sortDirection = $request->query->get('sort', 'asc');
-       
-               if ($searchQuery) {
-                   $animals = $animalRepository->findBySpecies($searchQuery);
-               } else {
-                   $animals = $animalRepository->findAll();
-               }
-       
-               usort($animals, function ($a, $b) use ($sortDirection) {
-                   $compare = strnatcmp($a->getEspece(), $b->getEspece());
-                   return ($sortDirection === 'asc') ? $compare : -$compare;
-               });
+        $searchQuery = $request->query->get('search');
+        $sortDirection = $request->query->get('sort', 'asc');
+
+        if ($searchQuery) {
+            $animals = $animalRepository->findBySpecies($searchQuery);
+        } else {
+            $animals = $animalRepository->findAllSortedByEspece($sortDirection);
+        }
 
         return $this->render('animal/index.html.twig', [
             'animals' => $animals,
         ]);
+    
     }
 
     #[Route('/new', name: 'app_animal_new', methods: ['GET', 'POST'])]
@@ -122,7 +118,7 @@ class AnimalController extends AbstractController
      {
          return (new Email())
              ->from('achahlaou.nour@gmail.com')
-             ->to('tbagheiyth@gmail.com')
+             ->to('asma.ayari@esprit.tn')
              ->subject('New Animals Added')
              ->text('A new animal has been added by the chef nour.');
      }

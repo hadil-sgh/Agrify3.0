@@ -1,20 +1,249 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Hello GestionAnimalController!{% endblock %}
+{% block title %}User Management{% endblock %}
+{% block stylesheets %}
+    <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon -->
+    <link rel="icon" href="{{asset('front/img/core-img/faviconlogo.ico')}}">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href={{asset('front/style.css')}}>
+
+    </head>
+
+
+    {{ parent() }}
+    <style>
+        h1 {
+            font-size:3em; 
+            margin-top:20px;
+            font-weight: 300;
+            line-height:1em;
+            text-align: center;
+            color: #2E5D42;
+          }
+
+        table {
+            width: 80%; /* Adjust the width as needed */
+            margin: 50px auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #377120;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000;
+
+        }
+        .container td:first-child { color: #000; }
+
+
+        tr:nth-child(even) {
+            background-color: #F4F7F0;
+        }
+
+        a {
+            color: #2E5D42;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #22C738;
+            text-decoration: underline;
+        }
+
+        .no-records {
+            color: #757575;
+            font-style: italic;
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 20px;
+
+        }
+
+        .create-new {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #2E5D42;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+      
+        .create-new:hover {
+            background-color: #D8FFDB;
+            text-decoration: none;
+            color: #000;
+        }
+        
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #377120;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+    </style>
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/alien kami sama/AgrifyWeb/src/Controller/GestionAnimalController.php'|file_link(0) }}">src/Controller/GestionAnimalController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/alien kami sama/AgrifyWeb/templates/gestion_animal/index.html.twig'|file_link(0) }}">templates/gestion_animal/index.html.twig</a></code></li>
-    </ul>
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">animal</a>
+  <a href="#news">ingredinet</a>
+  <a href="#contact">besoins nutritionnel</a>
+  <a href="#about">ration</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
 </div>
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+
+
+<!-- ##### Sorting ##### -->
+    <h1>User Home</h1>
+<section class="subscribe-newsletter-area">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-12 col-lg-5">
+                <!-- Section Heading -->
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="subscribe-form">
+                    <form method="get">
+                        <input type="text" name="search" placeholder="rechercher">
+                        <button type="submit" class="btn alazea-btn" style ="background-color : #377120 ; color: white;">chercher</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### search##### -->
+<!-- ##### Sorting ##### -->
+<div>
+    <a href="{{ path('app_gestion_animal', {'search': app.request.query.get('search'), 'sort': 'asc'}) }}" class="navbar-brand mx-4 mb-3 btn alazea-btn active" style ="color : #377120">Sort A-Z</a>
+    <a href="{{ path('app_gestion_animal', {'search': app.request.query.get('search'), 'sort': 'desc'}) }}" class="navbar-brand mx-4 mb-3 btn alazea-btn active" style ="color : #377120">Sort Z-A</a>
+</div>
+
+
+<table class="container">
+    <thead>
+        <tr>
+            <th>Espece</th>
+            <th>Sexe</th>
+            <th>Poids</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for animal in animals %}
+        <tr>
+            <td>{{ animal.espece }}</td>
+            <td>{{ animal.sexe }}</td>
+            <td>{{ animal.poids }}</td>
+            <td>{{ animal.age }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="6">no records found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% block scripts %}
+<script src={{asset('front/js/jquery/jquery-2.2.4.min.js')}}></script>
+    <!-- Popper js -->
+    <script src={{asset('front/js/bootstrap/popper.min.js')}}></script>
+    <!-- Bootstrap js -->
+    <script src={{asset('front/js/bootstrap/bootstrap.min.js')}}></script>
+    <!-- All Plugins js -->
+    <script src={{asset('front/js/plugins/plugins.js')}}></script>
+    <!-- Active js -->
+    <script src={{asset('front/js/active.js')}}></script>
+{% endblock %}
 {% endblock %}
