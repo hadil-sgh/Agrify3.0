@@ -21,20 +21,20 @@ class NutritionalValueNeedsRepository extends ServiceEntityRepository
         parent::__construct($registry, NutritionalValueNeeds::class);
     }
 
-//    /**
-//     * @return NutritionalValueNeeds[] Returns an array of NutritionalValueNeeds objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('n')
-//            ->andWhere('n.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('n.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+     * @return NutritionalValueNeeds[] Returns an array of NutritionalValueNeeds objects
+     */
+public function findByExampleField($field, $value): array
+{
+    return $this->createQueryBuilder('ab')
+        ->andWhere("ab.{$field} = :val")
+        ->setParameter('val', $value)
+        ->orderBy('ab.id', 'ASC')
+        ->setMaxResults(10)
+        ->getQuery()
+        ->getResult()
+    ;
+} 
 
 //    public function findOneBySomeField($value): ?NutritionalValueNeeds
 //    {

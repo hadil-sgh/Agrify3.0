@@ -1,16 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}NutritionalValue{% endblock %}
+{% block section %}{% endblock %}
+{% block ingredient %}{% endblock %}
+{% block animal %}{% endblock %}
+{% block animalbatch %}{% endblock %}
+{% block newBorn %}{% endblock %}
+{% block nutritionalneeds %}{% endblock %}
+{% block ration %}{% endblock %}
+{% block gestation %}{% endblock %}
 
 {% block body %}
     <h1>NutritionalValue</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ nutritional_value.id }}</td>
-            </tr>
             <tr>
                 <th>Pb</th>
                 <td>{{ nutritional_value.pb }}</td>
@@ -54,9 +58,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_nutritional_value_index') }}">back to list</a>
+    <a href="{{ path('app_nutritional_value_index') }}" class="btn alazea-btn active">back to list</a>
 
-    <a href="{{ path('app_nutritional_value_edit', {'id': nutritional_value.id}) }}">edit</a>
+    <a href="{{ path('app_nutritional_value_edit', {'id': nutritional_value.id}) }}" class="btn alazea-btn active">edit</a>
 
     {{ include('nutritional_value/_delete_form.html.twig') }}
 {% endblock %}

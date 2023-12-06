@@ -1,0 +1,14 @@
+{# templates/animal_batch/new.html.twig #}
+{{ form_start(form,{"attr":{'novalidate':"novalidate"}}) }}
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.file) }}
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn alazea-btn mt-15" type="submit">{{ button_label|default('Import') }}</button>
+        </div>
+    </div>
+{{ form_end(form) }}

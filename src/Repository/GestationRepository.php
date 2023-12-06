@@ -20,21 +20,20 @@ class GestationRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Gestation::class);
     }
-
-//    /**
-//     * @return Gestation[] Returns an array of Gestation objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('a.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Gestation[] Returns an array of Gestation objects
+     */
+    public function findByExampleField($field, $value): array
+    {
+        return $this->createQueryBuilder('ab')
+            ->andWhere("ab.{$field} = :val")
+            ->setParameter('val', $value)
+            ->orderBy('ab.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }    
 
 //    public function findOneBySomeField($value): ?Gestation
 //    {

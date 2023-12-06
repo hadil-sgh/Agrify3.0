@@ -1,6 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}NutritionalValue index{% endblock %}
+{% block section %}{% endblock %}
+{% block ingredient %}{% endblock %}
+{% block animal %}{% endblock %}
+{% block animalbatch %}{% endblock %}
+{% block newBorn %}{% endblock %}
+{% block nutritionalneeds %}{% endblock %}
+{% block ration %}{% endblock %}
+{% block gestation %}{% endblock %}
 
 {% block body %}
     <h1>NutritionalValue index</h1>
@@ -8,7 +16,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Pb</th>
                 <th>Fb</th>
                 <th>Adf</th>
@@ -19,13 +26,13 @@
                 <th>P</th>
                 <th>Mg</th>
                 <th>K</th>
-                <th>actions</th>
+               <th>show</th>
+                <th>edit</th>
             </tr>
         </thead>
         <tbody>
         {% for nutritional_value in nutritional_values %}
             <tr>
-                <td>{{ nutritional_value.id }}</td>
                 <td>{{ nutritional_value.pb }}</td>
                 <td>{{ nutritional_value.fb }}</td>
                 <td>{{ nutritional_value.adf }}</td>
@@ -38,6 +45,8 @@
                 <td>{{ nutritional_value.k }}</td>
                 <td>
                     <a href="{{ path('app_nutritional_value_show', {'id': nutritional_value.id}) }}">show</a>
+                    </td>
+                    <td>
                     <a href="{{ path('app_nutritional_value_edit', {'id': nutritional_value.id}) }}">edit</a>
                 </td>
             </tr>
@@ -49,5 +58,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_nutritional_value_new') }}">Create new</a>
+    <a href="{{ path('app_nutritional_value_new') }}" class="btn alazea-btn active">Create new</a>
 {% endblock %}

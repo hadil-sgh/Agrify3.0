@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ReclamationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ReclamationRepository::class)]
 class Reclamation
@@ -12,25 +13,54 @@ class Reclamation
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    /**
+     * @ORM\Column(length=255)
+     * @Assert\NotBlank(message="Type should not be blank")
+     */
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[assert\NotBlank(message:"id should not be blank")]
+    #[Assert\Regex(
+        pattern: '/^\d+$/',
+        message: "l'id doit contenir uniquement des chiffres"
+    )]
+    #[Assert\Length(
+        min: 7,
+        max: 20,
+        minMessage: "id should have at least 7 numbers",
+        maxMessage: "id should have at most 20 numbers"
+    )]
     private ?string $rec_emp = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    /**
+     * @ORM\Column(type="date")
+     * @Assert\Type("\DateTimeInterface", message="Date should be a valid date")
+     */
     private ?\DateTimeInterface $rec_date = null;
 
     #[ORM\Column(length: 255)]
+    #[assert\NotBlank(message:"description should not be blank")]
+    #[Assert\Length(
+        min: 7,
+        max: 20,
+        minMessage: "description should have at least 7 char",
+        maxMessage: "description should have at most 20 char"
+    )]
     private ?string $rec_description = null;
 
     #[ORM\Column(length: 255)]
+    #[assert\NotBlank(message:"target should not be blank")]
     private ?string $rec_target = null;
-
+    
     #[ORM\Column(length: 255)]
+    #[assert\NotBlank(message:"state should not be blank")]
     private ?string $urgency = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
+    #[assert\NotBlank(message:"type should not be blank")]
     private ?TypedeReclamation $type_Rec = null;
 
     public function getId(): ?int

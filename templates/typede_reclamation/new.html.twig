@@ -1,5 +1,65 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        h1 {
+            color: #377120;
+            text-align: center;
+        }
 
+        a {
+            color: #377120;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #F2F0D5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #377120;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #285e15;
+        }
+
+    </style>
+{% endblock %}
 {% block title %}New TypedeReclamation{% endblock %}
 
 {% block body %}
@@ -7,5 +67,6 @@
 
     {{ include('typede_reclamation/_form.html.twig') }}
 
-    <a href="{{ path('app_typede_reclamation_index') }}">back to list</a>
+    <a href="{{ path('app_reclamation_new') }}">back to creation the new reclamation </a>
+    <a href="{{ path('app_typede_reclamation_index') }}">show me the list</a>
 {% endblock %}

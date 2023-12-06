@@ -1,4 +1,64 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{# animal/_form.html.twig #}
+
+{{ form_start(form,{"attr":{'novalidate':"novalidate"}}) }}
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.nameIngredient, { 'attr': {'class': 'form-control', 'placeholder': 'Nom de l\'ingrédient'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.itemQuantityIngredient, { 'attr': {'class': 'form-control', 'placeholder': 'Quantité de l\'ingrédient'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.unitIngredient, { 'attr': {'class': 'form-control', 'placeholder': 'Unité de mesure'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.costIngredient, { 'attr': {'class': 'form-control', 'placeholder': 'Coût de l\'ingrédient'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.loadedByIngredient, { 'attr': {'class': 'form-control', 'placeholder': 'Personne chargée de l\'ingrédient'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.descriptionIngredient, { 'attr': {'class': 'form-control', 'placeholder': 'Description de l\'ingrédient'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.typeIngredient, { 'attr': {'class': 'form-control', 'placeholder': 'Type d\'ingrédient'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.nutrimentPrincipalIngredient, { 'attr': {'class': 'form-control', 'placeholder': 'Nutriment principal de l\'ingrédient'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.ration, { 'attr': {'class': 'form-control', 'placeholder': 'Ration associée'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.nutritionalValue, { 'attr': {'class': 'form-control', 'placeholder': 'Valeur nutritionnelle'} }) }}
+            </div>
+        </div>
+        <!-- Add more form fields as needed -->
+
+        <div class="col-12">
+            <button class="btn alazea-btn mt-15">{{ button_label|default('Mettre à jour l\'animal') }}</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+</form>

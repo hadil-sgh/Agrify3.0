@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %} Welcome {% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <!-- Favicon -->
+    <link rel="icon" href="{{asset('front/img/core-img/faviconlogo.ico')}}">
 
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href={{asset('front/style.css')}}>
+    <script>
+    $(document).ready(function() {
+        $('#searchForm').submit(function(e) {
+            e.preventDefault(); // Prevent the form from submitting traditionally
 
+            var searchValue = $('#subscribeEmail').val();
 
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-       
-       
-        {% block stylesheets %}
-        <link rel="preconnect" href="{{asset('https://fonts.googleapis.com')}}">
-        
-        <link rel="preconnect" href="{{asset('https://fonts.gstatic.com')}}" crossorigin>
-        
-        <link href="{{asset('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap')}}" rel="stylesheet">
-
-        <link href="{{asset('web/style.css')}}" rel="stylesheet">
-
-        
-           {% endblock %}
-
-
-
-
-        {% block javascripts %}
-        {% endblock %}
-
+            // Make an AJAX request to your PHP endpoint
+            $.ajax({
+                type: 'GET',
+                url: 'app_animal_batch_index', // Update this with the actual path
+                data: {
+                    field: 'especeAnimalBatch', // Update with the actual field name
+                    value: searchValue
+                },
+                success: function(response) {
+                    // Handle the response from the server
+                    console.log(response);
+                    // You can update your UI or perform any other actions here
+                },
+                error: function(error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>
 
     </head>
     <body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"  style="background-color : #8ef05d ;"></div>
+        <div class="preloader-img" >
+            <img src={{asset('front/img/core-img/agrifylogo.png')}} alt="">
+        </div>
+    </div>
+     <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
 
-        <!-- ***** Navbar Area ***** -->
+            <!-- ***** Navbar Area ***** -->
         <div class="alazea-main-menu">
             <div class="classy-nav-container breakpoint-off">
                 <div class="container">
@@ -39,7 +59,12 @@
                     <nav class="classy-navbar justify-content-between" id="alazeaNav">
 
                         <!-- Nav Brand -->
-                        <link rel="preconnect" href="{{asset('logo.png')}}" alt="">
+                        <a href={{asset('#')}} class="nav-brand"><img src={{asset('front/img/core-img/agrifylogo.png')}} alt="" height=30% width=30% ></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
 
                         <!-- Menu -->
                         <div class="classy-menu">
@@ -52,32 +77,1131 @@
                             <!-- Navbar Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="{{path('app_animal_index')}}">Animal</a></li>
-                                    <li><a href="{{path('app_ingredient_index')}}">Ingredinet</a></li>
-                                    <li><a href="#">Nutritional Needs</a></li>
-                                    <li><a href="#">Ration</a></li>
-                                    <li><a href="#">Gestation</a></li>
+                                    
+                                    <li><a href="{{path('app_animal_index')}}">Animal</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{path('app_animal_batch_index')}}">Lot d'animal</a></li>
+                                            <li><a href="{{path('app_newborns_index')}}">Nouveau nés</a></li>
+                                            <li><a href="{{path('app_gestation_index')}}">Gestation</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{{path('app_ingredient_index')}}">Ingredient</a></li>
+                                    <li><a href="{{path('app_nutritional_needs_index')}}">Besoin Nutritionel</a></li>
+                                    <li><a href="{{path('app_ration_index')}}">Ration</a></li>
+                                    <li><a href="{{path('app_logout')}}">Logout</a></li>
                                 </ul>
+
+                                <!-- Search Icon -->
+                                
+                                            
+
 
                             </div>
                             <!-- Navbar End -->
                         </div>
                     </nav>
 
+                    <!-- Search Form -->
+                    <div class="search-form">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
+                            <button type="submit" class="d-none"></button>
+                        </form>
+                        <!-- Close Icon -->
+                        <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
-    <!-- ##### Header Area End ##### -->      
+ 
+    {% block section %}
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area">
+        <div class="hero-post-slides owl-carousel">
+            <!-- Single Hero Post -->
+            <div class="single-hero-post bg-overlay">
+                <!-- Post Image -->
+                <div class="slide-img bg-img" style="background-image: url(img/bg-img/2.jpg);"></div>
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <!-- Post Content -->
+                            <div class="hero-slides-content text-center">
+                                <h2>Plants exist in the weather and light rays that surround them</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque ante nec ipsum iaculis, ac iaculis ipsum porttitor. Vivamus cursus nisl lectus, id mattis nisl lobortis eu. Duis diam augue, dapibus ut dolor at, mattis maximus dolor.</p>
+                                <div class="welcome-btn-group">
+                                    <a href="#" class="btn alazea-btn mr-30">GET STARTED</a>
+                                    <a href="#" class="btn alazea-btn active">CONTACT US</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-      {% block body %}
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    {% endblock %}
+
+    {% block animal %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('front/img/bg/6.jpg') }}');">
+            <h2>ANIMAL</h2>
+        </div>
+         <div class="container" >
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Animal</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
+<!-- ##### About Area Start ##### -->
+    <section class="about-us-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h2>Bienvenue dans le Système de Gestion des Animaux</h2>
+                        <p>Cette page vous permet de gérer et de mettre à jour les informations sur les animaux dans notre système. Que vous ayez besoin d'ajouter un nouvel animal ou de modifier des détails existants.</p>
+                    </div>
+<p>Les fonctionnalités clés de cette page comprennent :</p>
+        <ul>
+            <li>Ajouter de nouveaux animaux à la base de données</li>
+            <li>Mettre à jour et modifier les informations des animaux existants</li>
+            <li>Consulter une liste complète de tous les animaux enregistrés</li>
+        </ul>                </div>
+
+                <div class="col-12 col-lg-6">
+                <div class="section-heading">
+                        <h2>Capacité d'accueillir des animaux sur la ferme.</h2>
+                    </div>
+                    <div class="alazea-benefits-area">
+                    <!-- Progress Bar Content Area -->
+                    <div class="alazea-progress-bar mb-50">
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Bovins</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="90"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Ovins</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="66"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Volaille</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="40"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Caprins</p>
+                            <div id="bar4" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="65"></span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### About Area End ##### -->
+    
+    {% block chercher %}
+<!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
+    {% endblock %}
+    <!-- ##### Cool Facts Area Start ##### -->
+    <section class="cool-facts-area bg-img section-padding-100-0" style=" background-image: url('{{ asset('front/img/bg/010.jpg') }}'); " >
+        <div class="container" >
+            <div class="row">
+<!--background-image: url({{ asset('front/img/bg/55.png') }}) -->
+                        
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
+                        <div class="cf-icon">
+                            <img src="{{ asset('front/img/core-img/cow.png') }}" alt="">
+                        </div>
+                        <div class="cf-content">
+                            <h2><span class="counter">20</span></h2>
+                            <h6>Bovins</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
+                        <div class="cf-icon">
+                            <img src="{{ asset('front/img/core-img/hen.png') }}" alt="">
+                        </div>
+                        <div class="cf-content">
+                            <h2><span class="counter">70</span></h2>
+                            <h6>Volaille</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
+                        <div class="cf-icon">
+                            <img src="{{ asset('front/img/core-img/sheep.png') }}" alt="">
+                        </div>
+                        <div class="cf-content">
+                            <h2><span class="counter">30</span></h2>
+                            <h6>Ovins</h6>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
         
-      {% endblock %}
+        <!-- Side Image -->
+        <div class="side-img wow fadeInUp" data-wow-delay="500ms">
+        <!-- Single Testimonial Slide -->
+                        <div class="single-testimonial-slide">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-6">
+                                    <div class="testimonial-thumb">
+                                        <img src="{{ asset('front/img/bg/8.jpg') }}" alt="">                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+        </div>
+    </section>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    {% endblock %}
 
+    
+    {% block newBorn %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+<div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('front/img/bg/1.jpg') }}');">
+            <h2>NOUVEAU NES</h2>
+        </div>
 
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Animal</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Nouveau nés</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    <!-- ##### About Area Start ##### -->
+    <section class="about-us-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h2>Bienvenue dans le Système de Gestion des Nouveau nés</h2>
+                        <p>Cette page vous permet de gérer et de mettre à jour les informations sur les nouveau nés dans notre système. Que vous ayez besoin d'ajouter un nouvel animal ou de modifier des détails existants.</p>
+                    </div>
+<p>Les fonctionnalités clés de cette page comprennent :</p>
+        <ul>
+            <li>Ajouter de nouveaux nouveau nés à la base de données</li>
+            <li>Mettre à jour et modifier les informations des nouveau nés existants</li>
+            <li>Consulter une liste complète de tous les nouveau nés enregistrés</li>
+        </ul>                </div>
 
+                <div class="col-12 col-lg-6">
+                <div class="section-heading">
+                        <h2>Capacité d'accueillir des animaux sur la ferme.</h2>
+                    </div>
+                    <div class="alazea-benefits-area">
+                    <!-- Progress Bar Content Area -->
+                    <div class="alazea-progress-bar mb-50">
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Bovins</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="90"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Ovins</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="66"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Volaille</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="40"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Caprins</p>
+                            <div id="bar4" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="65"></span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### About Area End ##### -->
+    <!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
+    {% endblock %}
 
         
+    {% block animalbatch %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('front/img/bg/3.jpg') }}');">
+            <h2>LOTS D'ANIMAUX</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item">Animal</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Lots d'animaux</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    <!-- ##### About Area Start ##### -->
+    <section class="about-us-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                    
+                        <h2>Bienvenue dans le Système de Gestion des Animaux</h2>
+                        <p>Cette page vous permet de gérer et de mettre à jour les informations sur les animaux dans notre système. Que vous ayez besoin d'ajouter un nouvel animal ou de modifier des détails existants.</p>
+                    </div>
+<p>Les fonctionnalités clés de cette page comprennent :</p>
+        <ul>
+            <li>Ajouter de nouveaux animaux à la base de données</li>
+            <li>Mettre à jour et modifier les informations des animaux existants</li>
+            <li>Consulter une liste complète de tous les animaux enregistrés</li>
+        </ul>                </div>
+
+                <div class="col-12 col-lg-6">
+                <div class="section-heading">
+                        <h2>Capacité d'accueillir des animaux sur la ferme.</h2>
+                    </div>
+                    <div class="alazea-benefits-area">
+                    <!-- Progress Bar Content Area -->
+                    <div class="alazea-progress-bar mb-50">
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Bovins</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="90"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Ovins</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="66"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Volaille</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="40"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Caprins</p>
+                            <div id="bar4" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="65"></span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### About Area End ##### -->
+    {% block chercheranimalbatch %}
+<!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form id="searchForm" action="#" method="get">
+                            <input id="subscribeEmail" name="searchField" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
+    {% endblock %}
+    {% endblock %}
+    {% block gestation %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('front/img/bg/04.jpg') }}');">
+            <h2>ANIMAL</h2>
+        </div>
+         <div class="container" >
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Animal</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
+<!-- ##### About Area Start ##### -->
+    <section class="about-us-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h2>Bienvenue dans le Système de Gestion des Animaux en gestation </h2>
+                        <p>Cette page vous permet de gérer et de mettre à jour les informations sur les animaux en gestation dans notre système.</p>
+                    </div>
+<p>Les fonctionnalités clés de cette page comprennent :</p>
+        <ul>
+            <li>Ajouter de nouveaux animaux en gestation à la base de données</li>
+            <li>Mettre à jour et modifier les informations des animaux en gestation existants</li>
+            <li>Consulter une liste complète de tous les animaux en gestation enregistrés</li>
+        </ul>                </div>
+
+                <div class="col-12 col-lg-6">
+                <div class="section-heading">
+                        <h2>Capacité d'accueillir des animaux sur la ferme.</h2>
+                    </div>
+                    <div class="alazea-benefits-area">
+                    <!-- Progress Bar Content Area -->
+                    <div class="alazea-progress-bar mb-50">
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Bovins</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="90"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Ovins</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="66"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Volaille</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="40"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Caprins</p>
+                            <div id="bar4" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="65"></span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### About Area End ##### -->
+<!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
+    <!-- ##### Cool Facts Area Start ##### -->
+    <section class="cool-facts-area bg-img section-padding-100-0" style=" background-image: url('{{ asset('front/img/bg/010.jpg') }}'); " >
+        <div class="container" >
+            <div class="row">
+<!--background-image: url({{ asset('front/img/bg/55.png') }}) -->
+                        
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
+                        <div class="cf-icon">
+                            <img src="{{ asset('front/img/core-img/cow.png') }}" alt="">
+                        </div>
+                        <div class="cf-content">
+                            <h2><span class="counter">20</span></h2>
+                            <h6>Bovins</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
+                        <div class="cf-icon">
+                            <img src="{{ asset('front/img/core-img/hen.png') }}" alt="">
+                        </div>
+                        <div class="cf-content">
+                            <h2><span class="counter">70</span></h2>
+                            <h6>Volaille</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
+                        <div class="cf-icon">
+                            <img src="{{ asset('front/img/core-img/sheep.png') }}" alt="">
+                        </div>
+                        <div class="cf-content">
+                            <h2><span class="counter">30</span></h2>
+                            <h6>Ovins</h6>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+        
+        <!-- Side Image -->
+        <div class="side-img wow fadeInUp" data-wow-delay="500ms">
+        <!-- Single Testimonial Slide -->
+                        <div class="single-testimonial-slide">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-6">
+                                    <div class="testimonial-thumb">
+                                        <img src="{{ asset('front/img/bg/8.jpg') }}" alt="">                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+        </div>
+    </section>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    {% endblock %}
+
+
+
+
+    {% block ingredient %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+<div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('front/img/bg/08.jpg') }}');">
+            <h2>Ingredients</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Ingredients</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    <!-- ##### About Area Start ##### -->
+    <section class="about-us-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h2>Bienvenue dans le Système de Gestion des Ingredient</h2>
+                        <br>
+                        <p>Cette page vous permet de gérer et de mettre à jour les informations sur les ingredient dans notre système. Que vous ayez besoin d'ajouter un nouvel animal ou de modifier des détails existants.</p>
+                    </div>
+                   
+<p>Les fonctionnalités clés de cette page comprennent :</p>
+        <ul>
+            <li>Ajouter de nouveaux ingredient à la base de données</li>
+            <li>Mettre à jour et modifier les informations des ingredient existants</li>
+            <li>Consulter une liste complète de tous les ingredient enregistrés</li>
+        </ul>                
+        </div>
+
+                <div class="col-12 col-lg-6">
+                
+                    <div class="alazea-benefits-area">
+                     <div class="section-heading">
+                        <h2>Capacité des ingrédients pour la nutrition</h2>
+                    </div>
+                    <!-- Progress Bar Content Area -->
+                    <div class="alazea-progress-bar mb-50">
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Bovins</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="90"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Ovins</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="66"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Volaille</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="40"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Caprins</p>
+                            <div id="bar4" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="65"></span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### About Area End ##### -->
+    <!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
+    {% endblock %}
+
+        
+    {% block nutritionalneeds %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+<div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('front/img/bg/05.jpg') }}');">
+            <h2>BESOIN NUTRITIONEL</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Besoin Nutritionel</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    <!-- ##### About Area Start ##### -->
+    <section class="about-us-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h2>Bienvenue dans le Système de Gestion des Animaux</h2>
+                        <p>Cette page vous permet de gérer et de mettre à jour les informations sur les animaux dans notre système. Que vous ayez besoin d'ajouter un nouvel animal ou de modifier des détails existants.</p>
+                    </div>
+<p>Les fonctionnalités clés de cette page comprennent :</p>
+        <ul>
+            <li>Ajouter de nouveaux animaux à la base de données</li>
+            <li>Mettre à jour et modifier les informations des animaux existants</li>
+            <li>Consulter une liste complète de tous les animaux enregistrés</li>
+        </ul>                </div>
+
+                <div class="col-12 col-lg-6">
+                <div class="section-heading">
+                        <h2>Étude des besoins nutritionnels évalués pour les animaux</h2>
+                    </div>
+                    <div class="alazea-benefits-area">
+                    <!-- Progress Bar Content Area -->
+                    <div class="alazea-progress-bar mb-50">
+                        <div class="single_progress_bar">
+                            <p>Bovins</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="90"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Ovins</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="66"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Volaille</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="40"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Caprins</p>
+                            <div id="bar4" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="65"></span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### About Area End ##### -->
+    <!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
+    {% endblock %}
+
+        
+    {% block ration %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+<div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('front/img/bg/06.jpg') }}');">
+            <h2>RATION</h2>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Ration</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    <!-- ##### About Area Start ##### -->
+    <section class="about-us-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h2>Bienvenue dans le Système de Gestion des Ration</h2>
+                        <p>Cette page vous permet de gérer et de mettre à jour les informations sur les Rations des animaux dans notre système. Que vous ayez besoin d'ajouter un nouvel animal ou de modifier des détails existants.</p>
+                    </div>
+<p>Les fonctionnalités clés de cette page comprennent :</p>
+        <ul>
+            <li>Ajouter de nouveaux ration à la base de données</li>
+            <li>Mettre à jour et modifier les informations des ration existants</li>
+            <li>Consulter une liste complète de tous les ration enregistrés</li>
+        </ul>                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="alazea-benefits-area">
+                    <!-- Progress Bar Content Area -->
+                    <div class="alazea-progress-bar mb-50">
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Bovins bien nourries</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="80"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Ovins bien nourries</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="70"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Volaille bien nourries</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="85"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Caprins bien nourries</p>
+                            <div id="bar4" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="65"></span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### About Area End ##### -->
+    <!-- ##### search ##### -->
+    <section class="subscribe-newsletter-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                   
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="subscribe-form">
+                        <form action="#" method="get">
+                            <input id="subscribeEmail" placeholder="rechercher">
+                            <button type="submit" class="btn alazea-btn">chercher</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### search##### -->
+    {% endblock %}
+    
+
+<!-- ##### Testimonial Area Start ##### -->
+    <section class="testimonial-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    
+                    {% block body %}
+                    {% endblock %}
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Testimonial Area End ##### -->
+
+
+    <!-- ##### Cool Facts Area End ##### -->
+   
+    <!-- ##### Header Area End ##### -->
+<!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src={{asset('front/js/jquery/jquery-2.2.4.min.js')}}></script>
+    <!-- Popper js -->
+    <script src={{asset('front/js/bootstrap/popper.min.js')}}></script>
+    <!-- Bootstrap js -->
+    <script src={{asset('front/js/bootstrap/bootstrap.min.js')}}></script>
+    <!-- All Plugins js -->
+    <script src={{asset('front/js/plugins/plugins.js')}}></script>
+    <!-- Active js -->
+    <script src={{asset('front/js/active.js')}}></script>
     </body>
 </html>

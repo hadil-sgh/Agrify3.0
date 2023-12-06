@@ -4,18 +4,25 @@ namespace App\Form;
 
 use App\Entity\Presence;
 use Symfony\Component\Form\AbstractType;
+use App\Repository\UserRepository;  // Add the UserRepository
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\User;
 
 class Presence1Type extends AbstractType
 {
+   
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('id_p', null, [
-                'attr' => ['placeholder' => 'Enter an ID'],
-            ])
+            ->add('user', EntityType::class, [
+                  'class' => User::class,
+                  'choice_label' => 'User_id', 
+                   'placeholder' => 'Select User',
+        ])
             ->add('date', null, [
                 'attr' => ['placeholder' => 'Select a Date'],
             ])
@@ -35,4 +42,6 @@ class Presence1Type extends AbstractType
             'data_class' => Presence::class,
         ]);
     }
+
+
 }

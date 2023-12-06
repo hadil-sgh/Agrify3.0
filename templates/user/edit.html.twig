@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
 {% block title %}Edit User{% endblock %}
 
@@ -8,57 +8,83 @@
         h1 {
             color: #377120;
             text-align: center;
+            font-size: 3em;
+            margin-top: 10px;
+            font-weight: 300;
+            line-height: 1em;
         }
 
         /* Custom styles for the form */
         form {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 40px;
+            background-color: #F2F2F2;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
-            color: #555;
+            margin-bottom: 10px;
+            color: #377120;
+            font-weight: bold;
         }
 
         input,
         select,
         textarea {
             width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
+            padding: 12px;
+            margin-bottom: 20px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
             border-radius: 4px;
+            font-size: 16px;
         }
+            .btn-group {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+            }
+        
+            .btnn {
+                display: inline-block;
+                background-color:#D90D1E;
+                color: #fff;
+                border: none;
+                padding: 10px 100px;
+                border-radius: 5px;
+                margin-top: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s ease-in-out;
+            }
+        
+            .btnn:hover {
+                background-color: #F20F38; /* Darker shade on hover */
+            }
 
-        .btn-group {
-            margin-top: 20px;
-            text-align: center;
-        }
+            .btn1 {
+                display: inline-block;
+                background-color:#F2B138;
+                color: #fff;
+                border: none;
+                padding: 10px 100px;
+                border-radius: 5px;
+                margin-top: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s ease-in-out;
+            }
+  
+            .btn1:hover{
+                background-color: #F5E309; /* Darker shade on hover */
+                color: #000;
 
-        button,
-        a.btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #377120;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
 
-        button:hover,
-        a.btn:hover {
-            text-decoration: underline;
-        }
+            }
+
     </style>
 {% endblock %}
 
@@ -66,9 +92,6 @@
     <h1>Edit User</h1>
 
     {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <div class="btn-group">
-        <a href="{{ path('app_user_index') }}" class="btn">Back to List</a>
-        {{ include('user/_delete_form.html.twig') }}
-    </div>
+    {{ include('user/_delete_form.html.twig') }}
+     <!--   <a href="{{ path('app_user_index') }}" class="btnn">Back to List</a> -->
 {% endblock %}

@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Presence
 {
     #[ORM\Id]
-    #[ORM\Column]
-
+    #[ORM\GeneratedValue(strategy: "IDENTITY")]
+    #[ORM\Column(type: "integer")]
     private ?int $id_p = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]

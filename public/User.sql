@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_nom`, `user_prenom`, `user_email`, `user_telephone`, `user_genre`, `user_nbrabscence`, `username`, `password`, `user_role`) VALUES
+IENSRT INTO `user` (`user_id`, `user_nom`, `user_prenom`, `user_email`, `user_telephone`, `user_genre`, `user_nbrabscence`, `username`, `password`, `user_role`) VALUES
 (46, 'gheiyth', 'gheiyth', 'gheiyth.tabarki@esprit.tn', '251525654', 'Homme', 2, 'gheiythtba', '$2y$13$BZO.3.4vWrgM7MlWB55oXu7WH0ES.HFX2hhVFmPstt2aG8IoVFxqS', 'Admin');
 (47, 'Majdoub', 'Wassim', 'wassim.majdoub@esprit.tn', '24142129', 'Homme', 0, '0Majdoub0', '0Majdoub0', 'Admin'),
 (48, 'Nour', 'Achahlaou', 'Nour.achahlaou8@esprit.tn', '28698666', 'Homme', 0, 'NourAchahlaou', '$2y$13$iLEGgtxNQtI84BmM.CUeQe.alot6ASDdp5QQehsM7klHObZofExay', 'Chef'),

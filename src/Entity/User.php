@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 
 
+
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity('username', message: 'This username is already taken.')]
 
@@ -52,6 +53,7 @@ class User implements UserInterface,PasswordAuthenticatedUserInterface
     private ?int $user_nbrabscence = null;
 
     #[Assert\NotBlank]
+    #[Assert\Length(min: 8,minMessage: 'Your password must be at least {{ limit }} characters long.')]
     #[ORM\Column(length: 255, unique: true)] // unique constraint on username
      private ?string $username = null;
 
@@ -61,6 +63,8 @@ class User implements UserInterface,PasswordAuthenticatedUserInterface
     #[Assert\Length(min: 8,minMessage: 'Your password must be at least {{ limit }} characters long.')]
     #[ORM\Column(length: 255)]
     private ?string $password = null;
+
+
 
 
     public function getUserId(): ?int
@@ -197,10 +201,8 @@ class User implements UserInterface,PasswordAuthenticatedUserInterface
     {
         $roles = ['ROLE_' . $this->user_role];
 
-        // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
-        // Check if the user role is 'Admin', 'Chef', or 'Veterinaire' and add the corresponding role
         if ($this->user_role === 'Admin') {
             $roles[] = 'ROLE_ADMIN';
         } elseif ($this->user_role === 'Chef') {

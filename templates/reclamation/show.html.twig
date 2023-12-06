@@ -1,46 +1,105 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Reclamation{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+
+        h1 {
+            color: #377120;
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+
+        }
+
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #88CA5E;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F4F7F0;
+        }
+
+
+        .action-buttons {
+            margin-top: 20px;
+
+            justify-content: center; /* Center the buttons horizontally */
+            text-align: center; /* Align button text center within buttons */
+        }
+
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #2E5D42;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        h3{
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #F2F0D5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background-color: #22C738;
+            color: #000;
+
+        }
+        .button-container {
+            justify-content: center; /* Center the buttons horizontally */
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
-    <h1>Reclamation</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ reclamation.id }}</td>
-            </tr>
-            <tr>
-                <th>Rec_emp</th>
-                <td>{{ reclamation.recEmp }}</td>
-            </tr>
-            <tr>
-                <th>Rec_date</th>
-                <td>{{ reclamation.recDate ? reclamation.recDate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Rec_description</th>
-                <td>{{ reclamation.recDescription }}</td>
-            </tr>
-            <tr>
-                <th>Rec_target</th>
-                <td>{{ reclamation.recTarget }}</td>
-            </tr>
-            <tr>
-            <th>type</th>
-            <td>{{ reclamation.typeRec.type }}</td>
-            </tr>
-            <tr>
-                <th>Urgency</th>
-                <td>{{ reclamation.urgency }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <h1>Reclamation avec l'id {{ reclamation.id }}  ---><strong class="font-weight-bold text-dark">{{ reclamation.urgency }}e </strong> </h1>
+    <strong class="font-weight-bold text-dark"></strong>
+    <div class="dddl">
+        <h3 >
+            l'employer de l'id  <strong class="font-weight-bold text-dark">{{ reclamation.recEmp }}</strong> a envoyer une  reclmation  pur  le{{ reclamation.recTarget }}le <strong class="font-weight-bold text-dark">{{ reclamation.recDate ? reclamation.recDate|date('Y-m-d') : '' }}</strong> , sur le sujet de {{ reclamation.typeRec.type }}  {{ reclamation.recDescription }}
+            <div class="action-buttons">
+                <div class="button-container">
+                    <a href="{{ path('app_reclamation_index') }}" class="btn">Back to List</a>
+                    <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}" class="btn">Edit </a>
 
-    <a href="{{ path('app_reclamation_index') }}">back to list</a>
+                   <a>{{ include('reclamation/_delete_form.html.twig') }} </a>
+                </div>
+            </div>
 
-    <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}">edit</a>
 
-    {{ include('reclamation/_delete_form.html.twig') }}
+        </h3>
+    </div>
+
+
+
+
+
 {% endblock %}

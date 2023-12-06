@@ -1,7 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}Gestation{% endblock %}
-
+{% block section %}{% endblock %}
+{% block animal %}{% endblock %}
+{% block ingredient %}{% endblock %}
+{% block animalbatch %}{% endblock %}
+{% block newBorn %}{% endblock %}
+{% block nutritionalneeds %}{% endblock %}
+{% block ration %}{% endblock %}
 {% block body %}
     <h1>Gestation</h1>
 
@@ -16,12 +22,12 @@
                 <td>{{ gestation.espece }}</td>
             </tr>
             <tr>
-                <th>PreparationVêlage</th>
-                <td>{{ gestation.preparationVêlage ? gestation.preparationVêlage|date('Y-m-d') : '' }}</td>
+                <th>PreparationVelage</th>
+                <td>{{ gestation.preparationVelage ? gestation.preparationVelage|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>VêlagePrévu</th>
-                <td>{{ gestation.vêlagePrévu ? gestation.vêlagePrévu|date('Y-m-d') : '' }}</td>
+                <th>VelagePrevu</th>
+                <td>{{ gestation.velagePrevu ? gestation.velagePrevu|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
                 <th>DateAvertissement</th>

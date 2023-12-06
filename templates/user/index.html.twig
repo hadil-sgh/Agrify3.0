@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
 {% block title %}User Management{% endblock %}
 
@@ -6,14 +6,17 @@
     {{ parent() }}
     <style>
         h1 {
-            color: #2E5D42;
+            font-size:3em; 
+            margin-top:20px;
+            font-weight: 300;
+            line-height:1em;
             text-align: center;
-            margin-bottom: 20px;
-        }
+            color: #2E5D42;
+          }
 
         table {
             width: 80%; /* Adjust the width as needed */
-            margin: 0 auto;
+            margin: 50px auto;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
@@ -26,11 +29,16 @@
         }
 
         th {
-            background-color: #F2F0D5;
+            background-color: #377120;
             font-weight: bold;
+            text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: #000;
+
         }
+        .container td:first-child { color: #000; }
+
 
         tr:nth-child(even) {
             background-color: #F4F7F0;
@@ -69,11 +77,11 @@
             text-align: center;
             transition: background-color 0.3s ease-in-out;
         }
-
+      
         .create-new:hover {
-            background-color: #22C738;
+            background-color: #D8FFDB;
+            text-decoration: none;
             color: #000;
-
         }
     </style>
 {% endblock %}
@@ -81,45 +89,51 @@
 {% block body %}
     <h1>User Home</h1>
 
-    <table>
+    <table class="container">
         <thead>
-            <tr>
-                <th>User ID</th>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Role</th>
-                <th>Genre</th>
-                <th>Absences</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Actions</th>
-            </tr>
+              <tr>
+                    <th>ID</th>
+                    <th>Prenom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Role</th>
+                    <th>Genre</th>
+                    <th>Absences</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Show</th>
+                    <th>Edit</th>
+              </tr>
         </thead>
         <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.userId }}</td>
-                <td>{{ user.userNom }} {{ user.userPrenom }}</td>
-                <td>{{ user.userEmail }}</td>
-                <td>{{ user.userTelephone }}</td>
-                <td>{{ user.userRole }}</td>
-                <td>{{ user.userGenre }}</td>
-                <td>{{ user.userNbrabscence }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.password }}</td>
-                <td>
-                    <a href="{{ path('app_user_show', {'user_id': user.userId}) }}">Show</a>
-                    <a href="{{ path('app_user_edit', {'user_id': user.userId}) }}">Edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10" class="no-records">No records found</td>
-            </tr>
-        {% endfor %}
+              {% for user in users %}
+
+              <tr>
+                    <td>{{ user.userId }}</td>
+                    <td>{{ user.userNom }}</td>
+                    <td>{{ user.userPrenom }}</td>
+                    <td>{{ user.userEmail }}</td>
+                    <td>{{ user.userTelephone }}</td>
+                    <td>{{ user.userRole }}</td>
+                    <td>{{ user.userGenre }}</td>
+                    <td>{{ user.userNbrabscence }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.password }}</td>
+                    <td>
+                        <a href="{{ path('app_user_show', {'user_id': user.userId}) }}" style="color:#2E5D42;">Show</a>
+                    </td>
+                    <td>
+                     <a href="{{ path('app_user_edit', {'user_id': user.userId}) }}" style="color:#2E5D42;">Edit</a> 
+                  </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10" class="no-records">No records found</td>
+                </tr>
+            {% endfor %}
         </tbody>
-    </table>
+  </table>
 
     <div class="button">
         <a href="{{ path('app_user_new') }}" class="create-new">Create New User</a>

@@ -1,4 +1,41 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{# animal/_form.html.twig #}
+
+    {{ form_start(form,{"attr":{'novalidate':"novalidate"}}) }}
+
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.espece, { 'attr': {'class': 'form-control', 'placeholder': 'Espèce de l\'animal'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.preparationVelage, { 'attr': {'class': 'form-control', 'placeholder': 'Préparation pour le vêlage'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.velagePrevu, { 'attr': {'class': 'form-control', 'placeholder': 'Vêlage prévu'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.dateAvertissement, { 'attr': {'class': 'form-control', 'placeholder': 'Date d\'avertissement'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.animal, { 'attr': {'class': 'form-control', 'placeholder': 'Animal concerné'} }) }}
+            </div>
+        </div>
+        <!-- Add more form fields as needed -->
+
+        <div class="col-12">
+            <button class="btn alazea-btn mt-15">{{ button_label|default('update') }}</button>
+        </div>
+        
+    </div>
+
+    {{ form_end(form) }}
+</form>

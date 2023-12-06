@@ -1,13 +1,40 @@
-{% extends 'base.html.twig' %}
+{% extends 'AnimalManagement.html.twig' %}
 
 {% block title %}Edit Ration{% endblock %}
+{% block section %}{% endblock %}
+{% block ingredient %}{% endblock %}
+{% block animal %}{% endblock %}
+{% block animalbatch %}{% endblock %}
+{% block newBorn %}{% endblock %}
+{% block nutritionalneeds %}{% endblock %}
+{% block gestation %}{% endblock %}
 
 {% block body %}
-    <h1>Edit Ration</h1>
-
-    {{ include('ration/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_ration_index') }}">back to list</a>
-
-    {{ include('ration/_delete_form.html.twig') }}
+    <section class="contact-area">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-12 col-lg-5">
+                <!-- Section Heading -->
+                <div class="section-heading text-center">
+                    <h2>Modifier Animal</h2>
+                </div>
+                    
+                <!-- Form Area -->
+                <div class="contact-form-area mb-100">
+                        
+{{ include('ration/_form.html.twig', {'button_label': 'Update'}) }}
+{{ include('ration/_delete_form.html.twig') }}
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <!-- Video Area -->
+                <div class="alazea-video-area mb-100">
+                    <img src="{{ asset('front/img/bg/07.jpg') }}" alt="">
+        </div>
+            </div>
+            
+        </div>
+    </div>
+    <a href="{{ path('app_ration_index') }}" class="btn alazea-btn active">back to list</a>
+    </section>
 {% endblock %}

@@ -1,9 +1,94 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Reclamation index{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        h1 {
+            color: #1D741B;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #88CA5E;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F4F7F0;
+        }
+
+        a {
+            color: #2E5D42;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #22C738;
+            text-decoration: underline;
+        }
+
+        .no-records {
+            color: #757575;
+            font-style: italic;
+        }
+
+        .button {
+            text-align: center;
+            margin-top: 20px;
+
+        }
+
+        .create-new {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #1D741B;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .create-new:hover {
+            background-color: #22C738;
+            color: #000;
+
+        }
+        h3{
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #F2F0D5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+{% endblock %}
+
 
 {% block body %}
-    <h1>Reclamation index</h1>
+    <h1>Reclamation </h1>
 
     <table class="table">
         <thead>
@@ -29,17 +114,27 @@
                 <td>{{ reclamation.urgency }}</td>
                 <td>{{ reclamation.typeRec.type }}</td>
                 <td>
-                    <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}">show</a>
-                    <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}">edit</a>
+
+
+                    <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}" class="btn btn-success">Show</a>
+                    <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}" class="btn btn-danger">Edit</a>
+
+
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="10" class="no-records">No records found</td>
             </tr>
         {% endfor %}
+
         </tbody>
     </table>
 
-    <a href="{{ path('app_reclamation_new') }}">Create new</a>
+
+    <div class="button">
+        <a href="{{ path('app_reclamation_new') }}" class="create-new">Create new</a>
+        <a href="{{ path('pdf') }}" class="create-new">Pdf</a>
+    </div>
+
 {% endblock %}

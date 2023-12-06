@@ -52,7 +52,7 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
             if (in_array('ROLE_ADMIN', $user->getRoles(), true)) {
                 return new RedirectResponse($this->urlGenerator->generate('app_AdminDashboard_index'));
             } elseif (in_array('ROLE_CHEF', $user->getRoles(), true)) {
-                return new RedirectResponse($this->urlGenerator->generate('app_ChefDashboard_index'));
+                return new RedirectResponse($this->urlGenerator->generate('app_animal_index'));
             } elseif (in_array('ROLE_VETERINAIRE', $user->getRoles(), true)) {
                 return new RedirectResponse($this->urlGenerator->generate('app_VeterinaireDashboard_index'));
             }

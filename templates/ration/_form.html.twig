@@ -1,4 +1,42 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{{ form_start(form,{"attr":{'novalidate':"novalidate"}}) }}
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.especeRation, { 'attr': {'class': 'form-control', 'placeholder': 'Espèce de la ration'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.statutRation, { 'attr': {'class': 'form-control', 'placeholder': 'Statut de la ration'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.sexeRation, { 'attr': {'class': 'form-control', 'placeholder': 'Sexe de la ration'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.poidsMinRation, { 'attr': {'class': 'form-control', 'placeholder': 'Poids Min de la ration'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.poidsMaxRation, { 'attr': {'class': 'form-control', 'placeholder': 'Poids Max de la ration'} }) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                {{ form_row(form.buteProductionRation, { 'attr': {'class': 'form-control', 'placeholder': 'But de production de la ration'} }) }}
+            </div>
+        </div>
+        <!-- Add more form fields as needed -->
+
+        <div class="col-12">
+            <button class="btn alazea-btn mt-15">{{ button_label|default('Mettre à jour l\'animal') }}</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+</form>
