@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Service\SmsService;
+use Knp\Snappy\Pdf;
 use Twilio\Rest\Client;
 
 
@@ -31,7 +31,6 @@ class MaterielController extends AbstractController
             'averagePrice' => $averagePrice,
         ]);
     }
-
 
 
 
@@ -89,21 +88,17 @@ class MaterielController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Twilio credentials
-            $twilioSid = 'ACe058792ac5c1c947260765c684419c1f'; // Replace with your actual Twilio Account SID
-            $twilioAuthToken = '297e45f41d975e3e4ae47f4574fee565'; // Replace with your actual Twilio Auth Token
-            $twilioPhoneNumber = '+19299305820'; // Replace with your actual Twilio phone number
 
-            // Recipient's phone number
-            $to = '+21655040677'; // Replace with the recipient's phone number
+            $twilioSid = 'ACe058792ac5c1c947260765c684419c1f';
+            $twilioAuthToken = '297e45f41d975e3e4ae47f4574fee565';
+            $twilioPhoneNumber = '+19299305820';
 
-            // Message content
+            $to = '+21655040677';
+
             $message = 'Materiel with ID ' . $materiel->getId() . ' has been updated!'; // Customize the message as needed
 
-            // Create Twilio client
             $client = new Client($twilioSid, $twilioAuthToken);
 
-            // Send SMS
             $client->messages->create(
                 $to,
                 [
@@ -112,7 +107,6 @@ class MaterielController extends AbstractController
                 ]
             );
 
-            // Perform the flush after sending the SMS
             $entityManager->flush();
 
             return $this->redirectToRoute('app_materiel_index', [], Response::HTTP_SEE_OTHER);
@@ -153,4 +147,35 @@ class MaterielController extends AbstractController
 
         return $this->redirectToRoute('app_materiel_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /*
+    #[Route('/{id}/print-pdf', name: 'app_materiel_print_pdf', methods: ['GET'])]
+    public function printPdf(Request $request, Pdf $pdf, Materiel $materiel): Response
+    {
+
+        $materialDetails = [
+            'id' => $materiel->getId(),
+            'type' => $materiel->getType(),
+            'etat' => $materiel->getEtat(),
+            'capaciteMasse' => $materiel->getCapaciteMasse(),
+            'capaciteVolume' => $materiel->getCapaciteVolume(),
+            'prix' => $materiel->getPrix(),
+
+        ];
+
+
+        $htmlContent = $this->renderView('materiel/print_pdf.html.twig', [
+            'materiel' => $materialDetails,
+        ]);
+
+        // Geration de pdf
+        $pdfFile = $pdf->getOutputFromHtml($htmlContent);
+
+        //
+        $response = new Response($pdfFile);
+        $response->headers->set('Content-Type', 'application/pdf');
+        $response->headers->set('Content-Disposition', 'inline; filename="materiel_details.pdf"');
+
+        return $response;
+    }*/
 }

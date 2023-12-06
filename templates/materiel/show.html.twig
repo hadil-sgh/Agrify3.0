@@ -21,6 +21,11 @@
             <img src="{{ asset('images/edit.png') }}" alt="Icon">
             <a href="{{ path('app_materiel_edit', {'id': materiel.id}) }}">Edit</a>
         </div>
+
+        <div class="action-box">
+            <img src="{{ asset('images/print_icon.png') }}" alt="Icon">
+            <a >Print PDF</a>
+        </div>
     </div>
 <div class="materiel-box" >
 
@@ -53,7 +58,7 @@
                     <th>Prix</th>
                     <td>{{ materiel.prix }}</td>
                 </tr>
-                <!-- Add more details as needed -->
+
                 </tbody>
             </table>
 

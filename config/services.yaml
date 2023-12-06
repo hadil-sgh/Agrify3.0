@@ -15,6 +15,13 @@ services:
             $twilioAuthToken: '297e45f41d975e3e4ae47f4574fee565'
             $twilioPhoneNumber: '+19299305820'
 
+    Knp\Snappy\Pdf:
+        arguments:
+            $binary: '%knp_snappy.pdf.binary%'
+            $options: []
+        calls:
+            - [setTemporaryFolder, ['%kernel.cache_dir%']]
+
 
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
