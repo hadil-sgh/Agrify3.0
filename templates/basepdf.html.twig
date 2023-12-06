@@ -1,0 +1,94 @@
+<!-- pdf_template.html.twig -->
+<h1> AnimalStock</h1>
+{% block stylesheets %}
+    <style>
+        /* Add custom styles for AnimalStock index page */
+        <style>
+            /* Add custom styles for AnimalStock index page */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F2F2F2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #2E5D42;
+        }
+
+        .table-container {
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #2E5D42;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2E5D42;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #F2F2F2;
+        }
+
+        a {
+            color: #2E5D42;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            color: #F2F0D5;
+        }
+    </style>
+{% endblock %}
+
+<table class="table" ,border=1>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Rec_emp</th>
+        <th>Rec_date</th>
+        <th>Rec_description</th>
+        <th>Rec_target</th>
+        <th>Urgency</th>
+        <th>Type</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for reclamation in rec %}
+        <tr>
+            <td>{{ reclamation.id }}</td>
+            <td>{{ reclamation.recEmp }}</td>
+            <td>{{ reclamation.recDate ? reclamation.recDate|date('Y-m-d') : '' }}</td>
+            <td>{{ reclamation.recDescription }}</td>
+            <td>{{ reclamation.recTarget }}</td>
+            <td>{{ reclamation.urgency }}</td>
+            <td>{{ reclamation.typeRec.type }}</td>
+            <td>
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+

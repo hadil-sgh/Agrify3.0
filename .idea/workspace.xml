@@ -5,23 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43842fb-1499-42f6-b9e4-d7ec8d1d3b0d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/maladie/Recherche.html.twig" afterDir="false" />
+
+      <change afterPath="$PROJECT_DIR$/src/Service/pdfservice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/basepdf.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/flash_messages.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reclamation/basecla.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reclamation/cala.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reclamation/stat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Agrify3.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Agrify3.0.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MaladieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MaladieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Maladie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Maladie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/TypedeReclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TypedeReclamation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MaterielController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MaterielController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/materiel/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/materiel/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/materiel/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/mailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/mailer.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ReclamationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ReclamationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Maillingservice.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Maillingservice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Messageservice.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Messageservice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Veterinaire.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Veterinaire.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/maladie/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/maladie/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/indexAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/indexAdmin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/mail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/mail.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/typede_reclamation/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/typede_reclamation/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +44,9 @@
   </component>
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,6 +54,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
@@ -154,7 +171,6 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
@@ -174,8 +190,30 @@
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/vendor/symfony/amqp-messenger" />
       <path value="$PROJECT_DIR$/vendor/symfony/redis-messenger" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twilio-notifier" />
+      <path value="$PROJECT_DIR$/vendor/twilio/sdk" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -192,8 +230,9 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hadil sghair/FirstProject&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gestion-materiel&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/Agrify3.0/public/images&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -202,6 +241,17 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Agrify3.0\public\images" />
+      <recent name="C:\xampp\htdocs\Agrify3.0\templates" />
+      <recent name="C:\xampp\htdocs\Agrify3.0\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Agrify3.0\public\images" />
+      <recent name="C:\xampp\htdocs\Agrify3.0\src\Repository" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" scope="XML" use_alternative_configuration_file="true" />
@@ -228,6 +278,14 @@
       <workItem from="1700051698488" duration="2667000" />
       <workItem from="1700073802421" duration="305000" />
       <workItem from="1700076450190" duration="13000" />
+      <workItem from="1700087978924" duration="4422000" />
+      <workItem from="1700145881413" duration="35497000" />
+      <workItem from="1700210743938" duration="6465000" />
+      <workItem from="1700217527538" duration="1719000" />
+      <workItem from="1700609441215" duration="1325000" />
+      <workItem from="1701373146356" duration="9178000" />
+      <workItem from="1701417960830" duration="3573000" />
+      <workItem from="1701888171412" duration="681000" />
       <workItem from="1700076923520" duration="5627000" />
       <workItem from="1700082622246" duration="5682000" />
       <workItem from="1700128231083" duration="28341000" />
@@ -237,7 +295,19 @@
       <workItem from="1700590049289" duration="8789000" />
       <workItem from="1700607028002" duration="81000" />
       <workItem from="1700607111779" duration="1635000" />
-      <workItem from="1700640510983" duration="1597000" />
+      <workItem from="1700640510983" duration="7770000" />
+      <workItem from="1700649432614" duration="1868000" />
+      <workItem from="1700654856718" duration="1399000" />
+      <workItem from="1700763969134" duration="1677000" />
+      <workItem from="1700816178750" duration="26000" />
+      <workItem from="1700996291626" duration="1285000" />
+      <workItem from="1701077845997" duration="552000" />
+      <workItem from="1701106198741" duration="1665000" />
+      <workItem from="1701125843520" duration="952000" />
+      <workItem from="1701161240116" duration="8851000" />
+      <workItem from="1701191895835" duration="5585000" />
+      <workItem from="1701278860855" duration="3522000" />
+      <workItem from="1701365274249" duration="16422000" />
     </task>
     <servers />
   </component>

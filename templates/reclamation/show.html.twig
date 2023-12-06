@@ -82,25 +82,24 @@
 
     <h1>Reclamation avec l'id {{ reclamation.id }}  ---><strong class="font-weight-bold text-dark">{{ reclamation.urgency }}e </strong> </h1>
     <strong class="font-weight-bold text-dark"></strong>
-
-
     <div class="dddl">
         <h3 >
-
-
             l'employer de l'id  <strong class="font-weight-bold text-dark">{{ reclamation.recEmp }}</strong> a envoyer une  reclmation  pur  le{{ reclamation.recTarget }}le <strong class="font-weight-bold text-dark">{{ reclamation.recDate ? reclamation.recDate|date('Y-m-d') : '' }}</strong> , sur le sujet de {{ reclamation.typeRec.type }}  {{ reclamation.recDescription }}
-        </h3>>
+            <div class="action-buttons">
+                <div class="button-container">
+                    <a href="{{ path('app_reclamation_index') }}" class="btn">Back to List</a>
+                    <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}" class="btn">Edit </a>
+
+                   <a>{{ include('reclamation/_delete_form.html.twig') }} </a>
+                </div>
+            </div>
+
+
+        </h3>
     </div>
 
 
 
 
-    <div class="action-buttons">
-        <div class="button-container">
-            <a href="{{ path('app_reclamation_index') }}" class="btn">Back to List</a>
-            <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}" class="btn">Edit User</a>
 
-            {{ include('reclamation/_delete_form.html.twig') }}
-        </div>
-    </div>
 {% endblock %}

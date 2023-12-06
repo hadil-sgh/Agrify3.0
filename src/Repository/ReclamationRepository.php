@@ -20,7 +20,26 @@ class ReclamationRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Reclamation::class);
     }
+    public function getTypeRecCount(): array
+    {
+        $queryBuilder = $this->createQueryBuilder('r')
+            ->select('COUNT(r.id) as count, tr.type as typeName') // Adjust field name here
+            ->leftJoin('r.type_Rec', 'tr')
+            ->groupBy('tr.id');
 
+        $result = $queryBuilder->getQuery()->getResult();
+
+        // Format the result to prepare for the pie chart data
+        $data = [];
+        foreach ($result as $row) {
+            $data[] = [
+                'name' => $row['typeName'],
+                'y' => (int)$row['count'],
+            ];
+        }
+
+        return $data;
+    }
 //    /**
 //     * @return Reclamation[] Returns an array of Reclamation objects
 //     */
