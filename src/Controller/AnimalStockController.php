@@ -10,9 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
-
 use Symfony\Component\Routing\Annotation\Route; 
-use App\Service\PdfService;
+use App\Service\pdfservice;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -77,7 +76,7 @@ public function search(Request $request, AnimalStockRepository $animalStockRepos
 
 
     #[Route('/pdf', name: 'app_animal_stock.pdf')]
-    public function generatePdfAnimalStock(AnimalStock $animalStock = null, PdfService $pdf, AnimalStockRepository $animalStockRepository) {
+    public function generatePdfAnimalStock(AnimalStock $animalStock = null, pdfservice $pdf, AnimalStockRepository $animalStockRepository) {
         $animalStocks = $animalStockRepository->findAllWithSelectedColumns();
 
         $html = $this->renderView('animal_stock/pdf_template.html.twig', [
