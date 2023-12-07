@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route; 
-use App\Service\PdfService;
+use App\Service\pdfservice;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -36,7 +36,7 @@ class StockDiversController extends AbstractController
 }
 
     #[Route('/pdf', name: 'app_stock_divers.pdf')]
-    public function generatePdfStockDivers(StockDivers $stockDivers = null, PdfService $pdf, StockDiversRepository $stockDiversRepository) {
+    public function generatePdfStockDivers(StockDivers $stockDivers = null, pdfservice $pdf, StockDiversRepository $stockDiversRepository) {
         $stockDivers = $stockDiversRepository->findAllWithSelectedColumns();
 
         $html = $this->renderView('stock_divers/pdf_template.html.twig', [
