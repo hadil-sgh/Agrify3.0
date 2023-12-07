@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route; 
-use App\Service\PdfService;
+use App\Service\pdfservice;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -37,7 +37,7 @@ class PlanteStockController extends AbstractController
 
 
     #[Route('/pdf', name: 'app_plante_stock.pdf')]
-    public function generatePdfPlanteStock(PlanteStock $planteStock = null, PdfService $pdf, PlanteStockRepository $planteStockRepository) {
+    public function generatePdfPlanteStock(PlanteStock $planteStock = null, pdfservice $pdf, PlanteStockRepository $planteStockRepository) {
         $planteStocks = $planteStockRepository->findAllWithSelectedColumns();
 
         $html = $this->renderView('plante_stock/pdf_template.html.twig', [
