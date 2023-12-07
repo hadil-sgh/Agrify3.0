@@ -20,7 +20,7 @@ use Knp\Component\Pager\PaginatorInterface;
 
 
 
-#[Route('/animal/stock')]
+#[Route('/animals/stock')]
 class AnimalStockController extends AbstractController
 {
     #[Route('/', name: 'app_animal_stock_index', methods: ['GET'])]
