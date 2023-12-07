@@ -28,7 +28,7 @@ use Twig\Error\SyntaxError;
 class ReclamationController extends AbstractController
 {
     #[Route('/', name: 'app_reclamation_index', methods: ['GET'])]
-    public function index(ReclamationRepository $reclamationRepository,PaginatorInterface $paginator): Response
+    public function index(Request $request,ReclamationRepository $reclamationRepository,PaginatorInterface $paginator): Response
     {
 
         return $this->render('reclamation/index.html.twig', [
@@ -78,6 +78,7 @@ class ReclamationController extends AbstractController
     public function statisticsAction(ReclamationRepository $reclamationRepository): Response
     {
         $statsPie = $reclamationRepository->getTypeRecCount();
+
 
         return $this->render('reclamation/stat.html.twig', [
             'statsPie' => json_encode($statsPie), // Pass data to Twig as JSON
