@@ -16,24 +16,12 @@ class Gestation1Type extends AbstractType
     {
         $builder
             ->add('espece', ChoiceType::class, [
-            'choices' => [
-                'Bovins' => [
+                'choices' => [
                     'Bovins' => 'Bovins',
-                    'vaches' => 'vaches',
-                    'taureaux' => 'taureaux',
+                    'Ovins' => 'Ovins',
+                    'Volaille' => 'Volaille',
+                    'Caprins' => 'Caprins',
                 ],
-                'Ovins' => [
-                    'Moutons' => 'Moutons',
-                ],
-                'Volaille' => [
-                    'poulets' => 'poulets',
-                    'canards' => 'canards',
-                    'dindes' => 'dindes',
-                ],
-                'Caprins' => [
-                    'Chèvres' => 'Chèvres',
-                ],
-            ],
                 'placeholder' => 'espece',
                 'required' => true,
                 'attr' => [

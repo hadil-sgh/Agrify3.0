@@ -5,8 +5,8 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity('username', message: 'This username is already taken.')]
-
 class User implements UserInterface,PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -24,28 +23,30 @@ class User implements UserInterface,PasswordAuthenticatedUserInterface
     
 
     #[Assert\NotBlank]
-    #[ORM\Column(length: 255)]
+    #[Assert\Regex(pattern: '/^[a-zA-Z]+$/', message: 'Please enter a valid lastname with only letters.')]
+    #[ORM\Column(length: 100)]
     private ?string $user_nom = null;
 
     #[Assert\NotBlank]
-    #[ORM\Column(length: 255)]
+    #[Assert\Regex(pattern: '/^[a-zA-Z]+$/', message: 'Please enter a valid Firstname with only letters.')]
+    #[ORM\Column(length: 100)]
     private ?string $user_prenom = null;
 
     #[Assert\Email(message: 'The email {{ value }} is not a valid email.',)]
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private ?string $user_email = null;
 
     #[Assert\NotBlank]
     #[Assert\Regex(pattern: '/^\d{8,}$/',message: 'The telephone number must be at least 8 digits.' )]
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private ?string $user_telephone = null;
 
     #[Assert\NotBlank]
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private ?string $user_role = null;
 
     #[Assert\NotBlank]
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private ?string $user_genre = null;
 
     #[Assert\NotBlank]
@@ -54,17 +55,26 @@ class User implements UserInterface,PasswordAuthenticatedUserInterface
 
     #[Assert\NotBlank]
     #[Assert\Length(min: 8,minMessage: 'Your password must be at least {{ limit }} characters long.')]
-    #[ORM\Column(length: 255, unique: true)] // unique constraint on username
+    #[ORM\Column(length: 100, unique: true)] 
      private ?string $username = null;
 
 
 
     #[Assert\NotBlank]
     #[Assert\Length(min: 8,minMessage: 'Your password must be at least {{ limit }} characters long.')]
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private ?string $password = null;
 
+    public function setPassword(?string $password): void
+    {
+        $this->password = $password;
+    }
+    
 
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
 
 
     public function getUserId(): ?int
@@ -173,20 +183,10 @@ class User implements UserInterface,PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): static
-    {
-        $this->password = $password;
-
-        return $this;
-    }
 
     public function eraseCredentials()
     {
+
     }
 
     public function getUserIdentifier(): string

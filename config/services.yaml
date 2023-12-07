@@ -4,12 +4,36 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    twilio_account_sid: 'US9acf92bd29f2ab591a8bbe7a8fa74916'
+    twilio_auth_token: '297e45f41d975e3e4ae47f4574fee565'
+    twilio_phone_number: '+19299305820'
+
 
 services:
-    # default configuration for services in *this* file
+    App\Service\SmsService:
+        arguments:
+            $twilioSid: 'US9acf92bd29f2ab591a8bbe7a8fa74916'
+            $twilioAuthToken: '297e45f41d975e3e4ae47f4574fee565'
+            $twilioPhoneNumber: '+19299305820'
+
+    Knp\Snappy\Pdf:
+        arguments:
+            $binary: '%knp_snappy.pdf.binary%'
+            $options: []
+        calls:
+            - [setTemporaryFolder, ['%kernel.cache_dir%']]
+
+
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+  # config/services.yaml
+    App\Service\Pdf:
+        class: Knp\Snappy\Pdf
+        arguments:
+            - '%knp_snappy.pdf.binary%'
+            - '%knp_snappy.pdf.options%'
+
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name

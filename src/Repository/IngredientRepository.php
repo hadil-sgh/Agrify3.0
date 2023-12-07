@@ -22,19 +22,17 @@ class IngredientRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param string $nameIngredient
      * @return Ingredient[] Returns an array of Ingredient objects
      */
-public function findByExampleField($field, $value): array
-{
-    return $this->createQueryBuilder('ab')
-        ->andWhere("ab.{$field} = :val")
-        ->setParameter('val', $value)
-        ->orderBy('ab.id', 'ASC')
-        ->setMaxResults(10)
-        ->getQuery()
-        ->getResult()
-    ;
-} 
+    public function findByName(string $nameIngredient): array
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.nameIngredient = :nameIngredient')
+            ->setParameter('nameIngredient', $nameIngredient)
+            ->getQuery()
+            ->getResult();
+    } 
 //    public function findOneBySomeField($value): ?Ingredient
 //    {
 //        return $this->createQueryBuilder('i')
@@ -44,4 +42,15 @@ public function findByExampleField($field, $value): array
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    /**
+     * @param string $nameIngredient
+     * @return Ingredient[] Returns an array of Ingredient objects
+     */
+public function findAllSortedByName(string $sortDirection): array
+{
+   $queryBuilder = $this->createQueryBuilder('a')
+       ->orderBy('a.nameIngredient', $sortDirection);
+
+   return $queryBuilder->getQuery()->getResult();
+}
 }

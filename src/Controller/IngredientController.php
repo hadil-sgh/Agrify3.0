@@ -15,10 +15,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class IngredientController extends AbstractController
 {
     #[Route('/', name: 'app_ingredient_index', methods: ['GET'])]
-    public function index(IngredientRepository $ingredientRepository): Response
+    public function index(Request $request, IngredientRepository $ingredientRepository): Response
     {
+        $searchQuery = $request->query->get('search');
+        $sortDirection = $request->query->get('sort', 'asc');
+
+        if ($searchQuery) {
+            $ingredient = $ingredientRepository->findByName($searchQuery);
+        } else {
+            $ingredient = $ingredientRepository->findAllSortedByName($sortDirection);
+        }
+
+
         return $this->render('ingredient/index.html.twig', [
-            'ingredients' => $ingredientRepository->findAll(),
+            'ingredients' => $ingredient,
         ]);
     }
 

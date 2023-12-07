@@ -1,0 +1,203 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <style>
+        @page {
+            @bottom-right {
+                content: counter(page) " of " counter(pages);
+            }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            height: 100vh;
+        }
+
+        .container {
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        h4 {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #377120;
+            color: #fff;
+        }
+
+        a {
+            color: #377120;
+        }
+
+        .img-thumbnail {
+            max-width: 100px;
+            margin-right: 10px;
+        }
+
+        
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #8C8C8C;
+            color: #fff;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="header">
+      <h2>Agrify</h2>
+  </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <strong> User ID:</strong>
+                <span>{{ user.userID }}</span>
+            </div>
+        </div>
+        <h4>User Information</h4>
+        <table class="table table-bordered table-condensed">
+            <tbody>
+
+                <tr>
+                    <td>
+                        <h6>
+                            <strong>User Nom</strong>
+                        </h6>
+                        <span>{{ user.userNom }}</span>
+                    </td>
+                </tr>
+
+            </tbody>
+            <tbody>
+
+                  <tr>
+                      <td>
+                          <h6>
+                              <strong>User Prenom</strong>
+                          </h6>
+                          <span>{{ user.userPrenom }}</span>
+                      </td>
+                  </tr>
+  
+              </tbody>
+              <tbody>
+
+                  <tr>
+                      <td>
+                          <h6>
+                              <strong>User Email</strong>
+                          </h6>
+                          <span>{{ user.userEmail }}</span>
+                      </td>
+                  </tr>
+  
+              </tbody>
+              <tbody>
+
+                  <tr>
+                      <td>
+                          <h6>
+                              <strong>User Telephone</strong>
+                          </h6>
+                          <span>{{ user.userTelephone }}</span>
+                      </td>
+                  </tr>
+  
+              </tbody>
+              <tbody>
+
+                  <tr>
+                      <td>
+                          <h6>
+                              <strong>User Role</strong>
+                          </h6>
+                          <span>{{ user.userRole }}</span>
+                      </td>
+                  </tr>
+  
+              </tbody>
+              <tbody>
+
+                  <tr>
+                      <td>
+                          <h6>
+                              <strong>User Genre</strong>
+                          </h6>
+                          <span>{{ user.userGenre }}</span>
+                      </td>
+                  </tr>
+  
+              </tbody>
+
+
+              <tbody>
+
+                  <tr>
+                      <td>
+                          <h6>
+                              <strong>User Nombre d'abscence</strong>
+                          </h6>
+                          <span>{{ user.userNbrabscence }}</span>
+                      </td>
+                  </tr>
+  
+              </tbody>
+
+              <tbody>
+
+                  <tr>
+                      <td>
+                          <h6>
+                              <strong>User Username</strong>
+                          </h6>
+                          <span>{{ user.username }}</span>
+                      </td>
+                  </tr>
+  
+              </tbody>
+        </table>
+        <hr/>
+   
+
+        <table class="table table-bordered table-condensed">
+            <tbody>
+                <tr>
+                    <td>
+                        <h6>
+                            <strong>Under The Admin :Gheiyth</strong>
+                        </h6>
+                        <img src="{{ asset('sign.png') }}" alt="Description of the image">
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

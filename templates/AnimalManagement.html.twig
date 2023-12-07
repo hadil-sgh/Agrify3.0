@@ -11,33 +11,6 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href={{asset('front/style.css')}}>
-    <script>
-    $(document).ready(function() {
-        $('#searchForm').submit(function(e) {
-            e.preventDefault(); // Prevent the form from submitting traditionally
-
-            var searchValue = $('#subscribeEmail').val();
-
-            // Make an AJAX request to your PHP endpoint
-            $.ajax({
-                type: 'GET',
-                url: 'app_animal_batch_index', // Update this with the actual path
-                data: {
-                    field: 'especeAnimalBatch', // Update with the actual field name
-                    value: searchValue
-                },
-                success: function(response) {
-                    // Handle the response from the server
-                    console.log(response);
-                    // You can update your UI or perform any other actions here
-                },
-                error: function(error) {
-                    console.error(error);
-                }
-            });
-        });
-    });
-</script>
 
     </head>
     <body>
@@ -78,9 +51,8 @@
                             <div class="classynav">
                                 <ul>
                                     
-                                    <li><a href="{{path('app_animal_index')}}">Animal</a>
+                                    <li><a href="{{path('app_animal_index')}}">Animals</a>
                                         <ul class="dropdown">
-                                            <li><a href="{{path('app_animal_batch_index')}}">Lot d'animal</a></li>
                                             <li><a href="{{path('app_newborns_index')}}">Nouveau nés</a></li>
                                             <li><a href="{{path('app_gestation_index')}}">Gestation</a></li>
                                         </ul>
@@ -91,7 +63,7 @@
                                     <li><a href="{{path('app_logout')}}">Logout</a></li>
                                 </ul>
 
-                                <!-- Search Icon -->
+                                
                                 
                                             
 
@@ -251,26 +223,7 @@
     <!-- ##### About Area End ##### -->
     
     {% block chercher %}
-<!-- ##### search ##### -->
-    <section class="subscribe-newsletter-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-12 col-lg-5">
-                    <!-- Section Heading -->
-                   
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="subscribe-form">
-                        <form action="#" method="get">
-                            <input id="subscribeEmail" placeholder="rechercher">
-                            <button type="submit" class="btn alazea-btn">chercher</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### search##### -->
+
     {% endblock %}
     <!-- ##### Cool Facts Area Start ##### -->
     <section class="cool-facts-area bg-img section-padding-100-0" style=" background-image: url('{{ asset('front/img/bg/010.jpg') }}'); " >
@@ -445,158 +398,9 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
-    <!-- ##### search ##### -->
-    <section class="subscribe-newsletter-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-12 col-lg-5">
-                    <!-- Section Heading -->
-                   
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="subscribe-form">
-                        <form action="#" method="get">
-                            <input id="subscribeEmail" placeholder="rechercher">
-                            <button type="submit" class="btn alazea-btn">chercher</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### search##### -->
+    
     {% endblock %}
 
-        
-    {% block animalbatch %}
-    <!-- ##### Breadcrumb Area Start ##### -->
-    <div class="breadcrumb-area">
-        <!-- Top Breadcrumb Area -->
-    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('front/img/bg/3.jpg') }}');">
-            <h2>LOTS D'ANIMAUX</h2>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item">Animal</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Lots d'animaux</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Breadcrumb Area End ##### -->
-    <!-- ##### About Area Start ##### -->
-    <section class="about-us-area">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-12 col-lg-5">
-                    <!-- Section Heading -->
-                    <div class="section-heading">
-                    
-                        <h2>Bienvenue dans le Système de Gestion des Animaux</h2>
-                        <p>Cette page vous permet de gérer et de mettre à jour les informations sur les animaux dans notre système. Que vous ayez besoin d'ajouter un nouvel animal ou de modifier des détails existants.</p>
-                    </div>
-<p>Les fonctionnalités clés de cette page comprennent :</p>
-        <ul>
-            <li>Ajouter de nouveaux animaux à la base de données</li>
-            <li>Mettre à jour et modifier les informations des animaux existants</li>
-            <li>Consulter une liste complète de tous les animaux enregistrés</li>
-        </ul>                </div>
-
-                <div class="col-12 col-lg-6">
-                <div class="section-heading">
-                        <h2>Capacité d'accueillir des animaux sur la ferme.</h2>
-                    </div>
-                    <div class="alazea-benefits-area">
-                    <!-- Progress Bar Content Area -->
-                    <div class="alazea-progress-bar mb-50">
-                        <!-- Single Progress Bar -->
-                        <div class="single_progress_bar">
-                            <p>Bovins</p>
-                            <div id="bar1" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="90"></span>
-                            </div>
-                        </div>
-
-                        <!-- Single Progress Bar -->
-                        <div class="single_progress_bar">
-                            <p>Ovins</p>
-                            <div id="bar2" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="66"></span>
-                            </div>
-                        </div>
-
-                        <!-- Single Progress Bar -->
-                        <div class="single_progress_bar">
-                            <p>Volaille</p>
-                            <div id="bar3" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="40"></span>
-                            </div>
-                        </div>
-
-                        <!-- Single Progress Bar -->
-                        <div class="single_progress_bar">
-                            <p>Caprins</p>
-                            <div id="bar4" class="barfiller">
-                                <div class="tipWrap">
-                                    <span class="tip"></span>
-                                </div>
-                                <span class="fill" data-percentage="65"></span>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="border-line"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### About Area End ##### -->
-    {% block chercheranimalbatch %}
-<!-- ##### search ##### -->
-    <section class="subscribe-newsletter-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-12 col-lg-5">
-                    <!-- Section Heading -->
-                   
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="subscribe-form">
-                        <form id="searchForm" action="#" method="get">
-                            <input id="subscribeEmail" name="searchField" placeholder="rechercher">
-                            <button type="submit" class="btn alazea-btn">chercher</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### search##### -->
-    {% endblock %}
-    {% endblock %}
     {% block gestation %}
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
@@ -700,26 +504,7 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
-<!-- ##### search ##### -->
-    <section class="subscribe-newsletter-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-12 col-lg-5">
-                    <!-- Section Heading -->
-                   
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="subscribe-form">
-                        <form action="#" method="get">
-                            <input id="subscribeEmail" placeholder="rechercher">
-                            <button type="submit" class="btn alazea-btn">chercher</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### search##### -->
+
     <!-- ##### Cool Facts Area Start ##### -->
     <section class="cool-facts-area bg-img section-padding-100-0" style=" background-image: url('{{ asset('front/img/bg/010.jpg') }}'); " >
         <div class="container" >
@@ -898,26 +683,7 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
-    <!-- ##### search ##### -->
-    <section class="subscribe-newsletter-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-12 col-lg-5">
-                    <!-- Section Heading -->
-                   
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="subscribe-form">
-                        <form action="#" method="get">
-                            <input id="subscribeEmail" placeholder="rechercher">
-                            <button type="submit" class="btn alazea-btn">chercher</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### search##### -->
+    
     {% endblock %}
 
         
@@ -1025,26 +791,7 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
-    <!-- ##### search ##### -->
-    <section class="subscribe-newsletter-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-12 col-lg-5">
-                    <!-- Section Heading -->
-                   
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="subscribe-form">
-                        <form action="#" method="get">
-                            <input id="subscribeEmail" placeholder="rechercher">
-                            <button type="submit" class="btn alazea-btn">chercher</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### search##### -->
+    
     {% endblock %}
 
         
@@ -1150,26 +897,7 @@
         </div>
     </section>
     <!-- ##### About Area End ##### -->
-    <!-- ##### search ##### -->
-    <section class="subscribe-newsletter-area">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-12 col-lg-5">
-                    <!-- Section Heading -->
-                   
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="subscribe-form">
-                        <form action="#" method="get">
-                            <input id="subscribeEmail" placeholder="rechercher">
-                            <button type="submit" class="btn alazea-btn">chercher</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### search##### -->
+  
     {% endblock %}
     
 

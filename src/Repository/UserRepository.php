@@ -30,6 +30,23 @@ class UserRepository extends ServiceEntityRepository
 
         return array_column($usernames, 'username');
     }
+
+
+
+    /**
+    * @return User[] Returns an array of User objects
+    */
+    public function findByUserNom(string $user_nom): ?array
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.user_nom = :user_nom')
+            ->setParameter('user_nom', $user_nom)
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */

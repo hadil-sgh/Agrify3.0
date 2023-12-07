@@ -3,47 +3,72 @@
 {% block title %}Animal index{% endblock %}
 {% block section %}{% endblock %}
 {% block ingredient %}{% endblock %}
-{% block animalbatch %}{% endblock %}
 {% block newBorn %}{% endblock %}
 {% block nutritionalneeds %}{% endblock %}
 {% block ration %}{% endblock %}
 {% block gestation %}{% endblock %}
 
 {% block body %}
-    <h1>Animal index</h1>
-   
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Espece</th>
-                <th>Sexe</th>
-                <th>Poids</th>
-                <th>Age</th>
-                <th>show</th>
-                <th>edit</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for animal in animals %}
-            <tr>
-                <td>{{ animal.espece }}</td>
-                <td>{{ animal.sexe }}</td>
-                <td>{{ animal.poids }}</td>
-                <td>{{ animal.age }}</td>
-                <td>
-                    <a href="{{ path('app_animal_show', {'id': animal.id}) }}">show</a>
-                    </td>
-                    <td>
-                    <a href="{{ path('app_animal_edit', {'id': animal.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('app_animal_new') }}" class="btn alazea-btn active">Create new</a>
+<!-- ##### search ##### -->
+<section class="subscribe-newsletter-area">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-12 col-lg-5">
+                <!-- Section Heading -->
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="subscribe-form">
+                    <form method="get">
+                        <input type="text" name="search" placeholder="rechercher">
+                        <button type="submit" class="btn alazea-btn">chercher</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### search##### -->
+<!-- ##### Sorting ##### -->
+<div>
+    <a href="{{ path('app_animal_index', {'search': app.request.query.get('search'), 'sort': 'asc'}) }}" class="navbar-brand mx-4 mb-3 btn alazea-btn active">Sort A-Z</a>
+    <a href="{{ path('app_animal_index', {'search': app.request.query.get('search'), 'sort': 'desc'}) }}" class="navbar-brand mx-4 mb-3 btn alazea-btn active">Sort Z-A</a>
+</div>
+<!-- ##### Sorting ##### -->
+<h1>Animal index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Espece</th>
+            <th>Sexe</th>
+            <th>Poids</th>
+            <th>Age</th>
+            <th>show</th>
+            <th>edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for animal in animals %}
+        <tr>
+            <td>{{ animal.espece }}</td>
+            <td>{{ animal.sexe }}</td>
+            <td>{{ animal.poids }}</td>
+            <td>{{ animal.age }}</td>
+            <td>
+                <a href="{{ path('app_animal_show', {'id': animal.id}) }}">show</a>
+            </td>
+            <td>
+                <a href="{{ path('app_animal_edit', {'id': animal.id}) }}">edit</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="6">no records found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('app_animal_new') }}" class="btn alazea-btn active">Create new</a>
 {% endblock %}
