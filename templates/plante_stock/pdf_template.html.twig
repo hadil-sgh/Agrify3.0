@@ -1,0 +1,97 @@
+{% block title %}PlanteStock {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        /* Add custom styles for AnimalStock index page */
+         <style>
+        /* Add custom styles for AnimalStock index page */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F2F2F2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #2E5D42;
+        }
+
+        .table-container {
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #2E5D42;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2E5D42;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #F2F2F2;
+        }
+
+        a {
+            color: #2E5D42;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            color: #F2F0D5;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1>PlanteStock </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomPlante</th>
+                <th>EtatPlante</th>
+                <th>QuantitePlante</th>
+                <th>Health</th>
+                <th>DateEntreeStock</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plante_stock in plante_stocks %}
+            <tr>
+                <td>{{ plante_stock.id }}</td>
+                <td>{{ plante_stock.nomPlante }}</td>
+                <td>{{ plante_stock.etatPlante }}</td>
+                <td>{{ plante_stock.quantitePlante }}</td>
+                <td>{{ plante_stock.health }}</td>
+                <td>{{ plante_stock.dateEntreeStock ? plante_stock.dateEntreeStock|date('Y-m-d') : '' }}</td>
+               
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune Plante Stockée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

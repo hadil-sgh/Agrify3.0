@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Gestation;
+use App\Entity\Animal;
 use App\Form\Gestation1Type;
 use App\Repository\GestationRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -53,16 +54,23 @@ class GestationController extends AbstractController
     #[Route('/{id}/edit', name: 'app_gestation_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Gestation $gestation, EntityManagerInterface $entityManager): Response
     {
+        $gestation = new Gestation();
+        $animal = new Animal(); // Create a new Animal instance
+        $gestation->setAnimal($animal); // Associate the Animal with the Gestation
         $form = $this->createForm(Gestation1Type::class, $gestation);
+        
         $form->handleRequest($request);
-
+    
         if ($form->isSubmitted() && $form->isValid()) {
+            // Persist the Animal and Gestation entities
+            $entityManager->persist($animal);
+            $entityManager->persist($gestation);
             $entityManager->flush();
-
+    
             return $this->redirectToRoute('app_gestation_index', [], Response::HTTP_SEE_OTHER);
         }
-
-        return $this->renderForm('gestation/edit.html.twig', [
+    
+        return $this->renderForm('gestation/new.html.twig', [
             'gestation' => $gestation,
             'form' => $form,
         ]);
